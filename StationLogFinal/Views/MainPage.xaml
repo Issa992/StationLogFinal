@@ -7,19 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFD0D0D0"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <StackPanel Margin="549,330,521,365">
-            <TextBlock Text="Log In" HorizontalAlignment="Center" FontSize="30"></TextBlock>
-            <TextBox PlaceholderText="Enter your Email" ></TextBox>
-            <PasswordBox PlaceholderText="Password"></PasswordBox>
-            <Button Content="Log In" HorizontalAlignment="Center" Click="Navigate"></Button>
-        </StackPanel>
 
+    <Grid>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4F4C4C"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <TextBlock  x:Name="logIn" Text="Log In" HorizontalAlignment="Center" FontSize="30" ></TextBlock>
+            <TextBox  x:Name="email" PlaceholderText="Enter your Email" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <PasswordBox x:Name="password" PlaceholderText="Password" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
+            <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" ></Button>
+
+
+        </StackPanel>
     </Grid>
 </Page>

@@ -26,10 +26,21 @@ namespace StationLogFinal.Views
         {
             this.InitializeComponent();
         }
-
-        private void pointer(object sender, PointerRoutedEventArgs e)
+        private void SplitViewButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog d = new ContentDialog();
+            d.Title = "Not implemented";
+            d.Content = "The buttons are for illustrative purposes only and do not perform any action yet";
+            d.PrimaryButtonText = "OK";
+            
+            await d.ShowAsync();
+        }
+
+
     }
 }
