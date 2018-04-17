@@ -9,32 +9,44 @@
 
 
 
-    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <RelativePanel>
+        <RelativePanel.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF969696"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </RelativePanel.Background>
         <Button Name="SplitViewButton" Background="Transparent" Padding="0,-6" Margin="12" Click="SplitViewButton_Click">
             <FontIcon FontFamily="{ThemeResource ContentControlThemeFontFamily}" Glyph="&#x2261;" FontSize="32" Margin="0,-8,0,0"/>
         </Button>
         <TextBlock Style="{ThemeResource SubheaderTextBlockStyle}" Text="Menu" 
                    RelativePanel.RightOf="SplitViewButton" />
-        <SplitView x:Name="MySplitView" PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}" OpenPaneLength="200"
+        <SplitView  x:Name="MySplitView" PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}" OpenPaneLength="200"
                    RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="SplitViewButton">
             <SplitView.Pane>
                 <RelativePanel>
+                    <RelativePanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF969696"/>
+                            <GradientStop Color="#FFBABABA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RelativePanel.Background>
                     <AppBarButton x:Name="Button1" Icon="Pictures" IsCompact="True"
                   Click="Button_Click"/>
-    <TextBlock Text="button 1"  
+                    <TextBlock Text="button 1"  
                RelativePanel.RightOf="Button1"
                RelativePanel.AlignVerticalCenterWith="Button1"/>
-    <AppBarButton x:Name="Button2" Icon="SetLockScreen" 
+                    <AppBarButton x:Name="Button2" Icon="SetLockScreen" 
                   RelativePanel.Below="Button1" IsCompact="True" 
                   Click="Button_Click"/>
-    <TextBlock Text="Button2"  
+                    <TextBlock Text="Button2"  
                RelativePanel.RightOf="Button2"
                RelativePanel.Below="Button1"  
                RelativePanel.AlignVerticalCenterWith="Button2"/>
-    <AppBarButton x:Name="Button3" Icon="Camera" 
+                    <AppBarButton x:Name="Button3" Icon="Camera" 
                   RelativePanel.Below="Button2" IsCompact="True"
                   Click="Button_Click"/>
-    <TextBlock Text="button3"  
+                    <TextBlock Text="button3"  
                RelativePanel.RightOf="Button3" 
                RelativePanel.Below="Button2" 
                RelativePanel.AlignVerticalCenterWith="Button3"/>
@@ -43,7 +55,7 @@
             <ScrollViewer  VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto"
                            HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
                 <RelativePanel>
-                
+
                     <ListView Margin="5" Header="ListView" x:Name="MyListView" 
                               Height="190" Width="900">
                         <TextBlock  Text="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnz" TextWrapping="Wrap"/>
@@ -51,10 +63,10 @@
                         <TextBlock Text="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" TextWrapping="Wrap"/>
                         <TextBlock Text="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" TextWrapping="Wrap" />
                     </ListView>
-                  
+
                     <Button Margin="5" x:Name="BrowseButton" Content="Browse" 
                             RelativePanel.Below="MyListView"  Click="Button_Click"/>
-            
+
                     <TextBlock x:Name="Instructions" Margin="5" TextWrapping="Wrap"
                                RelativePanel.Below="BrowseButton">
                         The controls on this page don't perform any actions and are not intended to be interacted with, they are for illustrative purposes only.
@@ -77,7 +89,7 @@
                         and keeps SplitView pane always showing inline -->
                         <Setter Target="MySplitView.DisplayMode" Value="Inline" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="True" />
-                   
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -88,7 +100,7 @@
                     <VisualState.Setters>
                         <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="false" />
-                     
+
                         <Setter Target="Instructions.(RelativePanel.Below)" Value="BrowseButton"/>
                     </VisualState.Setters>
                 </VisualState>
@@ -98,7 +110,7 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-             
+
                         <Setter Target="MySplitView.DisplayMode" Value="Overlay" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="False" />
 
