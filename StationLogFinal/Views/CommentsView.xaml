@@ -14,33 +14,23 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </RelativePanel.Background>
-        <Button x:Name="CommandBarButton" RelativePanel.Below="MenuButton"
-                Click="ButtonBase_OnClick"
-                Height="68" Padding="0,-6" Margin="12,12,0,64" Width="270">
-            <FontIcon FontFamily="{ThemeResource ContentControlThemeFontFamily}"
-                      Glyph="&#x2261;" FontSize="32" Margin="0,-8,0,0"/>
-        </Button>
-        <TextBlock x:Name="MenuButton" Style="{ThemeResource SubheaderTextBlockStyle}" 
-                   Text="Menu" FontWeight="Bold" Margin="20"
-                  />
 
 
+        <!--OverflowButtonVisibility="Collapsed"-->
 
-
-        <CommandBar  
-            ClosedDisplayMode="Hidden" x:Name="MyCommandBar" 
-                    Height="100" 
-            RelativePanel.RightOf="CommandBarButton" 
-                     RelativePanel.AlignRightWithPanel="True" 
-                     RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="CommandBarButton" 
-           Margin="350,0,580,0" RelativePanel.AlignHorizontalCenterWithPanel="True" >
+        <CommandBar x:Name="MyCommandBar"    IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+                    Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True"  >
 
 
 
 
             <CommandBar.Content>
                 <RelativePanel>
-                    <AppBarButton Icon="Home" Label="Home" RelativePanel.RightOf="TasksButton" Click="NavigateToHomeView" />
+
+                    <AppBarButton Icon="Home" Label="Home" 
+                                  RelativePanel.RightOf="TasksButton" Click="NavigateToHomeView"
+                                />
                     <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView"
                                   RelativePanel.RightOf="HistoryButton" />
 
@@ -50,7 +40,7 @@
                     <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView" 
                                   RelativePanel.RightOf="SearchBox"/>
 
-                    <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
+                    <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching"  Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
 
                 </RelativePanel>
 
@@ -61,7 +51,7 @@
                        RelativePanel.Below="MyCommandBar"
                        RelativePanel.AlignRightWithPanel="True" 
                        RelativePanel.AlignLeftWithPanel="True"  
-                       RelativePanel.AlignHorizontalCenterWithPanel="True">
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
 
                 <ListView RelativePanel.AlignVerticalCenterWithPanel="True"    
@@ -103,9 +93,9 @@
 
                         <!--Widest possible layout moves some elements around to optimize for more available width 
                         and keeps SplitView pane always showing inline-->
-                        <Setter Target="MyCommandBar.Margin" Value="350,0,580,0" />
+                        <!--<Setter Target="MyCommandBar.Margin" Value="350,0,580,0" />-->
 
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
 
 
                         <!--<Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>-->
@@ -123,9 +113,9 @@
                         <AdaptiveTrigger MinWindowWidth="548" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MyCommandBar.Margin" Value="12" />
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
-                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
 
 
                         <!--<Setter Target="MySplitView.IsPaneOpen" Value="false" />
@@ -140,9 +130,9 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MyCommandBar.Margin" Value="12" />
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
-                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
 
 
                         <!--<Setter Target="MySplitView.DisplayMode" Value="Overlay" />

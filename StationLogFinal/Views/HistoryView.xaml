@@ -14,26 +14,10 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </RelativePanel.Background>
-        <Button x:Name="CommandBarButton" RelativePanel.Below="MenuButton"
-                Click="ButtonBase_OnClick"
-                Height="68" Padding="0,-6" Margin="12,12,0,64" Width="270">
-            <FontIcon FontFamily="{ThemeResource ContentControlThemeFontFamily}"
-                      Glyph="&#x2261;" FontSize="32" Margin="0,-8,0,0"/>
-        </Button>
-        <TextBlock x:Name="MenuButton" Style="{ThemeResource SubheaderTextBlockStyle}" 
-                   Text="Menu" FontWeight="Bold" Margin="20"
-                  />
 
-
-
-
-        <CommandBar  
-            ClosedDisplayMode="Hidden" x:Name="MyCommandBar" 
-                    Height="100" 
-            RelativePanel.RightOf="CommandBarButton" 
-                     RelativePanel.AlignRightWithPanel="True" 
-                     RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="CommandBarButton" 
-           Margin="350,0,580,0" RelativePanel.AlignHorizontalCenterWithPanel="True" >
+        <CommandBar x:Name="MyCommandBar"    IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+                    Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True"  >
 
 
 
@@ -94,11 +78,12 @@
 
                         <!--Widest possible layout moves some elements around to optimize for more available width 
                         and keeps SplitView pane always showing inline-->
-                        <Setter Target="MyCommandBar.Margin" Value="350,0,580,0" />
+                        <!--<Setter Target="MyCommandBar.Margin" Value="350,0,580,0" />-->
+
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
 
 
-
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>-->
 
                         <!--<Setter Target="MySplitView.DisplayMode" Value="Inline" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="True" />-->
@@ -113,9 +98,10 @@
                         <AdaptiveTrigger MinWindowWidth="548" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MyCommandBar.Margin" Value="12" />
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
-                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
+
 
                         <!--<Setter Target="MySplitView.IsPaneOpen" Value="false" />
 
@@ -129,14 +115,15 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MyCommandBar.Margin" Value="12" />
-                        <Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>
-                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="CommandBarButton"/>
+                        <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                        <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                        <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
+
 
                         <!--<Setter Target="MySplitView.DisplayMode" Value="Overlay" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="False" />-->
 
-                        <Setter Target="StackPanel.(RelativePanel.Below)" Value="MyCommandBar"/>
+                        <!--<Setter Target="StackPanel.(RelativePanel.Below)" Value="MyCommandBar"/>-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
