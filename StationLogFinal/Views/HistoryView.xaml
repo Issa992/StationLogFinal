@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </RelativePanel.Background>
 
-        <CommandBar x:Name="MyCommandBar"    IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+        <CommandBar x:Name="MyCommandBar"  OverflowButtonVisibility="Collapsed"  IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
                     Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignRightWithPanel="True"  >
 
