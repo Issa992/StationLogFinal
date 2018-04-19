@@ -25,7 +25,6 @@
             <CommandBar.Content>
                 <RelativePanel>
                     <StackPanel Orientation="Horizontal">
-                        <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
 
                         <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
                         <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
@@ -65,36 +64,36 @@
                         <Border></Border>
                         <Border></Border>
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="20/01/2018" HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="20/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
 
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="19/01/2018" HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="19/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
 
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="18/01/2018" HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="18/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border>
-                            <Button FontSize="20" Padding="10" Content="17/01/2018" HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="17/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="16/01/2018" HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="16/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border>
-                            <Button FontSize="20" Padding="10" Content="14/01/2018"  HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="14/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="13/01/2018"  HorizontalAlignment="Center" />
+                            <Button FontSize="20" Padding="10" Content="13/01/2018"  HorizontalAlignment="Center"  Background="{x:Null}"/>
                         </Border>
                         <Border>
-                            <Button FontSize="20" Padding="10" Content="12/01/2018"  HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="12/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="11/01/2018"  HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="11/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <Border>
-                            <Button FontSize="20" Padding="10" Content="10/01/2018 " HorizontalAlignment="Center"/>
+                            <Button FontSize="20" Padding="10" Content="10/01/2018 " HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
                         <TextBlock FontSize="20" Padding="10" Text="18/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>
                         <TextBlock FontSize="20" Padding="10" Text="19/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>

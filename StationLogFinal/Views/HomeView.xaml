@@ -17,20 +17,18 @@
 
 
 
-        <CommandBar x:Name="MyCommandBar" OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+
+        <CommandBar x:Name="MyCommandBar"   OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
                     Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignRightWithPanel="True"  >
 
 
 
-
-
             <CommandBar.Content>
                 <RelativePanel>
-                    <StackPanel Orientation="Horizontal">
-                        <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
 
-                        <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
                         <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
                         />
 
@@ -44,6 +42,9 @@
 
 
                     </StackPanel>
+
+                    <!--<SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>-->
+
                 </RelativePanel>
 
             </CommandBar.Content>

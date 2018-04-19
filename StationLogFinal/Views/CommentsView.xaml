@@ -29,7 +29,6 @@
                 <RelativePanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
 
                         <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
                         <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
@@ -91,7 +90,7 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <SearchBox PlaceholderText="New Comment Search"></SearchBox>
+            <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
             <Button HorizontalAlignment="Center"  Content="Add Comment"  Click="Button_Click"></Button>
         </StackPanel>
