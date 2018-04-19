@@ -36,9 +36,10 @@ namespace StationLogFinal.Views
         }
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+
             ContentDialog d = new ContentDialog();
-            d.Title = "Not implemented";
-            d.Content = "The buttons are for illustrative purposes only and do not perform any action yet";
+            d.Title = "Add New Comment";
+            d.Content = "Here is going to appear the contenent of the new comment ";
             d.PrimaryButtonText = "OK";
 
             await d.ShowAsync();
@@ -61,6 +62,11 @@ namespace StationLogFinal.Views
         private void NavigateToCommentsView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CommentsView));
+        }
+
+        private void NavigateToLoginPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

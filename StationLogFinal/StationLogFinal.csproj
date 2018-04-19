@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\IExecutable.cs" />
     <Compile Include="Model\IMaintainable.cs" />
@@ -125,6 +127,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="ClassDiagram1.cd" />
     <None Include="StationLogFinal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

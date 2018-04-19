@@ -59,5 +59,10 @@ namespace StationLogFinal.Views
         {
             Frame.Navigate(typeof(CommentsView));
         }
+
+        private void NavigateToLoginPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

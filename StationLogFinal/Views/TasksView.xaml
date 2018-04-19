@@ -27,17 +27,24 @@
 
             <CommandBar.Content>
                 <RelativePanel>
-                    <AppBarButton Icon="Home" Label="Home" RelativePanel.RightOf="TasksButton" Click="NavigateToHomeView" />
-                    <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView"
-                                  RelativePanel.RightOf="HistoryButton" />
 
-                    <AppBarSeparator RelativePanel.RightOf="HistoryButton"/>
-                    <AppBarButton x:Name="HistoryButton" Icon="PostUpdate" Label="History"  Click="NavigateToHistoryView"
-                                  RelativePanel.RightOf="CommentButton"/>
-                    <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView" 
-                                  RelativePanel.RightOf="SearchBox"/>
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
+                        <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
+                                    />
 
-                    <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
+                        <AppBarSeparator RelativePanel.RightOf="TasksButton"/>
+                        <AppBarButton x:Name="HistoryButton" Icon="PostUpdate" Label="History"  Click="NavigateToHistoryView"
+                                      Width="185"
+                                     />
+                        <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
+                        />
+                        <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
+
+
+                    </StackPanel>
+
+                    <!--<SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>-->
 
                 </RelativePanel>
 
@@ -54,16 +61,60 @@
                 <ListView RelativePanel.AlignVerticalCenterWithPanel="True"     RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5" Header="Tasks" x:Name="MyListView" 
-                      Height="190" Width="900">
-                    <TextBlock x:Name="TextBlock1" Text="Tasks" TextWrapping="Wrap"/>
-                    <TextBlock Text="Tasks" TextWrapping="Wrap"/>
-                    <TextBlock Text="Tasks" TextWrapping="Wrap"/>
-                    <TextBlock Text="Tasks" TextWrapping="Wrap" />
+                      Margin="5" Header="Tasks"  x:Name="MyListView" 
+                      Height="421" Width="900">
+                    <Border Background="#FFFFC30F">
+                        <CheckBox Content="Change filters on API monitors" ></CheckBox>
+
+                    </Border>
+                    <Border  Background="#FFFD5733">
+                        <CheckBox Content="Check TEOM" ></CheckBox>
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <CheckBox Content="Change filter HVS" />
+
+                    </Border>
+                    <Border  Background="#FFFD5733">
+                        <CheckBox Content="SMPS check impactor flow (between 0,95-1,05)"/>
+
+                    </Border>
+                    <Border Background="#FFFFC30F">
+                        <CheckBox Content="SMPS check butanol" />
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <CheckBox Content="SMPS graph/curve – bell shaped" />
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <CheckBox Content="Change BTX passive sampler" />
+
+                    </Border>
+                    <Border Background="#FFFFC30F">
+                        <CheckBox Content="Change BTX passive sampler"/>
+
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <CheckBox Content="Change BTX passive sampler"/>
+
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <CheckBox Content="Change BTX passive sampler"/>
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <CheckBox Content="Change BTX passive sampler" />
+
+                    </Border>
                 </ListView>
 
-                <TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth"
-                         RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>
+                <!--<TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth"
+                         RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
+                <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
+                    <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
+                    <SearchBox PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
+                </StackPanel>
 
             </RelativePanel>
         </ScrollViewer>

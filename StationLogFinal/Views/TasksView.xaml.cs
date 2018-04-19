@@ -34,14 +34,9 @@ namespace StationLogFinal.Views
             MyCommandBar.IsOpen = true;
             MyCommandBar.IsDynamicOverflowEnabled = false;
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private  void Button_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog d = new ContentDialog();
-            d.Title = "Not implemented";
-            d.Content = "The buttons are for illustrative purposes only and do not perform any action yet";
-            d.PrimaryButtonText = "OK";
-
-            await d.ShowAsync();
+            
         }
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
@@ -61,6 +56,21 @@ namespace StationLogFinal.Views
         private void NavigateToCommentsView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CommentsView));
+        }
+
+        private void NavigateToLoginPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private async void AddNewTaskButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ContentDialog d = new ContentDialog();
+            d.Title = "Add New Task";
+            d.Content = "Here is going to appear the contenent of the new Task ";
+            d.PrimaryButtonText = "OK";
+
+            await d.ShowAsync();
         }
     }
 }

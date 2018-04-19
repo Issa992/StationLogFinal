@@ -28,20 +28,23 @@
             <CommandBar.Content>
                 <RelativePanel>
 
-                    <AppBarButton Icon="Home" Label="Home" 
-                                  RelativePanel.RightOf="TasksButton" Click="NavigateToHomeView"
-                                />
-                    <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView"
-                                  RelativePanel.RightOf="HistoryButton" />
+                    <StackPanel Orientation="Horizontal">
+                        <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
 
-                    <AppBarSeparator RelativePanel.RightOf="HistoryButton"/>
-                    <AppBarButton x:Name="HistoryButton" Icon="PostUpdate" Label="History"  Click="NavigateToHistoryView"
-                                  RelativePanel.RightOf="CommentButton"/>
-                    <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView" 
-                                  RelativePanel.RightOf="SearchBox"/>
+                        <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
+                        <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
+                        />
 
-                    <SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching"  Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>
+                        <AppBarSeparator RelativePanel.RightOf="TasksButton"/>
+                        <AppBarButton x:Name="HistoryButton" Icon="PostUpdate" Label="History"  Click="NavigateToHistoryView"
+                                      Width="185"
+                        />
+                        <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
+                        />
+                        <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
 
+
+                    </StackPanel>
                 </RelativePanel>
 
             </CommandBar.Content>
@@ -59,16 +62,27 @@
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5" Header="Comments" x:Name="MyListView" 
-                      Height="190" Width="900">
+                      Height="421" Width="900">
+                    <Border Background="#FFFFC30F">
+                        <TextBlock  Text="FPO filter change the filter parts are outdated "  TextWrapping="Wrap" />
 
-                    <TextBlock  Text="Comments" TextWrapping="Wrap"/>
-                    <TextBlock Text="Comments" TextWrapping="Wrap"/>
-                    <TextBlock Text="Comments" TextWrapping="Wrap"/>
-                    <TextBlock Text="Comments" TextWrapping="Wrap" />
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <TextBlock Text="Error in the dust monitors" TextWrapping="Wrap" />
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <TextBlock Text="SMPS PM1 cyclone clean the cyclone need to be replaced  " TextWrapping="Wrap" FocusVisualPrimaryBrush="#FFFA8B07"/>
+
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <TextBlock Text="Error in the gas monitors" TextWrapping="Wrap"/>
+
+                    </Border>
+                
                 </ListView>
 
-                <TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth" TextWrapping="Wrap"
-                         RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>
+
 
             </RelativePanel>
         </ScrollViewer>
@@ -77,7 +91,8 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <TextBox Padding="22" PlaceholderText="New Comment"></TextBox>
+            <SearchBox PlaceholderText="New Comment Search"></SearchBox>
+
             <Button HorizontalAlignment="Center"  Content="Add Comment"  Click="Button_Click"></Button>
         </StackPanel>
         <VisualStateManager.VisualStateGroups>
