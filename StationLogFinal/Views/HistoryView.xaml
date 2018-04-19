@@ -60,9 +60,14 @@
                       Margin="5"  x:Name="MyListView" 
                       Height="421" Width="900">
                     <StackPanel Padding="33" Width="663">
-                        <Border></Border>
-                        <Border></Border>
-                        <Border></Border>
+                    
+                        
+                        
+
+                        <Border Padding="10">
+                            <Button FontSize="20" Padding="10" Content="21/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
+                        </Border>
+
                         <Border Padding="10">
                             <Button FontSize="20" Padding="10" Content="20/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
@@ -95,10 +100,6 @@
                         <Border>
                             <Button FontSize="20" Padding="10" Content="10/01/2018 " HorizontalAlignment="Center" Background="{x:Null}"/>
                         </Border>
-                        <TextBlock FontSize="20" Padding="10" Text="18/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>
-                        <TextBlock FontSize="20" Padding="10" Text="19/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>
-                        <TextBlock FontSize="20" Padding="10" Text="20/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>
-                        <TextBlock FontSize="20" Padding="10" Text="21/01/2018" TextWrapping="Wrap"  HorizontalAlignment="Center"/>
                     </StackPanel>
                    
                 </ListView>

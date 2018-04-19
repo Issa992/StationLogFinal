@@ -58,7 +58,8 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
 
-                <ListView RelativePanel.AlignVerticalCenterWithPanel="True"     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                <ListView RelativePanel.AlignVerticalCenterWithPanel="True"    
+                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5" Header="Tasks"  x:Name="MyListView" 
@@ -113,7 +114,7 @@
                          RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
                 <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
                     <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
-                    <SearchBox PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
+                    <SearchBox BorderBrush="White" PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
                 </StackPanel>
 
             </RelativePanel>
