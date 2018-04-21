@@ -104,6 +104,9 @@
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskHandler.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Persistency\IWebAPIAsync.cs" />
+    <Compile Include="Persistency\WebAPIAsync.cs" />
+    <Compile Include="Persistency\WebAPITest.cs" />
     <Compile Include="Views\CommentsView.xaml.cs">
       <DependentUpon>CommentsView.xaml</DependentUpon>
     </Compile>
