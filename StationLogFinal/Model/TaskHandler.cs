@@ -85,6 +85,8 @@ namespace StationLogFinal.Model
         //    }
         //}
 
+        //redo : adding comment to already existing task
+
         //public void UpadateTask(int taskId)
         //{
         //    var task = tasksList.Where(d => d.taskID == taskId).FirstOrDefault();
