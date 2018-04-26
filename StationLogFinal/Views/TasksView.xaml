@@ -5,7 +5,11 @@
     xmlns:local="using:StationLogFinal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModel:TaskViewModel></viewModel:TaskViewModel>
+    </Page.DataContext>
 
     <RelativePanel>
         <RelativePanel.Background>
@@ -58,17 +62,20 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
 
-                <ListView RelativePanel.AlignVerticalCenterWithPanel="True"    
+                <ListView SelectedItem="{Binding SelectedTask,Mode=TwoWay}"
+                          ItemsSource="{Binding TaskHandler.TaskViewModel.CreateCommand}"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5" Header="Tasks"  x:Name="MyListView" 
                       Height="421" Width="900">
-                    <Border Background="#FFFFC30F">
+                    <TextBlock Text="{Binding CreateCommand ,Mode=TwoWay }"></TextBlock>
+                    <!--<Border Background="#FFFFC30F">
                         <CheckBox Content="Change filters on API monitors" ></CheckBox>
 
-                    </Border>
-                    <Border  Background="#FFFD5733">
+                    </Border>-->
+                    <!--<Border  Background="#FFFD5733">
                         <CheckBox Content="Check TEOM" ></CheckBox>
 
                     </Border>
@@ -107,13 +114,14 @@
                     <Border Background="#FF01C176">
                         <CheckBox Content="Change BTX passive sampler" />
 
-                    </Border>
+                    </Border>-->
                 </ListView>
 
                 <!--<TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
                 <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
                     <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
+                    <Button  Click="AddNewTaskButton_OnClick" x:Name="DeleteTaskButton" Content="Delete Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
                     <SearchBox BorderBrush="White" PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
                 </StackPanel>
 

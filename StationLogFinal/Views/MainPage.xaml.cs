@@ -47,5 +47,10 @@ namespace StationLogFinal
             else
                 VisualStateManager.GoToState(this, "DefaultState", false);
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            //Frame.Navigate(typeof(TestPage));
+        }
     }
 }

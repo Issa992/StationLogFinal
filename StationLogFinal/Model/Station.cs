@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StationLogFinal.Model
 {
-    class Station
+    public class Station
     {
     }
 }
