@@ -95,9 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\IExecutable.cs" />
     <Compile Include="Model\IMaintainable.cs" />
+    <Compile Include="Model\IServable.cs" />
+    <Compile Include="Model\LogFile.cs" />
+    <Compile Include="Model\Measurment.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\StationTask.cs" />
     <Compile Include="Model\Task.cs" />
