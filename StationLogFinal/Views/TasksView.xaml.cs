@@ -65,12 +65,14 @@ namespace StationLogFinal.Views
 
         private async void AddNewTaskButton_OnClick(object sender, RoutedEventArgs e)
         {
-            ContentDialog d = new ContentDialog();
-            d.Title = "Add New Task";
-            d.Content = "Here is going to appear the contenent of the new Task ";
-            d.PrimaryButtonText = "OK";
+            Frame.Navigate(typeof(AddNewTaskView));
 
-            await d.ShowAsync();
+            //ContentDialog d = new ContentDialog();
+            //d.Title = "Add New Task";
+            //d.Content = "Here is going to appear the contenent of the new Task ";
+            //d.PrimaryButtonText = "OK";
+
+            //await d.ShowAsync();
         }
     }
 }
