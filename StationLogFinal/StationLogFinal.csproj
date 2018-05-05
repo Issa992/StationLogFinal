@@ -101,6 +101,7 @@
     <Compile Include="Model\IMaintainable.cs" />
     <Compile Include="Model\IServable.cs" />
     <Compile Include="Model\LogFile.cs" />
+    <Compile Include="Model\LogsHandler.cs" />
     <Compile Include="Model\Measurment.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\StationTask.cs" />

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace StationLogFinal.Model
 {
-    class Comment: IServable
+    public class Comment: IServable
     {
         private int ID;
         private int LogID;
         private int UserID;
-        private DateTime date;
-        private string Comment;
+        public DateTime date { get; set; }
+        private string _comment;
 
 
         public void AddLog()

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace StationLogFinal.Model
 {
-    interface IServable
+    public interface IServable
     {
         void AddLog();
         void GetDayLog(DateTime date);
-
+        
     }
 }
