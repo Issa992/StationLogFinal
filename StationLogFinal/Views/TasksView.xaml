@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:StationLogFinal.ViewModel"
+    xmlns:model="using:StationLogFinal.Model"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:TaskViewModel></viewModel:TaskViewModel>
@@ -62,15 +63,33 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
 
-                <ListView SelectedItem="{Binding SelectedTask,Mode=TwoWay}"
-                          ItemsSource="{Binding TaskHandler.TaskViewModel.CreateCommand}"
+<!--listView Should be Binded To the TaskCatalog The Collection tasks-->
+                <ListView 
+                    SelectedItem="{Binding SelectedTask, Mode=TwoWay }"
+                          ItemsSource="{Binding Tasks}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5" Header="Tasks"  x:Name="MyListView" 
                       Height="421" Width="900">
-                    <TextBlock Text="{Binding CreateCommand ,Mode=TwoWay }"></TextBlock>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" >
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsDone}" Content="{Binding Description}" Width="398" ></CheckBox>
+                                    <TextBlock Text="{Binding DateTime}"></TextBlock>
+                                </StackPanel>
+                                <!--<TextBox Text="{Binding  TaskId,Mode=TwoWay}"></TextBox>
+                                <TextBox Text="{Binding   Description,Mode=TwoWay}"></TextBox>
+                                <TextBox Text="{Binding    StationId,Mode=TwoWay}"></TextBox>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <!--<Border Background="#FFFFC30F">
+                        <CheckBox Content="{Binding TaskHandler.TaskViewModel.LoadCommand}" ></CheckBox>
+
+                    </Border>-->
                     <!--<Border Background="#FFFFC30F">
                         <CheckBox Content="Change filters on API monitors" ></CheckBox>
 
@@ -121,7 +140,7 @@
                          RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
                 <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
                     <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
-                    <Button  Click="AddNewTaskButton_OnClick" x:Name="DeleteTaskButton" Content="Delete Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
+                    <Button   x:Name="DeleteTaskButton" Content="Delete Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52" Command="{Binding DeleteCommand }" ></Button>
                     <SearchBox BorderBrush="White" PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
                 </StackPanel>
 
