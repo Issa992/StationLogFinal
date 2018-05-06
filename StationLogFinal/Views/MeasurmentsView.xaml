@@ -1,0 +1,157 @@
+﻿<Page
+    x:Class="StationLogFinal.Views.MeasurmentsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StationLogFinal.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:StationLogFinal.ViewModel"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+    </Page.DataContext>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel>
+            <RelativePanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF969696"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </RelativePanel.Background>
+
+
+            <!--OverflowButtonVisibility="Collapsed"-->
+
+            <CommandBar x:Name="MyCommandBar"   OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+                    Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True"  >
+
+
+
+
+                <CommandBar.Content>
+                    <RelativePanel>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
+                            <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
+                        />
+
+                            <AppBarSeparator RelativePanel.RightOf="TasksButton"/>
+                            <AppBarButton x:Name="HistoryButton" Icon="PostUpdate" Label="History"  Click="NavigateToHistoryView"
+                                      Width="185"
+                        />
+                            <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
+                        />
+                            <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
+
+
+                        </StackPanel>
+                    </RelativePanel>
+
+                </CommandBar.Content>
+            </CommandBar>
+            <ScrollViewer  x:Name="MyScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" 
+                       HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled"   
+                       RelativePanel.Below="MyCommandBar"
+                       RelativePanel.AlignRightWithPanel="True" 
+                       RelativePanel.AlignLeftWithPanel="True"  
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
+                <RelativePanel>
+
+
+
+                </RelativePanel>
+            </ScrollViewer>
+            <StackPanel  Width="600" x:Name="MyStackPanel" 
+                    RelativePanel.Below="MyScrollViewer"
+                    RelativePanel.AlignRightWithPanel="True" 
+                    RelativePanel.AlignLeftWithPanel="True"  
+                    >
+               <ListView ItemsSource="{Binding Measurments}" SelectedItem="{Binding SelectedMeasurment}"></ListView>
+                <TextBox Text="{Binding NewMeasurment.ID, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.Description, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.Value, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.unit, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.UserID, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.MonitorID, Mode=TwoWay}"></TextBox>
+                <Button Content="Add" Command="{Binding CreateCommand}"></Button>
+                <Button Content="Delete" Command="{Binding DeleteCommand}"></Button>
+            </StackPanel>
+            
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState>
+
+                        <!--VisualState to be triggered when window width is >=1400 effective pixels-->
+
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1400" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+
+                            <!--Widest possible layout moves some elements around to optimize for more available width 
+                        and keeps SplitView pane always showing inline-->
+                            <!--<Setter Target="MyCommandBar.Margin" Value="350,0,580,0" />-->
+
+                            <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+
+
+                            <!--<Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>-->
+
+                            <!--<Setter Target="MySplitView.DisplayMode" Value="Inline" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="True" />-->
+
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+
+                        <!--VisualState to be triggered when window width is >=548 and <1400 effective pixels-->
+
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="548" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                            <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                            <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
+
+
+                            <!--<Setter Target="MySplitView.IsPaneOpen" Value="false" />
+
+                        <Setter Target="Instructions.(RelativePanel.Below)" Value="BrowseButton"/>-->
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState>
+                        <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <!--<Setter Target="MyCommandBar.Margin" Value="12" />-->
+                            <!--<Setter Target="MyCommandBar.(RelativePanel.Below)" Value="CommandBarButton"/>-->
+                            <Setter Target="MyScrollViewer.(RelativePanel.Below)" Value="MyCommandBar"/>
+
+
+                            <!--<Setter Target="MySplitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />-->
+
+                            <!--<Setter Target="StackPanel.(RelativePanel.Below)" Value="MyCommandBar"/>-->
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </RelativePanel>
+        <CommandBar >
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Add" Label="Add"  Command="{Binding CreateCommand}"/>
+            <!---->
+            <AppBarButton Icon="Cancel" Label="Cancel" Click="Add" />
+        </CommandBar>
+    </Grid>
+    
+</Page>
