@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace myGenericDBEFandWSMovies
 {
-    public class WebAPIAsync<T> : IWebAPIAsync<T> where T : class
+    public class WebAPIAsync<T>
     {
         #region Instance fields
         private string _serverURL;
@@ -42,13 +43,13 @@ namespace myGenericDBEFandWSMovies
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task<List<T>> Load()
+        public async Task<ObservableCollection<T>> Load()
         {
             HttpClient client = new HttpClient();
             string url = _serverURL + "/" + _apiPrefix + "/" + _apiID;
             string response = await client.GetStringAsync(url);
-            var movies = JsonConvert.DeserializeObject<List<T>>(response);
-            return movies;
+            var list = JsonConvert.DeserializeObject<ObservableCollection<T>>(response);
+            return list;
         }
 
         public async Task<T> Read(int key)
@@ -56,8 +57,8 @@ namespace myGenericDBEFandWSMovies
             HttpClient client = new HttpClient();
             string url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
             string response = await client.GetStringAsync(url);
-            var movie = JsonConvert.DeserializeObject<T>(response);
-            return movie;
+            var obj = JsonConvert.DeserializeObject<T>(response);
+            return obj;
         }
 
         public async Task Update(int key, T obj)
