@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace StationLogFinal.Model
 {
-    class Comment: IServable
+    class Comment
     {
-        private int ID;
-        private int LogID;
-        private int UserID;
-        private DateTime date;
-        private string Comment;
+        public int ID { get; set; }
+        public int LogID { get; set; }
+        public int UserID { get; set; }
+        public DateTime time { get; set; }
+        public string comment { get; set; }
 
+        public Comment(int id, int logId, int userId, DateTime time, string comment )
+        {
+            ID = id;
+            LogID = logId;
+            UserID = userId;
+            this.time = time;
+            this.comment = comment;
+        }
 
-        public void AddLog()
+        public Comment()
         {
             
         }
 
-        public void GetDayLog(DateTime date)
+        public override string ToString()
         {
-            
+            return $"{comment} (written by user with ID {ID}, on {time})";
+
         }
     }
 }

@@ -20,26 +20,22 @@ namespace StationLogFinal.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomeView : Page
+    public sealed partial class MeasurmentsView : Page
     {
-        public HomeView()
+        public MeasurmentsView()
         {
             this.InitializeComponent();
         }
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            MyCommandBar.IsOpen = true;
-            MyCommandBar.IsDynamicOverflowEnabled = false;
-        }
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ContentDialog d = new ContentDialog();
-            d.Title = "Not implemented";
-            d.Content = "The buttons are for illustrative purposes only and do not perform any action yet";
-            d.PrimaryButtonText = "OK";
 
-            await d.ShowAsync();
-        }
+      
+            private void Add(object sender, RoutedEventArgs e)
+            {
+                Frame.Navigate(typeof(MeasurmentsView));
+            }
+    
+
+        #region navigation
+
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomeView));
@@ -65,9 +61,8 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MeasurmentsView));
-        }
+        #endregion
+
+
     }
 }

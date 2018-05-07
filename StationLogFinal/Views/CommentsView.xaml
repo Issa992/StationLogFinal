@@ -5,8 +5,11 @@
     xmlns:local="using:StationLogFinal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+    </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -56,13 +59,14 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
 
-                <ListView RelativePanel.AlignVerticalCenterWithPanel="True"    
+                <ListView ItemsSource="{Binding Comments}" SelectedItem="{Binding SelectedComment}"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5" Header="Comments" x:Name="MyListView" 
                       Height="421" Width="900">
-                    <Border Background="#FFFFC30F">
+                    <!--<Border Background="#FFFFC30F">
                         <TextBlock  Text="FPO filter change the filter parts are outdated "  TextWrapping="Wrap" />
 
                     </Border>
@@ -77,7 +81,7 @@
                     <Border Background="#FFFD5733">
                         <TextBlock Text="Error in the gas monitors" TextWrapping="Wrap"/>
 
-                    </Border>
+                    </Border>-->
                 
                 </ListView>
 
@@ -90,9 +94,11 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
+            <TextBox Text="{Binding NewComment.comment , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Click="Button_Click"></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Click="Button_Click" Command="{Binding CreateCommentCommand}"></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand}"></Button>
         </StackPanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

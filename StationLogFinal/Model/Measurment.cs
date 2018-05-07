@@ -8,14 +8,33 @@ namespace StationLogFinal.Model
 {
     class Measurment
     {
-        private int Id;
-        private string Description;
-        private double Value;
-        private int MonitorID;
-        private string Unit;
-        int UserID
+        public int ID { get; set; }
+        public string Description { get; set; }
+        public double Value { get; set; }
+        public int MonitorID { get; set; }
+        public string unit { get; set; }
+        public int UserID { get; set; }
+
+        public Measurment(int id, string description, double value, int monitorId, string unit, int userId)
+        {
+            ID = id;
+            Description = description;
+            Value = value;
+            MonitorID = monitorId;
+            this.unit = unit;
+            UserID = userId;
 
 
+        }
 
+        public Measurment()
+        {
+            
+        }
+        public override string ToString()
+        {
+            return $"MeasurmentId: {ID} Description: {Description} Value {Value} unit {unit} MonitorId:{MonitorID} UserId:{UserID}";
+
+        }
     }
 }
