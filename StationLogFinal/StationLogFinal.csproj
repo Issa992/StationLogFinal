@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Model\CatalogSingleton.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\IExecutable.cs" />
