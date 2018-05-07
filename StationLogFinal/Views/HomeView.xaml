@@ -63,19 +63,19 @@
                       Margin="5" Header="Notifications" x:Name="MyListView" 
                       Height="547" Width="900">
                     <Border>
-                        <TextBlock  Text="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnz" TextWrapping="Wrap"/>
+                        <TextBlock  Text="" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" TextWrapping="Wrap"/>
+                        <TextBlock Text="" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" TextWrapping="Wrap"/>
+                        <TextBlock Text="" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" TextWrapping="Wrap" />
+                        <TextBlock Text="" TextWrapping="Wrap" />
 
                     </Border>
                 </ListView>

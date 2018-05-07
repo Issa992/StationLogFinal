@@ -23,7 +23,6 @@
             <TextBox  x:Name="email" PlaceholderText="Enter your Email" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
             <PasswordBox x:Name="password" PlaceholderText="Password" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
             <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" ></Button>
-            <Button Content="Test" Click="ButtonBase_OnClick"></Button>
 
         </StackPanel>
     </Grid>

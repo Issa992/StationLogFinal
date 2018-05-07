@@ -17,8 +17,14 @@ namespace StationLogFinal.Model
 {
     class TaskHandler
     {
-        //
-        //private ObservableCollection<Task1> tasksList;
+        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net/";
+        const string ApiPrefix = "api";
+        const string ApiId = "Tasks";
+
+        private IWebAPIAsync<Task1> iWebApiAsync;
+        public static WebAPIAsync<Task1> TwebApiAsync = new WebAPIAsync<Task1>(ServerUrl, ApiPrefix, ApiId);
+        public WebAPITest<Task1> TaskWebApiTest = new WebAPITest<Task1>(TwebApiAsync);
+
 
         public TaskViewModel TaskViewModel { get; set; }
 
@@ -26,13 +32,14 @@ namespace StationLogFinal.Model
         {
             TaskViewModel = taskViewModel;
         }
-        public ObservableCollection<Task1> taskss { get; set; }
 
         public async void CreateTask()
         {
+
             Task1 task = new Task1();
-            
-            task.TaskId = TaskViewModel.NewTask.TaskId;
+
+
+            task.TaskId= TaskViewModel.NewTask.TaskId  ;
             task.DateTime = TaskViewModel.NewTask.DateTime;
             task.Description = TaskViewModel.NewTask.Description;
             task.IsDone = TaskViewModel.NewTask.IsDone;
@@ -40,46 +47,25 @@ namespace StationLogFinal.Model
             task.SchduledDate = TaskViewModel.NewTask.SchduledDate;
             task.StationId = TaskViewModel.NewTask.StationId;
             task.UserId = TaskViewModel.NewTask.UserId;
-            //taskss.Add(task);
-            TaskViewModel.Tasks.Add(task);
-            await new TaskWebAPI().SaveTask(task);
 
-            
-            //new TaskWebAPI().SaveTask(task);
-
-            //TaskViewModel.TaskCatalogSingleton.TaskObservableCollection.Add(task);
-
-            //var tasks = new TaskWebAPI().GetTaskAsync();
-
-            //TaskViewModel.TaskCatalogSingleton.TaskObservableCollection.Clear();
+            await TaskWebApiTest.RunAPITestCreate(task);
+            //await iWebApiAsync.Create(task);
 
 
-            //foreach (var task1 in tasks)
-            //{
-            //    TaskViewModel.TaskCatalogSingleton.TaskObservableCollection.Add(task1);
-
-            //}
-            //// call the method Create from WebAPIAsync
-            //WebAPIAsync<StationTask> taskWebApi = new WebAPIAsync<StationTask>().Create(task);
-
-
-            //var tasks = new WebAPIAsync<StationTask>().Load();//need to be continue
-            //TaskViewModel.TaskCatalog.Tasks.Clear();
-            //foreach (var Taskss in tasks)
-            //{
-            //    TaskViewModel.TaskCatalog.Tasks.Add(Taskss);
-            //}
 
 
         }
 
         public async void DeleteTask()
         {
-
             Task1 task = new Task1();
             task.TaskId = TaskViewModel.SelectedTask.TaskId;
-            await new TaskWebAPI().DeleteTask(task.TaskId);
-            TaskViewModel.Tasks.Remove(TaskViewModel.SelectedTask);
+            TaskViewModel.TasksColllection.Remove(TaskViewModel.SelectedTask);
+            iWebApiAsync = new WebAPIAsync<Task1>(ServerUrl, ApiPrefix, ApiId);
+
+
+            await iWebApiAsync.Delete(task.TaskId);
+
         }
 
 
@@ -88,10 +74,97 @@ namespace StationLogFinal.Model
 
 
 
+        //    public async void CheckFields()
+        //    {
+
+        //        if (CheckFieldsNotBlank())
+        //        {
+        //            //if (CheckAvailability())
+        //            //{
+        //            TaskViewModel.TasksColllection.Add(TaskViewModel.NewTask);
+        //            CreateTask();
+        //            EventCreatedPopUp();
+        //            //}
+
+        //        }
+        //        else
+        //        {
+        //            EmptyFieldsPopUp();
+        //        }
+
+        //    }
+
+        //    private bool CheckFieldsNotBlank()
+        //    {
+        //        if ((TaskViewModel.NewTask.UserId == null) || (AddNewEvent.Description == null) ||
+        //            (AddNewEvent.Location == null) || (AddNewEvent.Date == null) ||
+        //            (AddNewEvent.Time == null) || (AddNewEvent.DateTime == null))
+
+        //        {
+        //            return false;
+        //        }
+        //        else return true;
+        //    }
+
+
+
+        //    private bool CheckAvailability()
+        //    {
+        //        if (EventList != null)
+        //        {
+
+
+        //            var Check = EventList.FirstOrDefault(x => x.Name == AddNewEvent.Name);
+        //            var Check1 = EventList.FirstOrDefault(x => x.Location == AddNewEvent.Location);
+        //            var Check2 = EventList.FirstOrDefault(x => x.Description == AddNewEvent.Description);
+        //            var check3 = EventList.FirstOrDefault(x => x.Date == AddNewEvent.Date);
+        //            var check4 = EventList.FirstOrDefault(x => x.Time == AddNewEvent.Time);
+        //            var check5 = EventList.FirstOrDefault(x => x.DateTime == AddNewEvent.DateTime);
+
+        //            if (((Check == null) && (Check1 == null) && (Check2 == null)
+        //                 && (check3 == null) && (check4 == null) && (check5 == null)))
+        //            {
+        //                ///////////////////////////////////////////.........................................................................................................................................
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                EventCreatedPopUp();
+        //                return false;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    private async void EventCreatedPopUp()
+        //    {
+        //        var dialog = new Windows.UI.Popups.MessageDialog("Your Event Has Been Created. ", "!!!");
+        //        dialog.Commands.Add(new Windows.UI.Popups.UICommand("OK") { Id = 1 });
+
+        //        dialog.CancelCommandIndex = 1;
+
+        //        var result = await dialog.ShowAsync();
+        //    }
+
+        //    private async void EmptyFieldsPopUp()
+        //    {
+        //        var dialog = new Windows.UI.Popups.MessageDialog("You Need To Fill All The Fields", "Try Again");
+        //        dialog.Commands.Add(new Windows.UI.Popups.UICommand("Ok") { Id = 1 });
+        //        dialog.CancelCommandIndex = 1;
+        //        var result = await dialog.ShowAsync();
+        //    }
+        //}
 
 
 
 
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////
 
 
         //private string url;
@@ -144,7 +217,7 @@ namespace StationLogFinal.Model
         ////    if (tasksList[taskId].IsDone != true)
         ////    tasksList[taskId].IsDone = true;
         ////}
-
-
     }
+
 }
+

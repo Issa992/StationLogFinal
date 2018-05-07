@@ -63,7 +63,7 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(MainPage));
         }
 
-        private async void AddNewTaskButton_OnClick(object sender, RoutedEventArgs e)
+        private  void AddNewTaskButton_OnClick(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AddNewTaskView));
 

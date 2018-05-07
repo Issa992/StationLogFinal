@@ -9,7 +9,9 @@ namespace StationLogFinal.Model
     {
         private DateTimeOffset _date;
         private DateTime _dateTime;
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+   
         public int TaskId { get; set; }
 
         public DateTime DateTime { get => _dateTime; set => _dateTime = value; }
@@ -62,11 +64,11 @@ namespace StationLogFinal.Model
                 OnPropertyChanged(nameof(Date));
             }
         }
-        public override string ToString()
-        {
-            return string.Format("TaskId {0} DateTime {1} Description {2}  IsRepeatable {3} IsDone{4} SchduledDate{5} StationId{6} UserId{7}",
-                TaskId, DateTime, Description, IsRepeatable, IsDone, SchduledDate, StationId, UserId);
+        //public override string ToString()
+        //{
+        //    return string.Format("TaskId {0} DateTime {1} Description {2}  IsRepeatable {3} IsDone{4} SchduledDate{5} StationId{6} UserId{7}",
+        //        TaskId, DateTime, Description, IsRepeatable, IsDone, SchduledDate, StationId, UserId);
 
-        }
+        //}
     }
 }
