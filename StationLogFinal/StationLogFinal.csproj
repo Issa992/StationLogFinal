@@ -95,7 +95,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Communication\Alert.cs" />
+    <Compile Include="Communication\INotification.cs" />
+    <Compile Include="Communication\Message.cs" />
+    <Compile Include="Communication\Notification.cs" />
     <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Model\CatalogSingleton.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\IExecutable.cs" />
