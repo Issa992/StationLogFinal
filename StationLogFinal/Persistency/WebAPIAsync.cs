@@ -57,25 +57,13 @@ namespace StationLogFinal.Persistency
 
         #endregion
 
-
-
         public async Task Delete(int key)
         {
             HttpClient client = new HttpClient();
             string url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
             await client.DeleteAsync(url);
         }
-        //working with loading////////////////////////////////////////////////////////////
-        //public async Task<ObservableCollection<Task1>> Load()
-        //{
-        //    HttpClient client = new HttpClient();
-        //    string url = _serverURL + "/" + _apiPrefix + "/" + _apiID;
-        //    string response = await client.GetStringAsync(url);
-
-        //    var tasks = JsonConvert.DeserializeObject<ObservableCollection<Task1>>(response);
-        //    return tasks;
-        //}
-
+ 
         public async Task<List<T>> Load()
         {
             HttpClient client = new HttpClient();
@@ -85,8 +73,6 @@ namespace StationLogFinal.Persistency
             var TaskResult = JsonConvert.DeserializeObject<List<T>>(jsonResponse);
             return TaskResult;
         }
-
-
 
         public async Task<T> Read(int key)
         {

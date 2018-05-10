@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using StationLogFinal.Annotations;
-using StationLogFinal.Common;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
-
+using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
 {
@@ -102,13 +94,13 @@ namespace StationLogFinal.ViewModel
             CommentsOC = new ObservableCollection<Comment>();
             NewMeasurment = new Measurment();
             NewComment = new Comment();
-            LogsHandler = new LogsHandler(this);
+            //LogsHandler = new LogsHandler(this);
             Measurments = new ObservableCollection<Measurment>();
             Comments = new ObservableCollection<Comment>();
-            CreateCommand = new RelayCommand(LogsHandler.AddMeasurment);
-            DeleteCommand = new RelayCommand(LogsHandler.DeleteMeasurment);
-            CreateCommentCommand = new RelayCommand(LogsHandler.AddComment);
-            DeleteCommentCommand = new RelayCommand(LogsHandler.DeleteComment);
+            //CreateCommand = new RelayCommand(LogsHandler.AddMeasurment);
+            //DeleteCommand = new RelayCommand(LogsHandler.DeleteMeasurment);
+            //CreateCommentCommand = new RelayCommand(LogsHandler.AddComment);
+            //DeleteCommentCommand = new RelayCommand(LogsHandler.DeleteComment);
             LoadComments();
 
 

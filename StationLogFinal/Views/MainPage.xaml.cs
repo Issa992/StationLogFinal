@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using StationLogFinal.Views;
+using StationLogWebApplication1;
+using StationLogFinal.SessionTools;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,12 +35,21 @@ namespace StationLogFinal
             //formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
             //CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             //coreTitleBar.ExtendViewIntoTitleBar = true;
+            UserHandler.GetAllUsers();
 
         }
 
         private void Navigate(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(HomeView));
+            User inputUser = new User();
+            string s = UserIdBox.Text;
+            inputUser.UserId = Convert.ToInt16(s);
+            inputUser.HashPass = passwordBox.Password;
+
+
+
+            LoginTool.LoginUser(inputUser);
+            //Frame.Navigate(typeof(HomeView));
         }
         private void CurrentWindow_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
