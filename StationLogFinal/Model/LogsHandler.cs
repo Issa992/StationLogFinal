@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationLogFinal.Persistency;
 using StationLogFinal.ViewModel;
 
 namespace StationLogFinal.Model
@@ -12,6 +13,12 @@ namespace StationLogFinal.Model
         private Measurment measurment;
         private Comment comment;
         public LogsViewModel LogsViewModel { get; set; }
+        private IWebAPIAsync<Comment> iWebApiAsync;
+
+        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net/";
+        const string ApiPrefix = "api";
+        const string ApiId = "Tasks";
+
         public void AddMeasurment()
         {
             measurment = new Measurment
@@ -32,7 +39,7 @@ namespace StationLogFinal.Model
             LogsViewModel.Measurments.Remove(LogsViewModel.SelectedMeasurment);
         }
 
-        public void AddComment()
+        public async void AddComment()
         {
             comment = new Comment
             {
@@ -44,14 +51,24 @@ namespace StationLogFinal.Model
                 UserID = LogsViewModel.NewComment.UserID
 
             };
-            LogsViewModel.Comments.Add(comment);
+           
+            await iWebApiAsync.Create(comment);
 
         }
 
-        public void DeleteComment()
+        public async void DeleteComment()
         {
-            LogsViewModel.Comments.Remove(LogsViewModel.SelectedComment);
+            comment = new Comment();
+            comment.ID = LogsViewModel.SelectedComment.ID;
+            LogsViewModel.CommentsOC.Remove(LogsViewModel.SelectedComment);
+            iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
+            await iWebApiAsync.Delete(comment.ID);
+
         }
+
+
+
+
 
         public LogsHandler(LogsViewModel logsViewModel)
         {
