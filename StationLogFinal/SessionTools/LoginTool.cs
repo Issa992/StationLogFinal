@@ -18,7 +18,6 @@ namespace StationLogFinal.SessionTools
             {
                 CurrentSessioncs.CurrentUser = foundUser;
                 FrameNavigationClass.ActivateFrameNavigation(typeof(HomeView));
-                CurrentSessioncs.GetCurrentUser();
             }
             else
             {
@@ -29,7 +28,7 @@ namespace StationLogFinal.SessionTools
 
         public static bool CheckPassword(User foundUser , User userInput)
         {
-            string inputPwToHashValue = Security.GenerateSHA256Hash(userInput.HashPass, "salt");
+            string inputPwToHashValue = Security.GenerateSHA256Hash(userInput.HashPass, foundUser.Salt);
 
             if (foundUser.HashPass == inputPwToHashValue) 
             {

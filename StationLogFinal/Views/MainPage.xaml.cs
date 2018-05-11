@@ -45,8 +45,7 @@ namespace StationLogFinal
             string s = UserIdBox.Text;
             inputUser.UserId = Convert.ToInt16(s);
             inputUser.HashPass = passwordBox.Password;
-
-
+            
 
             LoginTool.LoginUser(inputUser);
             //Frame.Navigate(typeof(HomeView));
