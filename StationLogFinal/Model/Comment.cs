@@ -8,19 +8,23 @@ namespace StationLogFinal.Model
 {
     class Comment
     {
-        public int ID { get; set; }
-        public int LogID { get; set; }
-        public int UserID { get; set; }
-        public DateTime time { get; set; }
-        public string comment { get; set; }
+        public int CommentId { get; set; }
+        public int LogId { get; set; }
+        public int UserId { get; set; }
+        public DateTime CommentDate { get; set; }
+        public string Description { get; set; }
+        public User User { get; set; }
+        public LogClass Log { get; set; }
 
-        public Comment(int id, int logId, int userId, DateTime time, string comment )
+        public Comment(int id, int logId, int userId, DateTime time, string comment, User user, LogClass log)
         {
-            ID = id;
-            LogID = logId;
-            UserID = userId;
-            this.time = time;
-            this.comment = comment;
+            CommentId = id;
+            this.LogId = logId;
+            UserId = userId;
+            this.CommentDate = time;
+            this.Description = comment;
+            User = user;
+            Log = log;
         }
 
         public Comment()
@@ -30,7 +34,7 @@ namespace StationLogFinal.Model
 
         public override string ToString()
         {
-            return $"{comment} (written by user with ID {ID}, on {time})";
+            return $"{Description} (written by user with ID {UserId}, on {CommentDate})";
 
         }
     }

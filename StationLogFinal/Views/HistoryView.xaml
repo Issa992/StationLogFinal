@@ -5,8 +5,11 @@
     xmlns:local="using:StationLogFinal.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+    </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -53,55 +56,23 @@
                        RelativePanel.AlignLeftWithPanel="True"  
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
-
-                <ListView RelativePanel.AlignVerticalCenterWithPanel="True"     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                <StackPanel>
+                    <DatePicker x:Name="LogsDatePicker"></DatePicker>
+                    <TextBox x:Name="MonitoridTextBox"></TextBox>
+                    <TextBox x:Name="UserIdTextBox"></TextBox>
+                    <Button Content="Search" Click="ButtonBase1_OnClick"></Button>
+                </StackPanel>
+                
+                <ListView ItemsSource="{Binding MeasurementsOC}"
+                    
+                    
+                    RelativePanel.AlignVerticalCenterWithPanel="True"  
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
                       Margin="5"  x:Name="MyListView" 
                       Height="421" Width="900">
-                    <StackPanel Padding="33" Width="663">
-                    
-                        
-                        
-
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="21/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="20/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="19/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="18/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border>
-                            <Button FontSize="20" Padding="10" Content="17/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="16/01/2018" HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border>
-                            <Button FontSize="20" Padding="10" Content="14/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="13/01/2018"  HorizontalAlignment="Center"  Background="{x:Null}"/>
-                        </Border>
-                        <Border>
-                            <Button FontSize="20" Padding="10" Content="12/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border Padding="10">
-                            <Button FontSize="20" Padding="10" Content="11/01/2018"  HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                        <Border>
-                            <Button FontSize="20" Padding="10" Content="10/01/2018 " HorizontalAlignment="Center" Background="{x:Null}"/>
-                        </Border>
-                    </StackPanel>
-                   
+ 
                 </ListView>
 
             </RelativePanel>
