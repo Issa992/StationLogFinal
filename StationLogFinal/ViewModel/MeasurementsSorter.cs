@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StationLogFinal.Model;
+using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
 {
@@ -14,28 +15,28 @@ namespace StationLogFinal.ViewModel
 
         public static void SortMeasurmentsByDate(DateTime date)
         {
-            var result = VM.MeasurementsOC.Where(x => x.date == date);
-            VM.MeasurementsOC = (ObservableCollection<Measurment>)result;
+            var result = VM.MeasurementsOC.Where(x => x.Date == date);
+            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
         }
 
         public static void SortMeasurmentsByMonitor(int monitorId)
         {
-            var result = VM.MeasurementsOC.Where(x => x.MonitorID == monitorId);
-            VM.MeasurementsOC = (ObservableCollection<Measurment>)result;
+            var result = VM.MeasurementsOC.Where(x => x.MonitorId == monitorId);
+            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
         }
 
         public static void SortMeasurmentsByUser(int userId)
         {
-            var result = VM.MeasurementsOC.Where(x => x.UserID == userId);
-            VM.MeasurementsOC = (ObservableCollection<Measurment>)result;
+            var result = VM.MeasurementsOC.Where(x => x.User.UserId== userId);
+            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
         }
 
         public static void SortMeasurmentsByAll(DateTime date, int MonitorId, int UserId)
         {
             var result =
                 VM.MeasurementsOC.Where(x =>
-                    x.date == date && x.MonitorID == MonitorId && x.UserID == UserId);
-            VM.MeasurementsOC = (ObservableCollection<Measurment>)result;
+                    x.Date == date && x.MonitorId == MonitorId && x.User.UserId == UserId);
+            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
 
         }
 

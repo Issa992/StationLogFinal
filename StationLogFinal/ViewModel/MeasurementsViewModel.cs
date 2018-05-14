@@ -9,6 +9,7 @@ using StationLogFinal.Common;
 using StationLogFinal.Handlers;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
 {
@@ -22,12 +23,12 @@ namespace StationLogFinal.ViewModel
         private const string ApiPrefix = "api";
         const string ApiIdMeasurements = "Measurements";
 
-        static IWebAPIAsync<Measurment> iWebApiAsyncMeasure = new WebAPIAsync<Measurment>(ServerUrl, ApiPrefix, ApiIdMeasurements);
+        static IWebAPIAsync<Measurement> iWebApiAsyncMeasure = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, ApiIdMeasurements);
 
 
-        private static ObservableCollection<Measurment> _MeasurementsOC;
+        private static ObservableCollection<Measurement> _MeasurementsOC;
 
-        public ObservableCollection<Measurment> MeasurementsOC
+        public ObservableCollection<Measurement> MeasurementsOC
         {
             get => _MeasurementsOC;
             set
@@ -37,14 +38,14 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        private Measurment _NewMeasurment;
+        private Measurement _NewMeasurment;
 
 
         public MeasurementsHandler measurementsHandler;
-        public Measurment _SelectedMeasurment;
+        public Measurement _SelectedMeasurment;
 
 
-        public Measurment NewMeasurment
+        public Measurement NewMeasurment
         {
             get { return _NewMeasurment; }
             set
@@ -54,7 +55,7 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        public Measurment SelectedMeasurment
+        public Measurement SelectedMeasurment
         {
             get => _SelectedMeasurment;
             set
@@ -67,7 +68,7 @@ namespace StationLogFinal.ViewModel
 
         public async void LoadMeasurments()
         {
-            _MeasurementsOC = new ObservableCollection<Measurment>(await iWebApiAsyncMeasure.Load());
+            _MeasurementsOC = new ObservableCollection<Measurement>(await iWebApiAsyncMeasure.Load());
         }
 
 
@@ -75,7 +76,7 @@ namespace StationLogFinal.ViewModel
 
         public MeasurementsViewModel()
         {
-            NewMeasurment = new Measurment();
+            NewMeasurment = new Measurement();
             LoadMeasurments();
            measurementsHandler = new MeasurementsHandler(this);
         

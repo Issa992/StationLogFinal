@@ -108,12 +108,9 @@
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\Equipment.cs" />
-    <Compile Include="Model\IExecutable.cs" />
-    <Compile Include="Model\IMaintainable.cs" />
     <Compile Include="Model\Log.cs" />
     <Compile Include="Model\LogClass.cs" />
     <Compile Include="Model\Measurement.cs" />
-    <Compile Include="Model\Measurment.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Monitor.cs" />
     <Compile Include="Model\Notification.cs" />

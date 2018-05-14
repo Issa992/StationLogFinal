@@ -13,6 +13,8 @@ namespace StationLogWebApplication1
 
         public int MonitorId { get; set; }
 
+        public DateTime Date { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Description { get; set; }
@@ -21,6 +23,14 @@ namespace StationLogWebApplication1
 
         public virtual Log Log { get; set; }
 
+        public virtual User User { get; set; }
+
         public virtual Monitor Monitor { get; set; }
+
+        public override string ToString()
+        {
+            return $"MeasurmentId: {MeasurementId} Description: {Description} MonitorId:{MonitorId}";
+
+        }
     }
 }
