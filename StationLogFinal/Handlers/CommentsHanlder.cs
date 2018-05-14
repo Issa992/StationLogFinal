@@ -20,7 +20,7 @@ namespace StationLogFinal.Handlers
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
         WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
-
+        //asdsadsadasd
         public async void AddComment()
         {
             WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
