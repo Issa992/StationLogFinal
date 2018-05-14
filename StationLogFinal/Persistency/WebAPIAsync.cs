@@ -39,9 +39,9 @@ namespace StationLogFinal.Persistency
         }
 
 
-        public async Task Create(T obj)
+        public async Task Create(int key , T obj)
         {
-            var url = _serverURL + "/" + _apiPrefix + "/" + _apiID;
+            var url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
             var taskJson = JsonConvert.SerializeObject(obj);
 
             HttpClient client = new HttpClient();

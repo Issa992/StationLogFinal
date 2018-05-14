@@ -6,23 +6,24 @@ namespace StationLogFinal.SessionTools
     static class RegisterTool
     {
         #region Props
-        static public User InputUser { get; set; }
+        
         #endregion
 
         #region Methods
         public static void RegisterUser(User userToRegister)
         {
+            userToRegister.HashPass = Security.GenerateSHA256Hash(userToRegister.HashPass , Security.CreatingSalt(10));
             UserHandler.RegisterUser(userToRegister);
         }
      
-        public static bool CheckIfExist()
+        public static bool CheckIfExist(User inputUser)
         {
             UserHandler.GetAllUsers();
             List<User> usersToCheck = UserHandler.UserListToCheck;
 
             foreach (var user in usersToCheck)
             {
-                if (user.Name == InputUser.Name)
+                if (user.UserId == inputUser.UserId)
                 {
                     return true;
                 }

@@ -35,7 +35,7 @@ namespace StationLogFinal.SessionTools
         {
             WebAPIAsync<User> UserWebAPI = new WebAPIAsync<User>("http://stationlogwebapplication120180426012243.azurewebsites.net", "api", "Users");
             // WebApi.create(); has been changed to accepte only 1 argument instead of 2 ..
-            //await UserWebAPI.Create(newUser.UserId, newUser);
+            await UserWebAPI.Create(newUser.UserId, newUser);
         }
     }
 }

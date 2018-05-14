@@ -39,7 +39,8 @@ namespace StationLogFinal.SessionTools
 
         public static User FindUser(User userToFind)
         {
-            UserHandler.GetAllUsers();
+            // Has to be called earlier , because of the async it's too slow and returns empty list before checking , so as a solution it's called atm in the View
+            //UserHandler.GetAllUsers();
           
                 foreach (var user in UserHandler.UserListToCheck)
                 {

@@ -30,9 +30,9 @@ namespace StationLogFinal.Persistency
             await LoadAndPrint();
         }
 
-        public async Task RunAPITestCreate(T obj)
+        public async Task RunAPITestCreate(int key ,T obj)
         {
-            await RunAPITest(() => _webAPI.Create(obj));
+            await RunAPITest(() => _webAPI.Create(key , obj));
         }
 
         public async Task RunAPITestRead(int key)
