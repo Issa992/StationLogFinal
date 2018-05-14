@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\FrameNavigationClass.cs" />
     <Compile Include="Communication\Alert.cs" />
     <Compile Include="Communication\INotification.cs" />
     <Compile Include="Communication\Message.cs" />
@@ -102,14 +103,22 @@
     <Compile Include="Converter\DateTimeConverter.cs" />
     <Compile Include="Handlers\CommentsHanlder.cs" />
     <Compile Include="Handlers\MeasurementsHandler.cs" />
+    <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\CatalogSingleton.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
+    <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\IExecutable.cs" />
     <Compile Include="Model\IMaintainable.cs" />
+    <Compile Include="Model\Log.cs" />
     <Compile Include="Model\LogClass.cs" />
+    <Compile Include="Model\Measurement.cs" />
     <Compile Include="Model\Measurment.cs" />
+    <Compile Include="Model\Message.cs" />
+    <Compile Include="Model\Monitor.cs" />
+    <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Station.cs" />
+    <Compile Include="Model\Task.cs" />
     <Compile Include="Model\Task1.cs" />
     <Compile Include="Model\TaskCatalog.cs" />
     <Compile Include="Model\TaskHandler.cs" />
@@ -120,6 +129,11 @@
     <Compile Include="Persistency\WebAPITest.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="SessionTools\CurrentSessioncs.cs" />
+    <Compile Include="SessionTools\LoginTool.cs" />
+    <Compile Include="SessionTools\RegisterTool.cs" />
+    <Compile Include="SessionTools\Security.cs" />
+    <Compile Include="SessionTools\UserHandler.cs" />
     <Compile Include="ViewModel\CommentsViewModel.cs" />
     <Compile Include="ViewModel\MeasurementsSorter.cs" />
     <Compile Include="ViewModel\MeasurementsViewModel.cs" />
