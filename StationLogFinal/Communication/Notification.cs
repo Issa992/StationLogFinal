@@ -14,6 +14,13 @@ namespace StationLogFinal.Communication
         public string message;
         public bool isRed;
 
+        public Notification(int id, int stationid, DateTime date,
+            string mess)
+        {
+            this.ID = id; this.stationID = stationid;
+            this.deadline = date; this.message = mess;
+            isRed = false;
+        }
         public int getID()
         {
             return ID;
