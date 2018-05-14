@@ -67,7 +67,7 @@ namespace StationLogFinal.Persistency
             await client.DeleteAsync(url);
         }
         //working with loading////////////////////////////////////////////////////////////
-        //public async Task<ObservableCollection<Task1>> Load()
+        //public async TaskModel<ObservableCollection<Task1>> Load()
         //{
         //    HttpClient client = new HttpClient();
         //    string url = _serverURL + "/" + _apiPrefix + "/" + _apiID;

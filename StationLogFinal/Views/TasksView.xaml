@@ -35,7 +35,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <AppBarButton x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
-                        <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="Tasks" Click="NavigateToTaskView" Width="185"
+                        <AppBarButton x:Name="TasksButton" Icon="Paste"  Label="TaskModels" Click="NavigateToTaskView" Width="185"
                                     />
 
                         <AppBarSeparator RelativePanel.RightOf="TasksButton"/>
@@ -71,7 +71,7 @@
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5" Header="Tasks"  x:Name="MyListView" 
+                      Margin="5" Header="TaskModels"  x:Name="MyListView" 
                       Height="421" Width="900">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -139,8 +139,8 @@
                 <!--<TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
                 <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
-                    <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
-                    <Button   x:Name="DeleteTaskButton" Content="Delete Task" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52" Command="{Binding DeleteCommand }" ></Button>
+                    <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New TaskModel" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
+                    <Button   x:Name="DeleteTaskButton" Content="Delete TaskModel" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52" Command="{Binding DeleteCommand }" ></Button>
                     <SearchBox BorderBrush="White" PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
                 </StackPanel>
 

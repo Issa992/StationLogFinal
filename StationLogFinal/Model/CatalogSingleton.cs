@@ -37,7 +37,7 @@ namespace StationLogFinal.Model
         //public CatalogSingleton()
         //{
         //}
-        //public async Task<string> LoadTasks()
+        //public async TaskModel<string> LoadTasks()
         //{
 
 

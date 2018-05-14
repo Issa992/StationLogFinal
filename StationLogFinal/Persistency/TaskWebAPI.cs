@@ -25,7 +25,7 @@ namespace StationLogFinal.Persistency
 
 
 
-        //public async Task<ObservableCollection<Task1>> GetTaskAsync()
+        //public async TaskModel<ObservableCollection<Task1>> GetTaskAsync()
         //{
         //    HttpClient client = new HttpClient();
         //    string response = await client.GetStringAsync(ServerUrl+ "api/Tasks");
@@ -34,7 +34,7 @@ namespace StationLogFinal.Persistency
         //}
 
 
-        //public async Task SaveTask(Task1 task)
+        //public async TaskModel SaveTask(Task1 task)
         //{
         //    var url = ServerUrl + "api/Tasks";
         //    var taskJson = JsonConvert.SerializeObject(task);
@@ -47,7 +47,7 @@ namespace StationLogFinal.Persistency
            
 
         //}
-        //public async Task DeleteTask(int id)
+        //public async TaskModel DeleteTask(int id)
         //{
         //    using (var client = new HttpClient())
         //    {

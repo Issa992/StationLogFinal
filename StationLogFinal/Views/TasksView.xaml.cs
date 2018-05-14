@@ -68,8 +68,8 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(AddNewTaskView));
 
             //ContentDialog d = new ContentDialog();
-            //d.Title = "Add New Task";
-            //d.Content = "Here is going to appear the contenent of the new Task ";
+            //d.Title = "Add New TaskModel";
+            //d.Content = "Here is going to appear the contenent of the new TaskModel ";
             //d.PrimaryButtonText = "OK";
 
             //await d.ShowAsync();
