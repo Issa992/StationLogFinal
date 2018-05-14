@@ -12,7 +12,7 @@ namespace StationLogFinal.Handlers
     class CommentsHanlder
     {
         private Comment comment;
-        private IWebAPIAsync<Comment> iWebApiAsync;
+       
         public CommentsViewModel CommentsViewM { get; set; }
 
 
@@ -25,13 +25,20 @@ namespace StationLogFinal.Handlers
         {
             WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
 
-          
-            comment = new Comment(123, 333, 12313, new DateTime(2018, 01, 12), "asdsadasda", new User(),
-                new LogClass());
+
+            comment = new Comment
+            {
+                CommentDate = DateTime.Now,
+                CommentId = CommentsViewM.NewComment.CommentId, //auto Id
+                Description = CommentsViewM.NewComment.Description,
+                UserId = CommentsViewM.NewComment.UserId,
+                //User = currently logged user?
+
+
+            };
             CommentsViewM.CommentsOC.Add(comment);
             await CommentTester.RunAPITestCreate(comment);
-
-            //await iWebApiAsync.Create(comment);
+            
 
         }
 

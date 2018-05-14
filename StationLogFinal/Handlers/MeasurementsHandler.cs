@@ -49,27 +49,14 @@ namespace StationLogFinal.Handlers
         }
 
 
-
-
-
-        public ObservableCollection<Measurment> SortMeasurmentsByDate(DateTime date)
-        {
-            return (ObservableCollection<Measurment>)MeasurementsViewM.MeasurementsOC.Where(x => x.date == date);
-        }
-
-        public List<Measurment> SortMeasurmentsByMonitor(int monitorId)
-        {
-            return MeasurementsViewM.MeasurementsOC.Where(x => x.MonitorID == monitorId) as List<Measurment>;
-        }
-
-        public ObservableCollection<Measurment> SortMeasurmentsByUser(int userId)
-        {
-            return (ObservableCollection<Measurment>)MeasurementsViewM.MeasurementsOC.Where(x => x.UserID == userId);
-        }
-
         public MeasurementsHandler(MeasurementsViewModel measurementsViewModel)
         {
             MeasurementsViewM = measurementsViewModel;
+        }
+
+        public MeasurementsHandler()
+        {
+            
         }
 
     }

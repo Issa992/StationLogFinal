@@ -25,7 +25,7 @@ namespace StationLogFinal.ViewModel
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
 
-        static IWebAPIAsync<Comment> iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
+        public static IWebAPIAsync<Comment> iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
 
         private static ObservableCollection<Comment> _CommentsOC;
 
@@ -61,18 +61,16 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        public async Task LoadComments()
+        public async void LoadComments()
         {
             _CommentsOC = new ObservableCollection<Comment>(await iWebApiAsync.Load());
 
         }
-        public async void Load()
-        {
-            await LoadComments();
-        }
+  
 
         public CommentsViewModel()
         {
+            LoadComments();
             NewComment = new Comment();
            commentsHanlder = new CommentsHanlder(this);
             CreateCommentCommand = new RelayCommand(commentsHanlder.AddComment);

@@ -73,8 +73,7 @@ namespace StationLogFinal.Views
 
         private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         {
-           MeasurementsHandler handler = new MeasurementsHandler(new MeasurementsViewModel());
-            handler.SortMeasurmentsByMonitor(Int32.Parse(MonitoridTextBox.Text));
+          MeasurementsSorter.SortMeasurmentsByAll(LogsDatePicker.Date.DateTime, Int32.Parse(MonitoridTextBox.Text), Int32.Parse(UserIdTextBox.Text));
         }
     }
 }

@@ -65,21 +65,18 @@ namespace StationLogFinal.ViewModel
         }
 
 
-        public async Task LoadMeasurments()
+        public async void LoadMeasurments()
         {
             _MeasurementsOC = new ObservableCollection<Measurment>(await iWebApiAsyncMeasure.Load());
         }
 
 
-        public async void LoadM()
-        {
-            await LoadMeasurments();
-        }
+     
 
         public MeasurementsViewModel()
         {
             NewMeasurment = new Measurment();
-            LoadM();
+            LoadMeasurments();
            measurementsHandler = new MeasurementsHandler(this);
         
             CreateCommand = new RelayCommand(measurementsHandler.AddMeasurment);

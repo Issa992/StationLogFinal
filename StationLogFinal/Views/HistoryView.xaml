@@ -8,7 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+        <viewModel:MeasurementsViewModel></viewModel:MeasurementsViewModel>
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>

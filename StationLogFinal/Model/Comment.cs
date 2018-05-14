@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationLogFinal.Handlers;
 
 namespace StationLogFinal.Model
 {
     class Comment
     {
         public int CommentId { get; set; }
-        public int LogId { get; set; }
         public int UserId { get; set; }
         public DateTime CommentDate { get; set; }
         public string Description { get; set; }
         public User User { get; set; }
-        public LogClass Log { get; set; }
+        
 
-        public Comment(int id, int logId, int userId, DateTime time, string comment, User user, LogClass log)
+        public Comment(int id, int userId, DateTime time, string comment, User user)
         {
-            CommentId = id;
-            this.LogId = logId;
+            CommentId = id;   
             UserId = userId;
             this.CommentDate = time;
             this.Description = comment;
             User = user;
-            Log = log;
+           
         }
 
         public Comment()
@@ -37,5 +36,6 @@ namespace StationLogFinal.Model
             return $"{Description} (written by user with ID {UserId}, on {CommentDate})";
 
         }
+
     }
 }

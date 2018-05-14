@@ -121,6 +121,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\CommentsViewModel.cs" />
+    <Compile Include="ViewModel\MeasurementsSorter.cs" />
     <Compile Include="ViewModel\MeasurementsViewModel.cs" />
     <Compile Include="ViewModel\NotifyPropertyChange.cs" />
     <Compile Include="ViewModel\TaskViewModel.cs" />
