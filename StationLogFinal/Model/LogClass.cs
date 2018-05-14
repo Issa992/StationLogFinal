@@ -8,14 +8,15 @@ namespace StationLogFinal.Model
 {
     class LogClass
     {
-        private DateTime time;
-        private int ID;
-        private string Name;
-        private string Type;
-        private int UserID;
-        private int StationID;
+        public DateTime time { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int UserID { get; set; }
+        public int StationID { get; set; }
+        public int CommentID { get; set; }
 
-        public LogClass(DateTime Time, int id, string name, string type, int userId, int stationId)
+        public LogClass(DateTime Time, int id, string name, string type, int userId, int stationId, int commentId )
         {
             time = Time;
             ID = id;
@@ -23,6 +24,7 @@ namespace StationLogFinal.Model
             Type = type;
             UserID = userId;
             StationID = stationId;
+            CommentID = commentId;
 
 
         }

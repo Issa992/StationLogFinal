@@ -8,7 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+        <viewModel:MeasurementsViewModel></viewModel:MeasurementsViewModel>
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
@@ -69,7 +69,7 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-               <ListView ItemsSource="{Binding Measurments}" SelectedItem="{Binding SelectedMeasurment}"></ListView>
+               <ListView ItemsSource="{Binding MeasurementsOC}" SelectedItem="{Binding SelectedMeasurment}"></ListView>
                 <TextBox Text="{Binding NewMeasurment.ID, Mode=TwoWay}"></TextBox>
                 <TextBox Text="{Binding NewMeasurment.Description, Mode=TwoWay}"></TextBox>
                 <TextBox Text="{Binding NewMeasurment.Value, Mode=TwoWay}"></TextBox>

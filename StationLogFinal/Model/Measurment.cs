@@ -14,8 +14,9 @@ namespace StationLogFinal.Model
         public int MonitorID { get; set; }
         public string unit { get; set; }
         public int UserID { get; set; }
+        public DateTime date { get; set; }
 
-        public Measurment(int id, string description, double value, int monitorId, string unit, int userId)
+        public Measurment(int id, string description, double value, int monitorId, string unit, int userId, DateTime dateTime)
         {
             ID = id;
             Description = description;
@@ -23,6 +24,7 @@ namespace StationLogFinal.Model
             MonitorID = monitorId;
             this.unit = unit;
             UserID = userId;
+            date = dateTime;
 
 
         }

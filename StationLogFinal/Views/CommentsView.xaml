@@ -8,7 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:LogsViewModel></viewModel:LogsViewModel>
+        <viewModel:CommentsViewModel></viewModel:CommentsViewModel>
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
@@ -94,7 +94,7 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <TextBox Text="{Binding NewComment.comment , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
+            <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
             <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand}"></Button>

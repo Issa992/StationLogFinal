@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using StationLogFinal.Handlers;
+using StationLogFinal.Model;
+using StationLogFinal.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -66,6 +69,11 @@ namespace StationLogFinal.Views
         private void NavigateToLoginPage(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
+        {
+          MeasurementsSorter.SortMeasurmentsByAll(LogsDatePicker.Date.DateTime, Int32.Parse(MonitoridTextBox.Text), Int32.Parse(UserIdTextBox.Text));
         }
     }
 }

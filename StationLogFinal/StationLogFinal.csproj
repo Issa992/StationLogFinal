@@ -100,13 +100,14 @@
     <Compile Include="Communication\Message.cs" />
     <Compile Include="Communication\Notification.cs" />
     <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Handlers\CommentsHanlder.cs" />
+    <Compile Include="Handlers\MeasurementsHandler.cs" />
     <Compile Include="Model\CatalogSingleton.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\IExecutable.cs" />
     <Compile Include="Model\IMaintainable.cs" />
     <Compile Include="Model\LogClass.cs" />
-    <Compile Include="Model\LogsHandler.cs" />
     <Compile Include="Model\Measurment.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\Task1.cs" />
@@ -119,7 +120,9 @@
     <Compile Include="Persistency\WebAPITest.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="ViewModel\LogsViewModel.cs" />
+    <Compile Include="ViewModel\CommentsViewModel.cs" />
+    <Compile Include="ViewModel\MeasurementsSorter.cs" />
+    <Compile Include="ViewModel\MeasurementsViewModel.cs" />
     <Compile Include="ViewModel\NotifyPropertyChange.cs" />
     <Compile Include="ViewModel\TaskViewModel.cs" />
     <Compile Include="Views\AddNewTaskView.xaml.cs">
@@ -219,6 +222,7 @@
       <Version>4.3.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
