@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using StationLogFinal.ViewModel;
+using StationLogWebApplication1;
 
 namespace StationLogFinal.Handlers
 {
     class MeasurementsHandler
     {
-        private Measurment measurment;
+        private Measurement measurment;
 
         public MeasurementsViewModel MeasurementsViewM { get; set; }
 
@@ -20,23 +21,23 @@ namespace StationLogFinal.Handlers
         const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
         const string ApiPrefix = "api";
         const string MeasurmentsApiId = "Measurements";
-        WebAPIAsync<Measurment> MeasurmentWebApi = new WebAPIAsync<Measurment>(ServerUrl, ApiPrefix, MeasurmentsApiId);
+        WebAPIAsync<Measurement> MeasurmentWebApi = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, MeasurmentsApiId);
 
 
 
 
         public async void AddMeasurment()
         {
-            WebAPITest<Measurment> MeasurmentTester = new WebAPITest<Measurment>(MeasurmentWebApi);
+            WebAPITest<Measurement> MeasurmentTester = new WebAPITest<Measurement>(MeasurmentWebApi);
 
-            measurment = new Measurment
+            measurment = new Measurement
             {
-                ID = MeasurementsViewM.NewMeasurment.ID,
-                unit = MeasurementsViewM.NewMeasurment.unit,
-                Description = MeasurementsViewM.NewMeasurment.Description,
-                MonitorID = MeasurementsViewM.NewMeasurment.MonitorID,
-                UserID = MeasurementsViewM.NewMeasurment.UserID,
-                Value = MeasurementsViewM.NewMeasurment.Value
+                //ID = MeasurementsViewM.NewMeasurment.ID,
+                //unit = MeasurementsViewM.NewMeasurment.unit,
+                //Description = MeasurementsViewM.NewMeasurment.Description,
+                //MonitorID = MeasurementsViewM.NewMeasurment.MonitorID,
+                //UserID = MeasurementsViewM.NewMeasurment.UserID,
+                //Value = MeasurementsViewM.NewMeasurment.Value
             };
             MeasurementsViewM.MeasurementsOC.Add(measurment);
             await MeasurmentTester.RunAPITestCreate(measurment);
@@ -44,8 +45,8 @@ namespace StationLogFinal.Handlers
 
         public async void DeleteMeasurment()
         {
-            WebAPITest<Measurment> MeasurmentTester = new WebAPITest<Measurment>(MeasurmentWebApi);
-            await MeasurmentTester.RunAPITestDelete(MeasurementsViewM.SelectedMeasurment.ID);
+            WebAPITest<Measurement> MeasurmentTester = new WebAPITest<Measurement>(MeasurmentWebApi);
+            //await MeasurmentTester.RunAPITestDelete(MeasurementsViewM.SelectedMeasurment.ID);
         }
 
 
