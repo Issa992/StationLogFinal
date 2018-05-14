@@ -6,22 +6,20 @@ namespace StationLogWebApplication1
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Comment
+    public partial class Message
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int CommentId { get; set; }
-
-        public DateTime CommentDate { get; set; }
+        public int MessageId { get; set; }
 
         [Required]
         public string Description { get; set; }
 
-        public int UserId { get; set; }
+        public int MonitorId { get; set; }
 
-        public int? LogId { get; set; }
-
-        public virtual User User { get; set; }
+        public int LogId { get; set; }
 
         public virtual Log Log { get; set; }
+
+        public virtual Monitor Monitor { get; set; }
     }
 }
