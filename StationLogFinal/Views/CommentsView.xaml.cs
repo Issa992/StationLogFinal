@@ -34,16 +34,16 @@ namespace StationLogFinal.Views
             MyCommandBar.IsOpen = true;
             MyCommandBar.IsDynamicOverflowEnabled = false;
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private async void Button_Click(object sender, RoutedEventArgs e)
+        //{
 
-            ContentDialog d = new ContentDialog();
-            d.Title = "Add New Comment";
-            d.Content = "Here is going to appear the contenent of the new comment ";
-            d.PrimaryButtonText = "OK";
+        //    ContentDialog d = new ContentDialog();
+        //    d.Title = "Add New Comment";
+        //    d.Content = "Here is going to appear the contenent of the new comment ";
+        //    d.PrimaryButtonText = "OK";
 
-            await d.ShowAsync();
-        }
+        //    await d.ShowAsync();
+        //}
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomeView));

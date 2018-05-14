@@ -24,6 +24,26 @@ namespace StationLogFinal.ViewModel
         public ObservableCollection<Measurment> Measurments { get; set; }
         public ObservableCollection<Comment> Comments { get; set; }
 
+
+        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net/";
+        const string ApiPrefix = "api";
+        const string ApiId = "Comments";
+
+        static IWebAPIAsync<Comment> iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
+
+        private static ObservableCollection<Comment> _CommentsOC;
+
+        public ObservableCollection<Comment> CommentsOC
+        {
+            get => _CommentsOC;
+            set
+            {
+                CommentsOC = value;
+                OnPropertyChanged(nameof(CommentsOC));
+
+            }
+        }
+
         private Measurment _NewMeasurment;
         private Comment _newComment;
 
@@ -70,8 +90,16 @@ namespace StationLogFinal.ViewModel
             }
         }
 
+        public async Task<ObservableCollection<Comment>> LoadComments()
+        {
+           _CommentsOC = new ObservableCollection<Comment>(await iWebApiAsync.Load());
+            return _CommentsOC;
+        }
+
+
         public LogsViewModel()
         {
+            CommentsOC = new ObservableCollection<Comment>();
             NewMeasurment = new Measurment();
             NewComment = new Comment();
             LogsHandler = new LogsHandler(this);
@@ -81,10 +109,10 @@ namespace StationLogFinal.ViewModel
             DeleteCommand = new RelayCommand(LogsHandler.DeleteMeasurment);
             CreateCommentCommand = new RelayCommand(LogsHandler.AddComment);
             DeleteCommentCommand = new RelayCommand(LogsHandler.DeleteComment);
+            LoadComments();
 
-            
-           
-            
+
+
         }
     }
 }
