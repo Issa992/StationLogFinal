@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StationLogFinal.ViewModel.TaskViewModel">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABABAEAAAQEAAAAAACAAAABAAABQ4QACAg=</HashCode>
+      <FileName>ViewModel\TaskViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StationLogFinal.ViewModel.NotifyPropertyChange" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\NotifyPropertyChange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="StationLogFinal.Persistency.WebAPIAsync&lt;T&gt;">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAABAAAAAAAAAhEQBAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistency\WebAPIAsync.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="StationLogFinal.Persistency.WebAPITest&lt;T&gt;">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQGAAAAAQAACAAAQAAAAAAAAAAJIAAAAEAA=</HashCode>
+      <FileName>Persistency\WebAPITest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StationLogFinal.Model.Task1">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAQAAAgAAAABAAAAAgAAAgAAAQJAAAAAAEAAAA=</HashCode>
+      <FileName>Model\Task1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StationLogFinal.Model.TaskHandler">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABACBAAAAAAAAAAAABAAAABBAIAAAQQAAAA=</HashCode>
+      <FileName>Handlers\TaskHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StationLogFinal.ViewModel.DateTimeConverter" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModel\TaskViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="StationLogFinal.Persistency.IWebAPIAsync&lt;T&gt;">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAAAAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistency\IWebAPIAsync.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

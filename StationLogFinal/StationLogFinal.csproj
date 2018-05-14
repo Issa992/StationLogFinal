@@ -112,7 +112,7 @@
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\Task1.cs" />
     <Compile Include="Model\TaskCatalog.cs" />
-    <Compile Include="Model\TaskHandler.cs" />
+    <Compile Include="Handlers\TaskHandler.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\IWebAPIAsync.cs" />
     <Compile Include="Persistency\TaskWebAPI.cs" />
@@ -155,6 +155,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="ClassDiagrams\ClassDiagram1.cd" />
     <None Include="StationLogFinal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
