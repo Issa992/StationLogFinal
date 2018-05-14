@@ -124,7 +124,6 @@
     <Compile Include="Handlers\TaskHandler.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\IWebAPIAsync.cs" />
-    <Compile Include="Persistency\TaskWebAPI.cs" />
     <Compile Include="Persistency\WebAPIAsync.cs" />
     <Compile Include="Persistency\WebAPITest.cs" />
     <Compile Include="Common\RelayCommand.cs" />
