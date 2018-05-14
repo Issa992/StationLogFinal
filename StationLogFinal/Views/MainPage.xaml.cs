@@ -38,7 +38,7 @@ namespace StationLogFinal
 
         private void Navigate(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(HomeView));
+            Frame.Navigate(typeof(TasksView));
         }
         private void CurrentWindow_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {

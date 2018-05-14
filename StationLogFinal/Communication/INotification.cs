@@ -10,6 +10,7 @@ namespace StationLogFinal.Communication
     {
         
         int getID();
+       
         void MarkAsRed();
     }
 }

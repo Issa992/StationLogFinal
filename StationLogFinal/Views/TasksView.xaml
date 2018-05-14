@@ -66,7 +66,7 @@
 <!--listView Should be Binded To the TaskCatalog The Collection tasks-->
                 <ListView 
                     SelectedItem="{Binding SelectedTask, Mode=TwoWay }"
-                          ItemsSource="{Binding TasksColllection}"
+                          ItemsSource="{Binding TasksColllection,Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
@@ -77,8 +77,8 @@
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" >
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsDone,Mode=TwoWay}" Content="{Binding Description,Mode=TwoWay}" Width="398" ></CheckBox>
-                                    <TextBlock Text="{Binding DateTime,Mode=TwoWay}"></TextBlock>
+                                    <CheckBox IsChecked="{Binding IsDone,Mode=TwoWay}" Content="{Binding Description}" Width="398" ></CheckBox>
+                                    <TextBlock Text="{Binding DateTime}"></TextBlock>
                                 </StackPanel>
                                 <!--<TextBox Text="{Binding  TaskId,Mode=TwoWay}"></TextBox>
                                 <TextBox Text="{Binding   Description,Mode=TwoWay}"></TextBox>

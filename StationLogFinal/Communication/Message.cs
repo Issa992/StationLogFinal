@@ -13,6 +13,7 @@ namespace StationLogFinal.Communication
         public int ReceiverID { get; set; }
         private string message;
         public DateTime CreationTime;
+        public string status;
         bool isRed;
 
         public PMessage (int id, int senderid, int receiverid,
@@ -23,8 +24,17 @@ namespace StationLogFinal.Communication
             ReceiverID = receiverid;
             this.message = message;
             isRed = false;
+            status = "in_progress";
         }
-        
+        public void ReceiveMessage()
+        {
+            isRed = true;
+            status = "red";
+        }
+        public void SendMessage()
+        {
+            status = "sent";
+        }
 
     }
 }

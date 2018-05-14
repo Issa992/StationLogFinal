@@ -35,6 +35,7 @@ namespace StationLogWebApplication1
         [Required]
         [StringLength(50)]
         public string HashPass { get; set; }
+        public string Salt { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

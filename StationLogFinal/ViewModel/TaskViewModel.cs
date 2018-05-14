@@ -26,16 +26,26 @@ namespace StationLogFinal.ViewModel
 
         //public Task1 AddNewTask { get; set; }
 
-        private static ObservableCollection<Task1> _TasksColllection;
+        private static ObservableCollection<Task1> _TasksColllection { get; set; }
 
 
         public static Task1 _SelectedTask;
         private Task1 _newTask;
         public TaskHandler TaskHandler { get; set; }
+        //Working 
+        //public ObservableCollection<Task1> TasksColllection
+        //{
+        //    get => _TasksColllection;
+        //    set
+        //    {
+        //        TasksColllection = value;
+        //        OnPropertyChanged(nameof(TasksColllection));
 
-        public  ObservableCollection<Task1> TasksColllection
+        //    }
+        //}
+        public ObservableCollection<Task1> TasksColllection
         {
-            get=>_TasksColllection;
+            get => _TasksColllection;
             set
             {
                 TasksColllection = value;
@@ -43,7 +53,7 @@ namespace StationLogFinal.ViewModel
 
             }
         }
-    
+
         public Task1 NewTask
         {
             get { return _newTask; }
@@ -57,19 +67,21 @@ namespace StationLogFinal.ViewModel
 
         public TaskViewModel()
         {
+            //Refresh();
+          
             LoadTasks();
-
             NewTask = new Task1();
             TaskHandler= new TaskHandler(this);
 
-          
             CreateCommand = new RelayCommand(TaskHandler.CreateTask);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
             //AddNewTask=new Task1();
 
             DateTime d = DateTimeConverter .DTOfset(NewTask.Date);
-           
-           
+            
+            
+
+
 
 
 
@@ -102,9 +114,15 @@ namespace StationLogFinal.ViewModel
         }
 
 
+        public void Refresh()
+        {
+           //_TasksColllection.Clear();
+            TasksColllection.Clear();
 
+        }
 
     }
+ 
     public class DateTimeConverter
     {
         public static DateTime DTOfset(DateTimeOffset date)

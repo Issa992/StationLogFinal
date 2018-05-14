@@ -15,7 +15,24 @@ namespace UnitTest
         [TestInitialize]
         public void ObjectCreating()
         {
+            
+        }
+
+        [TestMethod]
+        public void NotificationCreation()
+        {
 
         }
+        [TestMethod]
+        public void GettingNotificationByID()
+        {
+
+        }
+        [TestMethod]
+        public void ChangeNotificationStatus()
+        {
+            
+        }
+       
     }
 }

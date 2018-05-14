@@ -1,9 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using StationLogFinal.Model;
 
 namespace StationLogFinal.Persistency
 {
+//var mock = new Mock<IWebAPIAsync<Task1>>();
+//WebAPIAsync<Task1> TwebApiAsync = new WebAPIAsync<Task1>();
+//WebAPITest<Task1> TaskWebApiTest = new WebAPITest<Task1>(TwebApiAsync);
+//Task1 task = new Task1(1, DateTime.Today, "wwwwww", true, true, DateTime.Now, 1, 1);
+////await TaskWebApiTest.RunAPITestCreate(task,mock.Object);
+//mock.Setup(x => x.Create(It.IsAny<Task1>()));
+//Assert.AreEqual(1,task.UserId);
+
+
+
     public class WebAPITest<T>
     {
         #region Instance fields
@@ -30,7 +41,7 @@ namespace StationLogFinal.Persistency
             await LoadAndPrint();
         }
 
-        public async Task RunAPITestCreate(T obj)
+        public async Task RunAPITestCreate(T obj,IWebAPIAsync<Task1> pApiAsync=null)
         {
             await RunAPITest(() => _webAPI.Create(obj));
         }
