@@ -7,7 +7,7 @@ namespace StationLogWebApplication1
     using System.Data.Entity.Spatial;
 
     [Table("Alert")]
-    public partial class Alert
+    public partial class Alert:StationLogFinal.Communication.INotification
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int AlertId { get; set; }
@@ -22,5 +22,27 @@ namespace StationLogWebApplication1
         public bool IsToggled { get; set; }
 
         public int StationId { get; set; }
+        public Alert()
+        {
+            IsRed = false;
+        }
+        public Alert(int id, int stationid, DateTime date, string mes,
+            bool toggled)
+        {
+            AlertId = id; StationId = stationid;
+            DeadLine = date; Message = mes;
+            IsRed = false; IsToggled = toggled;
+        }
+
+
+        public int getID()
+        {
+            return AlertId ;
+        }
+
+        public void MarkAsRed()
+        {
+            IsRed = true;
+        }
     }
 }
