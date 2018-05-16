@@ -21,5 +21,7 @@ namespace StationLogWebApplication1
         public virtual Log Log { get; set; }
 
         public virtual Monitor Monitor { get; set; }
+
+        //Not same as in communication folder
     }
 }

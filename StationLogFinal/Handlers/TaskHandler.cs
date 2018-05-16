@@ -49,8 +49,8 @@ namespace StationLogFinal.Model
             task.StationId = TaskViewModel.NewTask.StationId;
             task.UserId = TaskViewModel.NewTask.UserId;
 
-            //await TaskWebApiTest.RunAPITestCreate(task);
-            await iWebApiAsync.Create(task);
+            await TaskWebApiTest.RunAPITestCreate(task);
+            //await iWebApiAsync.Create(task);
 
 
 
@@ -70,7 +70,16 @@ namespace StationLogFinal.Model
         }
 
 
+        public async void UpdateTask()
+        {
+            TaskModel task = new TaskModel();
+       
+            task.IsDone = TaskViewModel.NewTask.IsDone;
+            await iWebApiAsync.Update(task.TaskId, task);
 
+
+
+        }
 
 
 

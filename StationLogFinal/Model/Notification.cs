@@ -22,5 +22,25 @@ namespace StationLogWebApplication1
         public int StationId { get; set; }
 
         public virtual Station Station { get; set; }
+        public Notification()
+        {
+            IsRed = false;
+        }
+        public Notification(int id, int stationid, DateTime date,
+           string mess)
+        {
+            NotificationId = id; StationId = stationid;
+            DeadLine = date; Message = mess;
+            IsRed = false;
+        }
+        public int getID()
+        {
+            return NotificationId;
+        }
+
+        public void MarkAsRed()
+        {
+            IsRed = true;
+        }
     }
 }
