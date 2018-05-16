@@ -70,15 +70,24 @@ namespace StationLogFinal.Model
         }
 
 
-        public async void UpdateTask()
+        //public async void UpdateTask()
+        //{
+        //    TaskModel task = new TaskModel();
+
+        //    TaskViewModel.NewTask.IsDone = true;
+        //    await iWebApiAsync.Update(task.TaskId, task);
+
+
+
+        //}
+
+        public async void UpdateTask(bool ischecked, TaskModel task)
         {
-            TaskModel task = new TaskModel();
-       
-            task.IsDone = TaskViewModel.NewTask.IsDone;
-            await iWebApiAsync.Update(task.TaskId, task);
 
 
-
+            task.IsDone = ischecked;
+            await iWebApiAsync.Update(task.TaskId,
+                task);
         }
 
 

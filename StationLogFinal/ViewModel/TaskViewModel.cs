@@ -79,7 +79,7 @@ namespace StationLogFinal.ViewModel
 
             CreateCommand = new RelayCommand(TaskHandler.CreateTask);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
-            UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
+            //UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
             //AddNewTask=new Task1();
 
             
