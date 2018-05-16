@@ -23,5 +23,10 @@ namespace StationLogWebApplication1
         public virtual User User { get; set; }
 
         public virtual Log Log { get; set; }
+
+        public override string ToString()
+        {
+            return $"comment: {Description} added on {CommentDate}"
+        }
     }
 }
