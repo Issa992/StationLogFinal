@@ -15,7 +15,7 @@ namespace UnitTest
         [TestInitialize]
         public void ObjectCreating()
         {
-            
+
         }
 
         [TestMethod]

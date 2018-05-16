@@ -33,6 +33,7 @@ namespace StationLogFinal.ViewModel
         public static TaskModel _SelectedTask;
         private TaskModel _newTask;
         public TaskHandler TaskHandler { get; set; }
+
         //Working 
         //public ObservableCollection<Task1> TasksColllection
         //{
@@ -44,6 +45,7 @@ namespace StationLogFinal.ViewModel
 
         //    }
         //}
+        
         public ObservableCollection<TaskModel> TasksColllection
         {
             get => _TasksColllection;
@@ -65,6 +67,7 @@ namespace StationLogFinal.ViewModel
 
         public ICommand CreateCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand UpdateCommand { get; set; }
 
         public TaskViewModel()
         {
@@ -76,6 +79,7 @@ namespace StationLogFinal.ViewModel
 
             CreateCommand = new RelayCommand(TaskHandler.CreateTask);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
+            UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
             //AddNewTask=new Task1();
 
             
@@ -113,7 +117,7 @@ namespace StationLogFinal.ViewModel
             return "succes";
         }
 
-
+    
         public void Refresh()
         {
            //_TasksColllection.Clear();
