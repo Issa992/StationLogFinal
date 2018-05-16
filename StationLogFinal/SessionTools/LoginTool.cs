@@ -6,7 +6,7 @@ using StationLogFinal.Common;
 
 namespace StationLogFinal.SessionTools
 {
-    static class LoginTool
+    public static class LoginTool
     {
         #region Methods
         public static async void LoginUser(User userToLogIn)
