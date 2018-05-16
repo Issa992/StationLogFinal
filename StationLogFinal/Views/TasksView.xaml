@@ -415,6 +415,10 @@
                                     <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="MyCheckBox"
                                               IsChecked="{Binding IsDone,Mode=TwoWay}" 
                                               Content="{Binding Description}" Width="398" 
+                                              Checked="MyCheckBox_OnChecked"
+                                              Unchecked="MyCheckBox_OnChecked"
+
+                                              
                                            
                                               ></CheckBox>
                                     <TextBlock Text="{Binding DateTime}"></TextBlock>

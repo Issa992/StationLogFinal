@@ -85,12 +85,25 @@ namespace StationLogFinal.Views
         //
         //
         //
+        //private void CheckBox_Checked(object sender, TappedRoutedEventArgs e)
+        //{
+        //    CheckBox checkBox=new CheckBox();
+        //    TaskModel task=checkBox.DataContext as TaskModel;
+        //    task.IsDone = (bool) checkBox.IsChecked;
+            
+
+            
+        //}
         private void CheckBox_Checked(object sender, TappedRoutedEventArgs e)
         {
-            CheckBox checkBox=new CheckBox();
-            Task1 task=checkBox.DataContext as Task1;
-            task.IsDone = (bool) checkBox.IsChecked;
-            
+            CheckBox checkBox = new CheckBox();
+            //Task1 task=checkBox.DataContext as Task1;
+            //task.IsDone = (bool) checkBox.IsChecked;
+            TaskHandler taskHandler = new TaskHandler(
+                new TaskViewModel());
+            taskHandler.UpdateTask((bool)checkBox.IsChecked,
+                (TaskModel)MyListView.SelectedItem);
+
         }
         //
         //
@@ -106,9 +119,20 @@ namespace StationLogFinal.Views
             }
             catch (Exception e)
             {
-                await new MessageDialog(e.Message, "Error loading tasks").ShowAsync();
+                //await new MessageDialog(e.Message, "Error loading tasks").ShowAsync();
 
             }
+        }
+
+        private void MyCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = new CheckBox();
+            //Task1 task=checkBox.DataContext as Task1;
+            //task.IsDone = (bool) checkBox.IsChecked;
+            TaskHandler taskHandler = new TaskHandler(
+                new TaskViewModel());
+            taskHandler.UpdateTask((bool)checkBox.IsChecked,
+                (TaskModel)MyListView.SelectedItem);
         }
     }
 }
