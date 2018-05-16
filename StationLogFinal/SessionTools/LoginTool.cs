@@ -17,6 +17,7 @@ namespace StationLogFinal.SessionTools
             if (succesfullyLogIn)
             {
                 CurrentSessioncs.CurrentUser = foundUser;
+                CurrentSessioncs.StartSession();
                 FrameNavigationClass.ActivateFrameNavigation(typeof(HomeView));
             }
             else
