@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogFinal.SessionTools;
 using StationLogFinal.ViewModel;
 using StationLogWebApplication1;
 
@@ -33,7 +34,10 @@ namespace StationLogFinal.Handlers
                 CommentId = CommentsViewM.NewComment.CommentId, //auto Id
                 Description = CommentsViewM.NewComment.Description,
                 UserId = CommentsViewM.NewComment.UserId,
-                //User = currently logged user?
+                User = CurrentSessioncs.GetCurrentUser(),
+                Log = new Log(),
+                LogId = 2
+                
 
 
             };
