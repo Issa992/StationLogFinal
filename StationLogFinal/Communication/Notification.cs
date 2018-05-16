@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StationLogFinal.Communication
 {
-    public class Notification : INotification
+     class Notification : INotification
     {
         public int ID;
         public int stationID;
