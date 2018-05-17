@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using StationLogFinal.ViewModel;
+using StationLogWebApplication1;
 
 
 namespace StationLogFinal.Model
@@ -21,9 +22,9 @@ namespace StationLogFinal.Model
         const string ApiPrefix = "api";
         const string ApiId = "Tasks";
 
-        private IWebAPIAsync<Task1> iWebApiAsync;
-        public static WebAPIAsync<Task1> TwebApiAsync = new WebAPIAsync<Task1>(ServerUrl, ApiPrefix, ApiId);
-        public WebAPITest<Task1> TaskWebApiTest = new WebAPITest<Task1>(TwebApiAsync);
+        private IWebAPIAsync<TaskModel> iWebApiAsync;
+        public static WebAPIAsync<TaskModel> TwebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
+        public WebAPITest<TaskModel> TaskWebApiTest = new WebAPITest<TaskModel>(TwebApiAsync);
 
 
         public TaskViewModel TaskViewModel { get; set; }
@@ -36,7 +37,7 @@ namespace StationLogFinal.Model
         public async void CreateTask()
         {
 
-            Task1 task = new Task1();
+            TaskModel task = new TaskModel();
 
 
             task.TaskId= TaskViewModel.NewTask.TaskId  ;
@@ -48,8 +49,8 @@ namespace StationLogFinal.Model
             task.StationId = TaskViewModel.NewTask.StationId;
             task.UserId = TaskViewModel.NewTask.UserId;
 
-            //await TaskWebApiTest.RunAPITestCreate(task);
-            await iWebApiAsync.Create(task);
+            await TaskWebApiTest.RunAPITestCreate(task);
+            //await iWebApiAsync.Create(task);
 
 
 
@@ -58,10 +59,10 @@ namespace StationLogFinal.Model
 
         public async void DeleteTask()
         {
-            Task1 task = new Task1();
+            TaskModel task = new TaskModel();
             task.TaskId = TaskViewModel.SelectedTask.TaskId;
             TaskViewModel.TasksColllection.Remove(TaskViewModel.SelectedTask);
-            iWebApiAsync = new WebAPIAsync<Task1>(ServerUrl, ApiPrefix, ApiId);
+            iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
 
 
             await iWebApiAsync.Delete(task.TaskId);
@@ -69,7 +70,16 @@ namespace StationLogFinal.Model
         }
 
 
+        public async void UpdateTask()
+        {
+            TaskModel task = new TaskModel();
+       
+            task.IsDone = TaskViewModel.NewTask.IsDone;
+            await iWebApiAsync.Update(task.TaskId, task);
 
+
+
+        }
 
 
 

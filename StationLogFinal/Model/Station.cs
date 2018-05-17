@@ -14,7 +14,7 @@ namespace StationLogWebApplication1
             Equipments = new HashSet<Equipment>();
             Logs = new HashSet<Log>();
             Notifications = new HashSet<Notification>();
-            Tasks = new HashSet<Task>();
+            Tasks = new HashSet<TaskModel>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -38,6 +38,6 @@ namespace StationLogWebApplication1
         public virtual ICollection<Notification> Notifications { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<TaskModel> Tasks { get; set; }
     }
 }

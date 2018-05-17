@@ -6,7 +6,7 @@ namespace StationLogWebApplication1
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Task
+    public partial class TaskModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TaskId { get; set; }
@@ -30,5 +30,26 @@ namespace StationLogWebApplication1
         public virtual Station Station { get; set; }
 
         public virtual User User { get; set; }
+
+        public TaskModel(int taskId, DateTime dateTime, string description, bool isRepeatable, bool isDone,
+            DateTime schduledDate, int stationId, int userId)
+        {
+
+
+            TaskId = taskId;
+            DateTime = dateTime;
+            Description = description;
+            IsRepeatable = isRepeatable;
+            IsDone = isDone;
+            SchduledDate = schduledDate;
+            StationId = stationId;
+            UserId = userId;
+        }
+
+
+        public TaskModel()
+        {
+
+        }
     }
 }

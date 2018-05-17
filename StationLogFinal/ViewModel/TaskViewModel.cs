@@ -11,6 +11,7 @@ using StationLogFinal.Annotations;
 using StationLogFinal.Common;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogWebApplication1;
 using Task = System.Threading.Tasks.Task;
 
 namespace StationLogFinal.ViewModel
@@ -22,16 +23,17 @@ namespace StationLogFinal.ViewModel
         const string ApiPrefix = "api";
         const string ApiId = "Tasks";
 
-        static IWebAPIAsync<Task1> iWebApiAsync = new WebAPIAsync<Task1>(ServerUrl, ApiPrefix, ApiId);
+        static IWebAPIAsync<TaskModel> iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
 
         //public Task1 AddNewTask { get; set; }
 
-        private static ObservableCollection<Task1> _TasksColllection { get; set; }
+        private static ObservableCollection<TaskModel> _TasksColllection { get; set; }
 
 
-        public static Task1 _SelectedTask;
-        private Task1 _newTask;
+        public static TaskModel _SelectedTask;
+        private TaskModel _newTask;
         public TaskHandler TaskHandler { get; set; }
+
         //Working 
         //public ObservableCollection<Task1> TasksColllection
         //{
@@ -43,7 +45,8 @@ namespace StationLogFinal.ViewModel
 
         //    }
         //}
-        public ObservableCollection<Task1> TasksColllection
+        
+        public ObservableCollection<TaskModel> TasksColllection
         {
             get => _TasksColllection;
             set
@@ -54,7 +57,7 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        public Task1 NewTask
+        public TaskModel NewTask
         {
             get { return _newTask; }
             set { _newTask = value; OnPropertyChanged(); }
@@ -64,20 +67,21 @@ namespace StationLogFinal.ViewModel
 
         public ICommand CreateCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand UpdateCommand { get; set; }
 
         public TaskViewModel()
         {
             //Refresh();
           
             LoadTasks();
-            NewTask = new Task1();
+            NewTask = new TaskModel();
             TaskHandler= new TaskHandler(this);
 
             CreateCommand = new RelayCommand(TaskHandler.CreateTask);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
+            UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
             //AddNewTask=new Task1();
 
-            DateTime d = DateTimeConverter .DTOfset(NewTask.Date);
             
             
 
@@ -88,7 +92,7 @@ namespace StationLogFinal.ViewModel
 
         }
 
-        public Task1 SelectedTask
+        public TaskModel SelectedTask
         {
             get => _SelectedTask;
             set
@@ -102,7 +106,7 @@ namespace StationLogFinal.ViewModel
 
 
 
-           _TasksColllection = new ObservableCollection<Task1>(await iWebApiAsync.Load());
+           _TasksColllection = new ObservableCollection<TaskModel>(await iWebApiAsync.Load());
 
 
             //foreach (var tasks in TasksColllection)
@@ -113,7 +117,7 @@ namespace StationLogFinal.ViewModel
             return "succes";
         }
 
-
+    
         public void Refresh()
         {
            //_TasksColllection.Clear();
@@ -123,12 +127,6 @@ namespace StationLogFinal.ViewModel
 
     }
  
-    public class DateTimeConverter
-    {
-        public static DateTime DTOfset(DateTimeOffset date)
-        {
-            return new DateTime(date.Year, date.Month, date.Day);
-        }
-    }
+   
 
 }
