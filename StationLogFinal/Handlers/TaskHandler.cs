@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogFinal.SessionTools;
 using StationLogFinal.ViewModel;
 using StationLogWebApplication1;
 
@@ -18,7 +19,7 @@ namespace StationLogFinal.Model
 {
     class TaskHandler
     {
-        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net/";
+        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Tasks";
 
@@ -47,7 +48,7 @@ namespace StationLogFinal.Model
             task.IsRepeatable = TaskViewModel.NewTask.IsRepeatable;
             task.SchduledDate = TaskViewModel.NewTask.SchduledDate;
             task.StationId = TaskViewModel.NewTask.StationId;
-            task.UserId = TaskViewModel.NewTask.UserId;
+            task.UserId = CurrentSessioncs.GetCurrentUser().UserId;
 
             await TaskWebApiTest.RunAPITestCreate(task);
             //await iWebApiAsync.Create(task);

@@ -35,7 +35,7 @@ namespace StationLogFinal.Persistency
             await LoadAndPrint();
         }
 
-        public async Task RunAPITestCreate(T obj,IWebAPIAsync<Task1> pApiAsync=null)
+        public async Task RunAPITestCreate(T obj)
         {
             await RunAPITest(() => _webAPI.Create(obj));
         }

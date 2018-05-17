@@ -27,7 +27,7 @@ namespace StationLogFinal.ViewModel
         const string ApiId = "Comments";
 
         public static IWebAPIAsync<Comment> iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
-
+        WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
         private static ObservableCollection<Comment> _CommentsOC;
 
         public  ObservableCollection<Comment> CommentsOC

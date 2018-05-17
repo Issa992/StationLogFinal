@@ -47,7 +47,6 @@
             <TimePicker Time="{Binding NewTask.DateTime.TimeOfDay,Mode=TwoWay}" Width="296" Margin="20,0,0,0"></TimePicker>
 
             <TextBox x:Name="StationId"  PlaceholderText="StationId" Margin="20" Text="{Binding NewTask.StationId ,Mode=TwoWay}"/>
-            <TextBox x:Name="UserId"  PlaceholderText="UserId" Margin="20" Text="{Binding  NewTask.UserId,Mode=TwoWay}"/>
             <!---->
 
         </StackPanel>
