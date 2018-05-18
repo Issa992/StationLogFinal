@@ -27,10 +27,19 @@ namespace StationLogWebApplication1
 
         public int UserId { get; set; }
 
-        public virtual Station Station { get; set; }
+        //public virtual Station Station { get; set; }
 
-        public virtual User User { get; set; }
-
+        //public virtual User User { get; set; }
+        public DateTimeOffset DateOffset
+        {
+            get { return DateTime.SpecifyKind(DateTime, DateTimeKind.Utc); }
+            set { DateTime = value.DateTime; }
+        }
+        public DateTimeOffset DateOffsetSchduledDate
+        {
+            get { return DateTime.SpecifyKind(DateTime, DateTimeKind.Utc); }
+            set { SchduledDate = value.DateTime; }
+        }
         public TaskModel(int taskId, DateTime dateTime, string description, bool isRepeatable, bool isDone,
             DateTime schduledDate, int stationId, int userId)
         {

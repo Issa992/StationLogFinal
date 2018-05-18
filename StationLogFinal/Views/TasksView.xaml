@@ -401,7 +401,7 @@
 <!--listView Should be Binded To the TaskCatalog The Collection tasks-->
                 <ListView   x:Name="MyListView" 
                     SelectedItem="{Binding SelectedTask, Mode=TwoWay }"
-                          ItemsSource="{Binding TasksColllection}"
+                          ItemsSource="{Binding TasksColllection,Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
@@ -415,13 +415,12 @@
                                     <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="MyCheckBox"
                                               IsChecked="{Binding IsDone,Mode=TwoWay}" 
                                               Content="{Binding Description}" Width="398" 
-                                              Checked="MyCheckBox_OnChecked"
-                                              Unchecked="MyCheckBox_OnChecked"
-
-                                              
+                                              IsThreeState="False"
+                                              Tapped="CheckBox_Checked"
                                            
                                               ></CheckBox>
                                     <TextBlock Text="{Binding DateTime}"></TextBlock>
+                                    
                                 </StackPanel>
                                 <!--<TextBox Text="{Binding  TaskId,Mode=TwoWay}"></TextBox>
                                 <TextBox Text="{Binding   Description,Mode=TwoWay}"></TextBox>

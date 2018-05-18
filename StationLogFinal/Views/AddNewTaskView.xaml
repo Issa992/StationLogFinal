@@ -32,22 +32,19 @@
             <TextBox x:Name="TaskId" PlaceholderText="TaskId" Margin="20" Text="{Binding NewTask.TaskId,Mode=TwoWay}" ></TextBox>
        
             <DatePicker   Name="datePicker" 
-                          
+                          DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
                           Foreground="Black" 
-                          Date="{Binding NewTask.DateTime,Mode=TwoWay}" Margin="20,0,0,0" Width="276"/>
+                          Date="{Binding NewTask.DateOffset,Mode=TwoWay}" Margin="20,0,0,0" Width="276"/>
             <TextBox x:Name="Description"  PlaceholderText="Description" Margin="20" Text="{Binding NewTask.Description ,Mode=TwoWay}"/>
             <!---->
-            <TextBox x:Name="IsRepeatable"  PlaceholderText="IsRepeatable" Margin="20" Text="{Binding NewTask.IsRepeatable ,Mode=TwoWay}"/>
-            <TextBox x:Name="IsDone"  PlaceholderText="IsDone" Margin="20" Text="{Binding NewTask.IsDone ,Mode=TwoWay}" />
+            <ToggleSwitch Header="Is Repeatable" IsOn="{Binding NewTask.IsRepeatable,Mode=TwoWay}" ></ToggleSwitch>
 
             <DatePicker   Name="DatePicker" 
                           DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
                           Foreground="Black" 
-                          Date="{Binding NewTask.SchduledDate.Date,Mode=TwoWay}"/>
-            <TimePicker Time="{Binding NewTask.DateTime.TimeOfDay,Mode=TwoWay}" Width="296" Margin="20,0,0,0"></TimePicker>
+                          Date="{Binding NewTask.DateOffsetSchduledDate,Mode=TwoWay}"/>
 
             <TextBox x:Name="StationId"  PlaceholderText="StationId" Margin="20" Text="{Binding NewTask.StationId ,Mode=TwoWay}"/>
-            <TextBox x:Name="UserId"  PlaceholderText="UserId" Margin="20" Text="{Binding  NewTask.UserId,Mode=TwoWay}"/>
             <!---->
 
         </StackPanel>
