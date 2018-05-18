@@ -26,7 +26,7 @@ namespace StationLogWebApplication1
 
         public override string ToString()
         {
-            return $"comment: {Description} added on {CommentDate}";
+            return $"comment: {Description} added on {CommentDate} by {User.UserId}";
         }
     }
 }

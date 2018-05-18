@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogFinal.SessionTools;
 using StationLogFinal.ViewModel;
 using StationLogWebApplication1;
 
@@ -13,9 +14,9 @@ namespace StationLogFinal.Handlers
 {
     class MeasurementsHandler
     {
-        private Measurement measurment;
+      public Measurement measurment;
 
-        public MeasurementsViewModel MeasurementsViewM { get; set; }
+         public MeasurementsViewModel MeasurementsViewM { get; set; }
 
 
         const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
@@ -32,12 +33,14 @@ namespace StationLogFinal.Handlers
 
             measurment = new Measurement
             {
-                //ID = MeasurementsViewM.NewMeasurment.ID,
-                //unit = MeasurementsViewM.NewMeasurment.unit,
-                //Description = MeasurementsViewM.NewMeasurment.Description,
-                //MonitorID = MeasurementsViewM.NewMeasurment.MonitorID,
-                //UserID = MeasurementsViewM.NewMeasurment.UserID,
-                //Value = MeasurementsViewM.NewMeasurment.Value
+                MeasurementId = MeasurementsViewM.NewMeasurment.MeasurementId,
+                MonitorId = MeasurementsViewM.NewMeasurment.MonitorId,
+                Date = DateTime.Now,
+                Description = MeasurementsViewM.NewMeasurment.Description,
+                Value = MeasurementsViewM.NewMeasurment.Value,
+                User = CurrentSessioncs.GetCurrentUser(),
+                UserId = CurrentSessioncs.GetCurrentUser().UserId,
+                StationId = 2
             };
             MeasurementsViewM.MeasurementsOC.Add(measurment);
             await MeasurmentTester.RunAPITestCreate(measurment);
@@ -49,6 +52,13 @@ namespace StationLogFinal.Handlers
             //await MeasurmentTester.RunAPITestDelete(MeasurementsViewM.SelectedMeasurment.ID);
         }
 
+        public void SortMeasurmentsByUserAndStation()
+        {
+
+            var result = MeasurementsViewM.MeasurementsOC.Where(x => x.UserId == CurrentSessioncs.GetCurrentUser().UserId  && x.StationId == 2 );
+            var myObservableCollection = new ObservableCollection<Measurement>(result);
+            MeasurementsViewM.MeasurementsOC = myObservableCollection;
+        }
 
         public MeasurementsHandler(MeasurementsViewModel measurementsViewModel)
         {

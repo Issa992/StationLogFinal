@@ -9,6 +9,7 @@ using StationLogFinal.Common;
 using StationLogFinal.Handlers;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogFinal.SessionTools;
 using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
@@ -17,6 +18,7 @@ namespace StationLogFinal.ViewModel
     {
         public ICommand CreateCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand Sort { get; set; }
 
 
         const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
@@ -25,7 +27,7 @@ namespace StationLogFinal.ViewModel
 
         static IWebAPIAsync<Measurement> iWebApiAsyncMeasure = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, ApiIdMeasurements);
 
-
+        private static ObservableCollection<Measurement> _sortedMeasurements;
         private static ObservableCollection<Measurement> _MeasurementsOC;
 
         public ObservableCollection<Measurement> MeasurementsOC
@@ -35,6 +37,15 @@ namespace StationLogFinal.ViewModel
             {
                 MeasurementsOC = value;
                 OnPropertyChanged(nameof(MeasurementsOC));
+            }
+        }
+        public ObservableCollection<Measurement> SortednMeasurements
+        {
+            get => _sortedMeasurements;
+            set
+            {
+                SortednMeasurements = value;
+                OnPropertyChanged(nameof(SortednMeasurements));
             }
         }
 
@@ -66,10 +77,14 @@ namespace StationLogFinal.ViewModel
         }
 
 
-        public async void LoadMeasurments()
+        public async Task<int> LoadMeasurments()
         {
             _MeasurementsOC = new ObservableCollection<Measurement>(await iWebApiAsyncMeasure.Load());
+            return 1;
+
         }
+
+
 
 
      
@@ -78,10 +93,12 @@ namespace StationLogFinal.ViewModel
         {
             NewMeasurment = new Measurement();
             LoadMeasurments();
-           measurementsHandler = new MeasurementsHandler(this);
+            
+            measurementsHandler = new MeasurementsHandler(this);
         
             CreateCommand = new RelayCommand(measurementsHandler.AddMeasurment);
             DeleteCommand = new RelayCommand(measurementsHandler.DeleteMeasurment);
+            Sort = new RelayCommand(measurementsHandler.SortMeasurmentsByUserAndStation);
         }
     }
 }

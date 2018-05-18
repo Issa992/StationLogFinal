@@ -62,10 +62,10 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        public async void LoadComments()
+        public async Task<string> LoadComments()
         {
             _CommentsOC = new ObservableCollection<Comment>(await iWebApiAsync.Load());
-
+            return "success";
         }
   
 

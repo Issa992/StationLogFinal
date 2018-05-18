@@ -58,9 +58,11 @@
             <RelativePanel>
                 <StackPanel>
                     <DatePicker x:Name="LogsDatePicker"></DatePicker>
-                    <TextBox x:Name="MonitoridTextBox"></TextBox>
+                    <TextBox x:Name="StationidTextBox"></TextBox>
                     <TextBox x:Name="UserIdTextBox"></TextBox>
                     <Button Content="Search" Click="ButtonBase1_OnClick"></Button>
+                    <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
+                    <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
                 </StackPanel>
                 
                 <ListView ItemsSource="{Binding MeasurementsOC}"
@@ -70,10 +72,11 @@
                     RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5"  x:Name="MyListView" 
-                      Height="421" Width="900">
+                      Margin="5"  x:Name="measurementsListcView" 
+                      Height="421" Width="848">
  
                 </ListView>
+              
 
             </RelativePanel>
         </ScrollViewer>
