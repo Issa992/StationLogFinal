@@ -35,7 +35,7 @@ namespace StationLogFinal.Model
             TaskViewModel = taskViewModel;
         }
 
-        public async void CreateTask()
+        public async Task CreateTask()
         {
 
             TaskModel task = new TaskModel();
@@ -91,150 +91,149 @@ namespace StationLogFinal.Model
 
 
 
-        //    public async void CheckFields()
-        //    {
+        public async void CheckFields()
+        {
 
-        //        if (CheckFieldsNotBlank())
-        //        {
-        //            //if (CheckAvailability())
-        //            //{
-        //            TaskViewModel.TasksColllection.Add(TaskViewModel.NewTask);
-        //            CreateTask();
-        //            EventCreatedPopUp();
-        //            //}
+            if (CheckFieldsNotBlank())
+            {
 
-        //        }
-        //        else
-        //        {
-        //            EmptyFieldsPopUp();
-        //        }
+                if (CheckAvailability())
+                {
+                    TaskViewModel.TasksColllection.Add(TaskViewModel.NewTask);
+                    await CreateTask();
+                    TaskCreatedPopUp();
+                }
 
-        //    }
+            }
+            else
+            {
+                EmptyTaskFieldsPopUp();
+            }
 
-        //    private bool CheckFieldsNotBlank()
-        //    {
-        //        if ((TaskViewModel.NewTask.UserId == null) || (AddNewEvent.Description == null) ||
-        //            (AddNewEvent.Location == null) || (AddNewEvent.Date == null) ||
-        //            (AddNewEvent.Time == null) || (AddNewEvent.DateTime == null))
+        }
 
-        //        {
-        //            return false;
-        //        }
-        //        else return true;
-        //    }
+        private bool CheckFieldsNotBlank()
+        {
+            if ((TaskViewModel.NewTask.TaskId == 0) || (TaskViewModel.NewTask.DateOffset == null) ||
+                (TaskViewModel.NewTask.DateOffsetSchduledDate== null) ||
+                (TaskViewModel.NewTask.StationId == 0) || (TaskViewModel.NewTask.IsRepeatable == null))
 
-
-
-        //    private bool CheckAvailability()
-        //    {
-        //        if (EventList != null)
-        //        {
-
-
-        //            var Check = EventList.FirstOrDefault(x => x.Name == AddNewEvent.Name);
-        //            var Check1 = EventList.FirstOrDefault(x => x.Location == AddNewEvent.Location);
-        //            var Check2 = EventList.FirstOrDefault(x => x.Description == AddNewEvent.Description);
-        //            var check3 = EventList.FirstOrDefault(x => x.Date == AddNewEvent.Date);
-        //            var check4 = EventList.FirstOrDefault(x => x.Time == AddNewEvent.Time);
-        //            var check5 = EventList.FirstOrDefault(x => x.DateTime == AddNewEvent.DateTime);
-
-        //            if (((Check == null) && (Check1 == null) && (Check2 == null)
-        //                 && (check3 == null) && (check4 == null) && (check5 == null)))
-        //            {
-        //                ///////////////////////////////////////////.........................................................................................................................................
-        //                return true;
-        //            }
-        //            else
-        //            {
-        //                EventCreatedPopUp();
-        //                return false;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    private async void EventCreatedPopUp()
-        //    {
-        //        var dialog = new Windows.UI.Popups.MessageDialog("Your Event Has Been Created. ", "!!!");
-        //        dialog.Commands.Add(new Windows.UI.Popups.UICommand("OK") { Id = 1 });
-
-        //        dialog.CancelCommandIndex = 1;
-
-        //        var result = await dialog.ShowAsync();
-        //    }
-
-        //    private async void EmptyFieldsPopUp()
-        //    {
-        //        var dialog = new Windows.UI.Popups.MessageDialog("You Need To Fill All The Fields", "Try Again");
-        //        dialog.Commands.Add(new Windows.UI.Popups.UICommand("Ok") { Id = 1 });
-        //        dialog.CancelCommandIndex = 1;
-        //        var result = await dialog.ShowAsync();
-        //    }
-        //}
+            {
+                return false;
+            }
+            else return true;
+        }
 
 
 
+        private bool CheckAvailability()
+        {
+            if (TaskViewModel.TasksColllection != null)
+            {
 
 
+                var Check = TaskViewModel.TasksColllection.FirstOrDefault(x => x.TaskId == TaskViewModel.NewTask.TaskId);
+                var Check1 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.DateOffset == TaskViewModel.NewTask.DateOffset);
+                var Check2 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.Description == TaskViewModel.NewTask.Description);
+                var check3 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.DateOffsetSchduledDate == TaskViewModel.NewTask.DateOffsetSchduledDate);
+                var check4 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.IsRepeatable == TaskViewModel.NewTask.IsRepeatable);
 
+                if (((Check == null) && (Check1 == null) && (Check2 == null)
+                     && (check3 == null) && (check4 == null) ))
+                {
+                    ///////////////////////////////////////////.........................................................................................................................................
+                    return false;
+                }
+                else
+                {
+                    TaskCreatedPopUp();
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private async void TaskCreatedPopUp()
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog("Your Event Has Been Created. ", "!!!");
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("OK") { Id = 1 });
 
+            dialog.CancelCommandIndex = 1;
 
-        ////////////////////////////////////////////////////////////////////////////////////////
+            var result = await dialog.ShowAsync();
+        }
 
-
-        //private string url;
-
-        //public TaskHandler()
-        //{
-        //    tasksList = new ObservableCollection<Task1>();
-        //}
-
-        //public void CreateTask(Task1 task)
-        //{
-        //    if (task != null)
-        //    {
-        //        tasksList.Add(task);
-        //    }
-
-        //}
-
-        ////public void DeleteTask(int taskID)
-        ////{
-        ////    foreach (var task in tasksList)
-        ////    {
-        ////        if (task.ID == taskID)
-        ////        {
-        ////            tasksList.Remove(task);
-        ////        }
-        ////    }
-        ////}
-
-        ////redo : adding comment to already existing task
-
-        ////public void UpadateTask(int taskId)
-        ////{
-        ////    var task = tasksList.Where(d => d.taskID == taskId).FirstOrDefault();
-        ////    if (task != null)
-        ////    {
-        ////        //change values...
-        ////        //task.Name = "a new name";
-
-        ////    }
-        ////}
-
-        //public Task1 GetTask(int taskId)
-        //{
-        //    return tasksList[taskId];
-        //}
-
-        ////public void MakeTaskDone(int taskId)
-        ////{
-        ////    if (tasksList[taskId].IsDone != true)
-        ////    tasksList[taskId].IsDone = true;
-        ////}
+        private async void EmptyTaskFieldsPopUp()
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog("You Need To Fill All The Fields", "Try Again");
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Ok") { Id = 1 });
+            dialog.CancelCommandIndex = 1;
+            var result = await dialog.ShowAsync();
+        }
     }
 
+
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //private string url;
+
+    //public TaskHandler()
+    //{
+    //    tasksList = new ObservableCollection<Task1>();
+    //}
+
+    //public void CreateTask(Task1 task)
+    //{
+    //    if (task != null)
+    //    {
+    //        tasksList.Add(task);
+    //    }
+
+    //}
+
+    ////public void DeleteTask(int taskID)
+    ////{
+    ////    foreach (var task in tasksList)
+    ////    {
+    ////        if (task.ID == taskID)
+    ////        {
+    ////            tasksList.Remove(task);
+    ////        }
+    ////    }
+    ////}
+
+    ////redo : adding comment to already existing task
+
+    ////public void UpadateTask(int taskId)
+    ////{
+    ////    var task = tasksList.Where(d => d.taskID == taskId).FirstOrDefault();
+    ////    if (task != null)
+    ////    {
+    ////        //change values...
+    ////        //task.Name = "a new name";
+
+    ////    }
+    ////}
+
+    //public Task1 GetTask(int taskId)
+    //{
+    //    return tasksList[taskId];
+    //}
+
+    ////public void MakeTaskDone(int taskId)
+    ////{
+    ////    if (tasksList[taskId].IsDone != true)
+    ////    tasksList[taskId].IsDone = true;
+    ////}
 }
+
 

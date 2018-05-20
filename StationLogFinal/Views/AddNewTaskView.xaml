@@ -29,7 +29,8 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            <TextBox x:Name="TaskId" PlaceholderText="TaskId" Margin="20" Text="{Binding NewTask.TaskId,Mode=TwoWay}" ></TextBox>
+            <TextBox x:Name="TaskId" PlaceholderText="TaskId" Margin="20"
+                     Text="{Binding NewTask.TaskId,Mode=TwoWay}" ></TextBox>
        
             <DatePicker   Name="datePicker" 
                           DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
@@ -44,7 +45,7 @@
                           Foreground="Black" 
                           Date="{Binding NewTask.DateOffsetSchduledDate,Mode=TwoWay}"/>
 
-            <TextBox x:Name="StationId"  PlaceholderText="StationId" Margin="20" Text="{Binding NewTask.StationId ,Mode=TwoWay}"/>
+            <TextBox x:Name="StationId"  PlaceholderText="StationId" Margin="20" Text="{Binding NewTask.StationId,Mode=TwoWay}"/>
             <!---->
 
         </StackPanel>

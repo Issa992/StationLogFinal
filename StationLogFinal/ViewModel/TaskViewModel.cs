@@ -71,19 +71,19 @@ namespace StationLogFinal.ViewModel
 
         public TaskViewModel()
         {
-            //Refresh();
-          
+            
+
             LoadTasks();
             NewTask = new TaskModel();
             TaskHandler= new TaskHandler(this);
 
-            CreateCommand = new RelayCommand(TaskHandler.CreateTask);
+            CreateCommand = new RelayCommand(TaskHandler.CheckFields);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
             //UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
             //AddNewTask=new Task1();
+       
 
-            
-            
+
 
 
 
@@ -104,15 +104,16 @@ namespace StationLogFinal.ViewModel
         public  async Task<string> LoadTasks()
         {
 
+        
 
-
-           _TasksColllection = new ObservableCollection<TaskModel>(await iWebApiAsync.Load());
-
+            _TasksColllection = new ObservableCollection<TaskModel>(await iWebApiAsync.Load());
 
             //foreach (var tasks in TasksColllection)
             //{
             //    TasksColllection.Add(tasks);
             //}
+
+
 
             return "succes";
         }
@@ -121,7 +122,7 @@ namespace StationLogFinal.ViewModel
         public void Refresh()
         {
            //_TasksColllection.Clear();
-            TasksColllection.Clear();
+           _TasksColllection.Clear();
 
         }
 

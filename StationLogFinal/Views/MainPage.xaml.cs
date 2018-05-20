@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using StationLogFinal.Views;
 using StationLogWebApplication1;
 using StationLogFinal.SessionTools;
+using StationLogFinal.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -46,6 +47,28 @@ namespace StationLogFinal
             userInput.HashPass = userPasswordBox.Password;
             LoginTool.LoginUser(userInput);
 
+
+        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            RefreshItems();
+
+        }
+        private async void RefreshItems()
+        {
+            try
+            {
+
+                await new TaskViewModel().LoadTasks();
+
+
+                //MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
+            }
+            catch (Exception e)
+            {
+                //await new MessageDialog(e.Message, "Error loading tasks").ShowAsync();
+
+            }
         }
         private void CurrentWindow_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {

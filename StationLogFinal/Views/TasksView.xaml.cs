@@ -34,14 +34,17 @@ namespace StationLogFinal.Views
     {
         public TasksView()
         {
+        
             this.InitializeComponent();
 
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            RefreshItems();
-        }
+     
+        //protected override async void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    RefreshItems();
+
+        //}
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             MyCommandBar.IsOpen = true;
@@ -140,6 +143,7 @@ namespace StationLogFinal.Views
         {
             try
             {
+               
                 MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
                
 
@@ -162,6 +166,14 @@ namespace StationLogFinal.Views
             ////taskHandler.UpdateTask((bool)checkBox.IsChecked,
             ////    (TaskModel)MyListView.SelectedItem);
             //taskHandler.UpdateTask(task);
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            
+            Frame.Navigate(typeof(TasksView));
+            //RefreshItems();
+            //RefreshItems();
         }
     }
 }
