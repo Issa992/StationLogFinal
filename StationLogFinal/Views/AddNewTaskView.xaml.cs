@@ -46,5 +46,10 @@ namespace StationLogFinal.Views
             DatePicker.MaxYear = DateTimeOffset.Now.AddYears(5);
 
         }
+
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            await new TaskViewModel().LoadTasks();
+        }
     }
 }

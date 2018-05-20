@@ -168,12 +168,16 @@ namespace StationLogFinal.Views
             //taskHandler.UpdateTask(task);
         }
 
-        private void Delete(object sender, RoutedEventArgs e)
+        private async void Delete(object sender, RoutedEventArgs e)
         {
-            
             Frame.Navigate(typeof(TasksView));
+            RefreshItems();
+            
+            
             //RefreshItems();
             //RefreshItems();
         }
+      
+      
     }
 }

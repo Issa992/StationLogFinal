@@ -213,7 +213,6 @@
     <Compile Include="Models\Station.cs" />
     <Compile Include="Models\StationLogDBContext.cs" />
     <Compile Include="Models\Task.cs" />
-    <Compile Include="Models\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
