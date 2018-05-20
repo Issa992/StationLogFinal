@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using StationLogFinal.SessionTools;
@@ -25,24 +26,33 @@ namespace StationLogFinal.Handlers
         //asdsadsadasd
         public async void AddComment()
         {
-            WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
 
-
-            comment = new Comment
+            try
             {
-                CommentDate = DateTime.Now,
-                CommentId = CommentsViewM.NewComment.CommentId, //auto Id
-                Description = CommentsViewM.NewComment.Description,
-                UserId = CommentsViewM.NewComment.UserId,
-                User = CurrentSessioncs.GetCurrentUser(),
-                Log = new Log(),
-                LogId = 2
-                
+                WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
 
 
-            };
-            CommentsViewM.CommentsOC.Add(comment);
-            await CommentTester.RunAPITestCreate(comment);
+                comment = new Comment
+                {
+                    CommentDate = DateTime.Now,
+                   CommentId = CommentsViewM.NewComment.CommentId,
+                    Description = CommentsViewM.NewComment.Description,
+                    UserId = CurrentSessioncs.GetCurrentUser().UserId,
+                    User = CurrentSessioncs.GetCurrentUser(),
+                    Log = new Log(),
+                    LogId = 0
+
+
+
+                };
+                CommentsViewM.CommentsOC.Add(comment);
+                await CommentTester.RunAPITestCreate(comment);
+            }
+            catch (Exception exception)
+            {
+                MessageDialog dialog = new MessageDialog(exception.ToString());
+            }
+            
             
 
         }
