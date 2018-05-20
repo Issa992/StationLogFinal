@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using StationLogFinal.Model;
+using StationLogWebApplication1;
 
 namespace StationLogFinal.Persistency
 {
@@ -35,7 +36,7 @@ namespace StationLogFinal.Persistency
             await LoadAndPrint();
         }
 
-        public async Task RunAPITestCreate(T obj,IWebAPIAsync<Task1> pApiAsync=null)
+        public async Task RunAPITestCreate(T obj)
         {
             await RunAPITest(() => _webAPI.Create(obj));
         }

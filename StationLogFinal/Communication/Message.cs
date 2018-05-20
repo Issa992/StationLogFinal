@@ -24,17 +24,14 @@ namespace StationLogFinal.Communication
             ReceiverID = receiverid;
             this.message = message;
             isRed = false;
-            status = "in_progress";
+           
         }
         public void ReceiveMessage()
         {
             isRed = true;
-            status = "red";
+            
         }
-        public void SendMessage()
-        {
-            status = "sent";
-        }
+        
 
     }
 }

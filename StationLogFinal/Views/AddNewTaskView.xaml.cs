@@ -42,6 +42,8 @@ namespace StationLogFinal.Views
 
             datePicker.MinYear = DateTimeOffset.Now;
             datePicker.MaxYear = DateTimeOffset.Now.AddYears(5);
+            DatePicker.MinYear = DateTimeOffset.Now;
+            DatePicker.MaxYear = DateTimeOffset.Now.AddYears(5);
 
         }
     }
