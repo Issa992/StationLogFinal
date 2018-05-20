@@ -52,14 +52,7 @@ namespace StationLogFinal.Handlers
             //await MeasurmentTester.RunAPITestDelete(MeasurementsViewM.SelectedMeasurment.ID);
         }
 
-        public void SortMeasurmentsByUserAndStation()
-        {
-
-            var result = MeasurementsViewM.MeasurementsOC.Where(x => x.UserId == CurrentSessioncs.GetCurrentUser().UserId  && x.StationId == 2 );
-            var myObservableCollection = new ObservableCollection<Measurement>(result);
-            MeasurementsViewM.MeasurementsOC = myObservableCollection;
-        }
-
+     
         public MeasurementsHandler(MeasurementsViewModel measurementsViewModel)
         {
             MeasurementsViewM = measurementsViewModel;

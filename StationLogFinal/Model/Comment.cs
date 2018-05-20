@@ -8,6 +8,10 @@ namespace StationLogWebApplication1
 
     public partial class Comment
     {
+        public Comment()
+        {
+            
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CommentId { get; set; }
 
@@ -23,6 +27,18 @@ namespace StationLogWebApplication1
         public virtual User User { get; set; }
 
         public virtual Log Log { get; set; }
+
+        public Comment(int commentId, DateTime commentDate, string description, int userId, int logid, User user, Log log)
+        {
+            CommentId = commentId;
+            CommentDate = commentDate;
+            Description = description;
+            UserId = userId;
+            LogId = logid;
+            User = user;
+            Log = log;
+
+        }
 
         public override string ToString()
         {

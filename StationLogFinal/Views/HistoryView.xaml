@@ -60,7 +60,7 @@
                     <DatePicker x:Name="LogsDatePicker"></DatePicker>
                     <TextBox x:Name="StationidTextBox"></TextBox>
                     <TextBox x:Name="UserIdTextBox"></TextBox>
-                    <Button Content="Search" Click="ButtonBase1_OnClick"></Button>
+                    <Button Content="Sort" Click="ButtonBase1_OnClick"></Button>
                     <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
                     <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
                 </StackPanel>

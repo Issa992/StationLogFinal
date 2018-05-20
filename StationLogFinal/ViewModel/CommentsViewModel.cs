@@ -62,18 +62,19 @@ namespace StationLogFinal.ViewModel
             }
         }
 
-        public async Task<string> LoadComments()
+        public async Task<int> LoadComments()
         {
             _CommentsOC = new ObservableCollection<Comment>(await iWebApiAsync.Load());
-            return "success";
+            return 1;
         }
   
 
         public CommentsViewModel()
         {
-            LoadComments();
+         
             NewComment = new Comment();
-           commentsHanlder = new CommentsHanlder(this);
+            LoadComments();
+            commentsHanlder = new CommentsHanlder(this);
             CreateCommentCommand = new RelayCommand(commentsHanlder.AddComment);
             DeleteCommentCommand = new RelayCommand(commentsHanlder.DeleteComment);
         }

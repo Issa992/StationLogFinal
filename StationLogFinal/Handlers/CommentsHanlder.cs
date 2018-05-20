@@ -35,7 +35,7 @@ namespace StationLogFinal.Handlers
                 comment = new Comment
                 {
                     CommentDate = DateTime.Now,
-                    CommentId = CommentsViewM.NewComment.CommentId, //auto Id
+                   CommentId = CommentsViewM.NewComment.CommentId,
                     Description = CommentsViewM.NewComment.Description,
                     UserId = CurrentSessioncs.GetCurrentUser().UserId,
                     User = CurrentSessioncs.GetCurrentUser(),

@@ -33,8 +33,7 @@ namespace StationLogFinal.Views
           
         }
 
-      
-            private void Add(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
             {
                 Frame.Navigate(typeof(MeasurmentsView));
             }
@@ -71,6 +70,9 @@ namespace StationLogFinal.Views
         #endregion
 
 
-       
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            VM.SortElementsByUser();
+        }
     }
 }

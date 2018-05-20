@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StationLogFinal.Model;
+using StationLogFinal.Views;
 using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
@@ -12,48 +13,55 @@ namespace StationLogFinal.ViewModel
      static class MeasurementsSorter
     {
         static MeasurementsViewModel VM = new MeasurementsViewModel();
-
-        public static void SortMeasurmentsByDate(DateTime date)
+        
+        
+        public static List<Measurement> SortMeasurmentsByDate(DateTime date)
         {
-            var result = VM.MeasurementsOC.Where(x => x.Date == date);
-            var myObservableCollection = new ObservableCollection<Measurement>(result);
-            VM.SortednMeasurements = myObservableCollection;
+            var query = from measure in VM.MeasurementsOC where (measure.Date == date) select measure;
+            return query.ToList();
         }
-        public static void SortMeasurmentsByStation(int stationId)
+        public static List<Measurement> SortMeasurmentsByStation(int monitorId)
         {
-            var result = VM.MeasurementsOC.Where(x => x.StationId == stationId);
-            var myObservableCollection = new ObservableCollection<Measurement>(result);
-            VM.SortednMeasurements = myObservableCollection;
+           
+            var query = from measure in VM.MeasurementsOC where (measure.MonitorId == monitorId) select measure;
+            return query.ToList();
+            //foreach (var measure in query.ToList())
+            //{
+            //    VM.SortednMeasurements.Add(new Measurement
+            //    {
+            //        MeasurementId = measure.MeasurementId,
+            //        Date = measure.Date,
+            //        Description = measure.Description,
+            //        MonitorId = measure.MonitorId,
+            //        StationId = measure.StationId,
+            //        User = measure.User,
+            //        UserId = measure.UserId,
+            //        Value = measure.Value
+
+            //    });
+            //}
+            //var myObservableCollection = new ObservableCollection<Measurement>(query);
+            //VM.SortednMeasurements = myObservableCollection;
+
+
         }
 
-        //        public static void SortMeasurmentsByMonitor(int monitorId)
-        //        {
-        //            var result = VM.MeasurementsOC.Where(x => x.MonitorID == monitorId);
-        //            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
-        //        }
+     
 
-        public static void SortMeasurmentsByUser(int userId)
+        public static List<Measurement> SortMeasurmentsByUser(int userId)
         {
-            var result = VM.MeasurementsOC.Where(x => x.UserId == userId);
-            var myObservableCollection = new ObservableCollection<Measurement>(result);
-            VM.SortednMeasurements = myObservableCollection;
+
+            var query = from measure in VM.MeasurementsOC where (measure.UserId == userId) select measure;
+            return query.ToList();
         }
 
-        public static void SortMeasurmentsByUserAndStation(int userId, int stationId)
+        public static List<Measurement> SortMeasurmentsByUserAndStation(int userId, int stationId)
         {
-            
-            var result = VM.MeasurementsOC.Where(x => x.UserId == userId && x.StationId == stationId);
-            var myObservableCollection = new ObservableCollection<Measurement>(result);
-            VM.SortednMeasurements = myObservableCollection;
-        }
-        //        public static void SortMeasurmentsByAll(DateTime date, int MonitorId, int UserId)
-        //        {
-        //            var result =
-        //                VM.MeasurementsOC.Where(x =>
-        //                    x.date == date && x.MonitorID == MonitorId && x.UserID == UserId);
-        //            VM.MeasurementsOC = (ObservableCollection<Measurement>)result;
 
-        //        }
+            var query = from measure in VM.MeasurementsOC where (measure.UserId == userId && measure.StationId == stationId) select measure;
+            return query.ToList();
+        }
+      
 
 
 

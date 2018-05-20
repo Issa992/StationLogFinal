@@ -33,6 +33,8 @@ namespace StationLogWebApplication1
 
         //public virtual Monitor Monitor { get; set; }
 
+       
+
         public override string ToString()
         {
             return $"MeasurmentId: {MeasurementId} Description: {Description} MonitorId:{MonitorId}";

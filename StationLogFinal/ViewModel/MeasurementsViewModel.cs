@@ -18,7 +18,7 @@ namespace StationLogFinal.ViewModel
     {
         public ICommand CreateCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-        public ICommand Sort { get; set; }
+      
 
 
         const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
@@ -84,21 +84,27 @@ namespace StationLogFinal.ViewModel
 
         }
 
+        public  void SortElements()
+        {
+            _sortedMeasurements = new ObservableCollection<Measurement>(MeasurementsSorter.SortMeasurmentsByStation(1));
+        }
 
-
+        public void SortElementsByUser()
+        {
+            _sortedMeasurements = new ObservableCollection<Measurement>(
+                MeasurementsSorter.SortMeasurmentsByUser(CurrentSessioncs.GetCurrentUser().UserId));
+        }
 
      
 
         public MeasurementsViewModel()
         {
             NewMeasurment = new Measurement();
-            LoadMeasurments();
-            
+            LoadMeasurments();          
             measurementsHandler = new MeasurementsHandler(this);
-        
             CreateCommand = new RelayCommand(measurementsHandler.AddMeasurment);
             DeleteCommand = new RelayCommand(measurementsHandler.DeleteMeasurment);
-            Sort = new RelayCommand(measurementsHandler.SortMeasurmentsByUserAndStation);
+           
         }
     }
 }
