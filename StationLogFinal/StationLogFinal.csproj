@@ -101,6 +101,7 @@
     <Compile Include="Communication\Message.cs" />
     <Compile Include="Communication\Notification.cs" />
     <Compile Include="Handlers\CommentsHanlder.cs" />
+    <Compile Include="Handlers\LogsHandler.cs" />
     <Compile Include="Handlers\MeasurementsHandler.cs" />
     <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\Comment.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="SessionTools\Security.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="ViewModel\CommentsViewModel.cs" />
+    <Compile Include="ViewModel\LogsViewModel.cs" />
     <Compile Include="ViewModel\MeasurementsSorter.cs" />
     <Compile Include="ViewModel\MeasurementsViewModel.cs" />
     <Compile Include="Common\NotifyPropertyChange.cs" />
