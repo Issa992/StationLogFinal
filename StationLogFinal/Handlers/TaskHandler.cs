@@ -19,7 +19,10 @@ namespace StationLogFinal.Model
 {
     class TaskHandler
     {
-        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
+        //     oldDB const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
+        //NEw DB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
+
+        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Tasks";
 

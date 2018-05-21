@@ -17,9 +17,10 @@ namespace StationLogFinal.Handlers
         private Comment comment;
        
         public CommentsViewModel CommentsViewM { get; set; }
+        //oldDB http://stationlogwebapplication120180426012243.azurewebsites.net
+        //newDB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
 
-
-        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
+        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
         WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);

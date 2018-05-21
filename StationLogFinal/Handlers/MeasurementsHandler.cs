@@ -18,8 +18,10 @@ namespace StationLogFinal.Handlers
 
          public MeasurementsViewModel MeasurementsViewM { get; set; }
 
+        //oldDB http://stationlogwebapplication120180426012243.azurewebsites.net
+        //newDB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
 
-        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
+        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         const string ApiPrefix = "api";
         const string MeasurmentsApiId = "Measurements";
         WebAPIAsync<Measurement> MeasurmentWebApi = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, MeasurmentsApiId);

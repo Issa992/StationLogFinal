@@ -13,7 +13,10 @@ namespace StationLogFinal.SessionTools
 
         public static async void GetAllUsers()
         {
-            WebAPIAsync<User> UserWebAPI = new WebAPIAsync<User>("http://stationlogwebapplication120180426012243.azurewebsites.net","api","Users");
+            //oldDB http://stationlogwebapplication120180426012243.azurewebsites.net
+            //newDB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
+
+            WebAPIAsync<User> UserWebAPI = new WebAPIAsync<User>("http://stationlogsystemwebapplication20180521105958.azurewebsites.net", "api","Users");
             try
             {
                 var users =  await UserWebAPI.Load();
