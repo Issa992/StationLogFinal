@@ -416,8 +416,8 @@
                                               IsChecked="{Binding IsDone,Mode=TwoWay}" 
                                               Content="{Binding Description}" Width="398" 
                                               IsThreeState="False"
-                                              Tapped="CheckBox_Checked"
-                                           
+                                              Checked="checkBox"
+                                              Unchecked="checkBox"
                                               ></CheckBox>
                                     <TextBlock Text="{Binding DateTime}"></TextBlock>
                                 </StackPanel>

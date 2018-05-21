@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -97,10 +98,19 @@ namespace StationLogFinal.Views
         //    CheckBox checkBox=new CheckBox();
         //    TaskModel task=checkBox.DataContext as TaskModel;
         //    task.IsDone = (bool) checkBox.IsChecked;
-            
 
-            
+
+
         //}
+        private async void checkBox(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            TaskModel task = checkBox.DataContext as TaskModel;
+            task.IsDone = (bool)checkBox.IsChecked;
+            await TaskHandler.TwebApiAsync.Update(task.TaskId, task);
+            await RefreshItems();
+        }
+
         private async void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             //CheckBox checkBox = (CheckBox)sender;
@@ -139,7 +149,7 @@ namespace StationLogFinal.Views
         //
         //
         //
-        private async void RefreshItems()
+        private async Task RefreshItems()
         {
             try
             {
