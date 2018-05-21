@@ -9,6 +9,9 @@ namespace StationLogWebApplication1
     [Table("User")]
     public partial class User
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
