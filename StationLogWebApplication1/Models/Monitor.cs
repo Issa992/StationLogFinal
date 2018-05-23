@@ -1,4 +1,4 @@
-namespace StationLogWebApplication1
+namespace StationLogWebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +12,6 @@ namespace StationLogWebApplication1
         public Monitor()
         {
             Measurements = new HashSet<Measurement>();
-            Messages = new HashSet<Message>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -23,8 +22,5 @@ namespace StationLogWebApplication1
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Measurement> Measurements { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message> Messages { get; set; }
     }
 }

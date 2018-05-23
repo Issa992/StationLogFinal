@@ -12,17 +12,35 @@ namespace StationLogWebApplication1
         public int CommentId { get; set; }
 
         public DateTime CommentDate { get; set; }
+      
 
         [Required]
         public string Description { get; set; }
 
         public int UserId { get; set; }
 
-        public int? LogId { get; set; }
+        //public int? LogId { get; set; }
 
+      
         public virtual User User { get; set; }
 
-        public virtual Log Log { get; set; }
+        //public virtual Log Log { get; set; }
+
+        public Comment(int commentId, DateTime commentDate, string description, int userId)
+        {
+            CommentId = commentId;
+            CommentDate = commentDate;
+            Description = description;
+            UserId = userId;
+            
+
+
+        }
+
+        public Comment()
+        {
+            
+        }
 
         public override string ToString()
         {

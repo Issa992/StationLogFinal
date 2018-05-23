@@ -40,12 +40,12 @@ namespace StationLogFinal.Views
 
         }
 
-     
-        //protected override async void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    RefreshItems();
 
-        //}
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+          await  RefreshItems();
+
+        }
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             MyCommandBar.IsOpen = true;
@@ -81,23 +81,9 @@ namespace StationLogFinal.Views
         {
             Frame.Navigate(typeof(AddNewTaskView));
 
-            //ContentDialog d = new ContentDialog();
-            //d.Title = "Add New TaskModel";
-            //d.Content = "Here is going to appear the contenent of the new TaskModel ";
-            //d.PrimaryButtonText = "OK";
-
-            //await d.ShowAsync();
+       
         }
-        //
-        //
-        //
-        //
-        //
-        //private void CheckBox_Checked(object sender, TappedRoutedEventArgs e)
-        //{
-        //    CheckBox checkBox=new CheckBox();
-        //    TaskModel task=checkBox.DataContext as TaskModel;
-        //    task.IsDone = (bool) checkBox.IsChecked;
+    
 
 
 
@@ -180,7 +166,8 @@ namespace StationLogFinal.Views
 
         private async void Delete(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TasksView));
+            //Frame.Navigate(typeof(HomeView));
+            //Frame.Navigate(typeof(TasksView));
             RefreshItems();
             
             

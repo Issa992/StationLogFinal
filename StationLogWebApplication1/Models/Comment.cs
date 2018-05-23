@@ -1,4 +1,4 @@
-namespace StationLogWebApplication1
+namespace StationLogWebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -13,15 +13,10 @@ namespace StationLogWebApplication1
 
         public DateTime CommentDate { get; set; }
 
-        [Required]
         public string Description { get; set; }
 
         public int UserId { get; set; }
 
-        public int? LogId { get; set; }
-
         public virtual User User { get; set; }
-
-        public virtual Log Log { get; set; }
     }
 }
