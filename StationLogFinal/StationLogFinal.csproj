@@ -96,10 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\FrameNavigationClass.cs" />
-    <Compile Include="Communication\Alert.cs" />
-    <Compile Include="Communication\INotification.cs" />
-    <Compile Include="Communication\Message.cs" />
-    <Compile Include="Communication\Notification.cs" />
     <Compile Include="Handlers\CommentsHanlder.cs" />
     <Compile Include="Handlers\LogsHandler.cs" />
     <Compile Include="Handlers\MeasurementsHandler.cs" />
