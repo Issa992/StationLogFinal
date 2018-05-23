@@ -40,7 +40,7 @@ namespace StationLogFinal.Handlers
                 CommentDate = DateTime.Now.ToUniversalTime(),
                 Description = CommentsViewM.NewComment.Description,
                 UserId = CurrentSessioncs.GetCurrentUser().UserId,
-                LogId = 2
+                //LogId = 2
                 
 
                 };

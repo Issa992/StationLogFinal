@@ -7,7 +7,7 @@ namespace StationLogWebApplication1
     using System.Data.Entity.Spatial;
 
     [Table("Alert")]
-    public partial class Alert:StationLogFinal.Communication.INotification
+    public partial class Alert
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int AlertId { get; set; }
