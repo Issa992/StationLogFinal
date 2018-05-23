@@ -8,6 +8,8 @@ using StationLogFinal.Persistency;
 using StationLogWebApplication1;
 using StationLogFinal.Handlers;
 using StationLogFinal.SessionTools;
+using System.Windows.Input;
+using StationLogFinal.Common;
 
 namespace StationLogFinal.ViewModel
 {
@@ -22,6 +24,9 @@ namespace StationLogFinal.ViewModel
         private Message _newMessage;
         private Message _selectedMessage;
         private ObservableCollection<Message> _messagesCO;
+
+        public ICommand sentMessageCommand;
+        public ICommand deleteMessageCommand;
 
         public ObservableCollection<Message> messagesCO
         {
@@ -50,16 +55,42 @@ namespace StationLogFinal.ViewModel
                 OnPropertyChanged(nameof(selectedMessage));
             }
         }
+        private string _receiverName;
+
+        public string receiverName
+        {
+            get => _receiverName;
+            set
+            {
+                receiverName = value;
+                OnPropertyChanged(nameof(receiverName));
+            }
+        }
 
 
-
-        //public async Task<int> LoadMessages()
-        //{
-        //  int ID =  CurrentSessioncs.Id;
-        //    ObservableCollection<Message> tempCO = new ObservableCollection<Message>(
-        //        await iWebApiAsync.Load());
-        //    var messagess = from mess in tempCO
-        //                    where mess.
-        //}
+        public async Task<int> LoadInbox()
+        {
+            
+            ObservableCollection<Message> tempCO = new ObservableCollection<Message>(
+                await iWebApiAsync.Load());
+            var messagess = from mess in tempCO
+                            where mess.ReceiverId == CurrentSessioncs.GetCurrentUserID()
+                            select mess;
+            messagesCO = new ObservableCollection<Message>(messagess);
+            return messagess.Count();
+        }
+        public MessageViewModel()
+        {
+            try
+            {
+                LoadInbox();
+            }
+            catch (Exception) { }
+            messageHandler = new MessageHandler(this);
+            newMessage = new Message();
+            selectedMessage = new Message();
+            deleteMessageCommand = new RelayCommand(messageHandler.DeleteMessage);
+            sentMessageCommand = new RelayCommand(messageHandler.SendMessage);
+        }
     }
 }
