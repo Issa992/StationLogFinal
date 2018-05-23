@@ -3,7 +3,7 @@
   <Class Name="StationLogFinal.ViewModel.TaskViewModel">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABABAEAAAQEAAAAAACAAAABAAABQ4QACAg=</HashCode>
+      <HashCode>AAAAAEAAAABABAEAAAQEAAAAAACAAAABAAABQ4QACAg=</HashCode>
       <FileName>ViewModel\TaskViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -11,7 +11,7 @@
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModel\NotifyPropertyChange.cs</FileName>
+      <FileName>Common\NotifyPropertyChange.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -40,15 +40,8 @@
   <Class Name="StationLogFinal.Model.TaskHandler">
     <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABACBAAAAAAAAAAAABAAAABBAIAAAQQAAAA=</HashCode>
+      <HashCode>AAAAAQBAQBACBAAAAAAAgAIAABCAAABBAIAAAQQAAAA=</HashCode>
       <FileName>Handlers\TaskHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="StationLogFinal.ViewModel.DateTimeConverter" Collapsed="true">
-    <Position X="4.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>ViewModel\TaskViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="StationLogFinal.Persistency.IWebAPIAsync&lt;T&gt;">
