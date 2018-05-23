@@ -1,8 +1,10 @@
 ﻿using StationLogFinal.ViewModel;
 using System;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using StationLogWebApplication1;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -13,6 +15,7 @@ namespace StationLogFinal.Views
     /// </summary>
     public sealed partial class HistoryView : Page
     {
+        private int check;
         MeasurementsViewModel VM = new MeasurementsViewModel();
         CommentsViewModel CommentVM = new CommentsViewModel();
         public HistoryView()
@@ -69,11 +72,20 @@ namespace StationLogFinal.Views
 
         private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         {
-          //MeasurementsSorter.SortMeasurmentsByAll(LogsDatePicker.Date.DateTime, Int32.Parse(MonitoridTextBox.Text), Int32.Parse(UserIdTextBox.Text));
+            if (check == 0)
+            {
+                //var query = MeasurementsSorter.SortMeasurmentsByUserAndStation(Int32.Parse(UserIdTextBox.Text),
+                //    Int32.Parse(StationidTextBox.Text));
+                var query = MeasurementsSorter.SortMeasurmentsByUser(Int32.Parse(UserIdTextBox.Text));
+                VM.MeasurementsOC = new ObservableCollection<Measurement>(query);
+            }
+
+
         }
 
         private void Showcomments_OnClick(object sender, RoutedEventArgs e)
         {
+            check = 0;
             measurementsListcView.ItemsSource = CommentVM.CommentsOC;
         }
 
@@ -94,6 +106,7 @@ namespace StationLogFinal.Views
 
         private void ShowMeasurements_OnClick(object sender, RoutedEventArgs e)
         {
+            check = 1;
             measurementsListcView.ItemsSource = VM.MeasurementsOC;
         }
     }

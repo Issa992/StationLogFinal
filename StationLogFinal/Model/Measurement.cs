@@ -31,7 +31,7 @@ namespace StationLogWebApplication1
 
         public virtual User User { get; set; }
 
-        //public virtual Monitor Monitor { get; set; }
+        public virtual Monitor Monitor { get; set; }
 
        
 
