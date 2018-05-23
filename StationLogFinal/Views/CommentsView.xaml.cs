@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using StationLogFinal.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,7 +28,19 @@ namespace StationLogFinal.Views
             this.InitializeComponent();
         }
 
-
+        public async void RefreshList()
+        {
+            try
+            {
+                MyListView.ItemsSource = await new CommentsViewModel().LoadComments();
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                //throw;
+            }
+           
+        }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -67,6 +80,12 @@ namespace StationLogFinal.Views
         private void NavigateToLoginPage(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private  void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CommentsView));
+            RefreshList();
         }
     }
 }

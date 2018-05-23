@@ -59,7 +59,7 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
 
-                <ListView ItemsSource="{Binding CommentsOC}" SelectedItem="{Binding SelectedComment}"
+                <ListView ItemsSource="{Binding CommentsOC, Mode=TwoWay}" SelectedItem="{Binding SelectedComment, Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
@@ -97,8 +97,8 @@
             <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand}"></Button>
-            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand}"></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}"></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
         </StackPanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

@@ -21,7 +21,7 @@ namespace StationLogFinal.ViewModel
       
 
 
-        const string ServerUrl = "http://stationlogwebapplication120180426012243.azurewebsites.net";
+        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         private const string ApiPrefix = "api";
         const string ApiIdMeasurements = "Measurements";
 

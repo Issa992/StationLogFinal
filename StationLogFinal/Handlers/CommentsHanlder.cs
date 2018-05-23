@@ -24,6 +24,7 @@ namespace StationLogFinal.Handlers
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
         WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
+        private IWebAPIAsync<Comment> iWebApiAsync;
         //asdsadsadasd
         public async void AddComment()
         {
@@ -35,18 +36,15 @@ namespace StationLogFinal.Handlers
 
                 comment = new Comment
                 {
-                    CommentDate = DateTime.Now,
-                   CommentId = CommentsViewM.NewComment.CommentId,
-                    Description = CommentsViewM.NewComment.Description,
-                    UserId = CurrentSessioncs.GetCurrentUser().UserId,
-                    User = CurrentSessioncs.GetCurrentUser(),
-                    Log = new Log(),
-                    LogId = 0
-
-
+                CommentId = 1234551,
+                CommentDate = DateTime.Now.ToUniversalTime(),
+                Description = CommentsViewM.NewComment.Description,
+                UserId = CurrentSessioncs.GetCurrentUser().UserId,
+                //LogId = 2
+                
 
                 };
-                CommentsViewM.CommentsOC.Add(comment);
+                CommentsViewM.CommentsOC.Add(comment);  
                 await CommentTester.RunAPITestCreate(comment);
             }
             catch (Exception exception)
@@ -61,9 +59,13 @@ namespace StationLogFinal.Handlers
 
         public async void DeleteComment()
         {
-            WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
-            await CommentTester.RunAPITestDelete(CommentsViewM.SelectedComment.CommentId);
+            comment = new Comment();
+            comment.CommentId = CommentsViewM.SelectedComment.CommentId;
+            CommentsViewM.CommentsOC.Remove(CommentsViewM.SelectedComment);
+            iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
 
+
+            await iWebApiAsync.Delete(comment.CommentId);
         }
 
         public CommentsHanlder(CommentsViewModel commentsViewModel)
