@@ -152,7 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Alert.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -185,7 +184,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Models\Comment.cs" />
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EquipmentsController.cs" />
@@ -200,20 +198,22 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="database_firewall_rules.cs" />
-    <Compile Include="Models\Equipment.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Measurement.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Monitor.cs" />
     <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Station.cs" />
+    <Compile Include="Models\StationLogModel.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Station.cs" />
-    <Compile Include="Models\StationLogDBContext.cs" />
-    <Compile Include="Models\Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

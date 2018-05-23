@@ -1,4 +1,4 @@
-namespace StationLogWebApplication1
+namespace StationLogWebApplication1.Models
 {
     using System;
     using System.Collections.Generic;

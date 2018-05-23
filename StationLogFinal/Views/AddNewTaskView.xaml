@@ -18,7 +18,7 @@
             </CommandBar.Content>
             <AppBarButton Icon="Add" Label="Add"  Command="{Binding CreateCommand,Mode=TwoWay}" />
             <!---->
-            <AppBarButton Icon="Cancel" Label="Cancel" Click="Add" />
+            <AppBarButton Icon="Home" Label="Cancel" Click="Add" />
         </CommandBar>
     </Page.BottomAppBar>
     <Grid>

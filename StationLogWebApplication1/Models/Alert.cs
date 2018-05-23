@@ -1,4 +1,4 @@
-namespace StationLogWebApplication1
+namespace StationLogWebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,5 +22,7 @@ namespace StationLogWebApplication1
         public bool IsToggled { get; set; }
 
         public int StationId { get; set; }
+
+        public virtual Station Station { get; set; }
     }
 }

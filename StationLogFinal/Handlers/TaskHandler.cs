@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
@@ -62,9 +63,8 @@ namespace StationLogFinal.Model
             task.TaskId = TaskViewModel.SelectedTask.TaskId;
             TaskViewModel.TasksColllection.Remove(TaskViewModel.SelectedTask);
             iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
-
-
             await iWebApiAsync.Delete(task.TaskId);
+            await TaskViewModel.LoadTasks();
 
         }
 
@@ -143,7 +143,6 @@ namespace StationLogFinal.Model
                 if (((Check == null) && (Check1 == null) && (Check2 == null)
                      && (check3 == null) && (check4 == null) ))
                 {
-                    ///////////////////////////////////////////.........................................................................................................................................
                     return false;
                 }
                 else
