@@ -1,18 +1,17 @@
-namespace StationLogWebApplication1
+namespace StationLogWebApplication1.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class StationLogDBContext : DbContext
+    public partial class StationLogModel : DbContext
     {
-        public StationLogDBContext()
-            : base("name=StationLogDBContext")
+        public StationLogModel()
+            : base("name=StationLogModel")
         {
             base.Configuration.LazyLoadingEnabled = false;
             base.Configuration.ProxyCreationEnabled = false;
-
         }
 
         public virtual DbSet<Alert> Alerts { get; set; }
@@ -26,7 +25,6 @@ namespace StationLogWebApplication1
         public virtual DbSet<Station> Stations { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,24 +32,18 @@ namespace StationLogWebApplication1
                 .Property(e => e.Type)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Log>()
-                .HasMany(e => e.Measurements)
-                .WithRequired(e => e.Log)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Log>()
-                .HasMany(e => e.Messages)
-                .WithRequired(e => e.Log)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Message>()
+                .Property(e => e.Messages)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Monitor>()
                 .HasMany(e => e.Measurements)
                 .WithRequired(e => e.Monitor)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Monitor>()
-                .HasMany(e => e.Messages)
-                .WithRequired(e => e.Monitor)
+            modelBuilder.Entity<Station>()
+                .HasMany(e => e.Alerts)
+                .WithRequired(e => e.Station)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Station>()
@@ -61,6 +53,11 @@ namespace StationLogWebApplication1
 
             modelBuilder.Entity<Station>()
                 .HasMany(e => e.Logs)
+                .WithRequired(e => e.Station)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Station>()
+                .HasMany(e => e.Measurements)
                 .WithRequired(e => e.Station)
                 .WillCascadeOnDelete(false);
 
@@ -85,17 +82,26 @@ namespace StationLogWebApplication1
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Tasks)
+                .HasMany(e => e.Measurements)
                 .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<database_firewall_rules>()
-                .Property(e => e.start_ip_address)
-                .IsUnicode(false);
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Messages)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.SenderId)
+                .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<database_firewall_rules>()
-                .Property(e => e.end_ip_address)
-                .IsUnicode(false);
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Messages1)
+                .WithRequired(e => e.User1)
+                .HasForeignKey(e => e.ReceiverId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Tasks)
+                .WithRequired(e => e.User)
+                .WillCascadeOnDelete(false);
         }
     }
 }

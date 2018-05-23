@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
@@ -37,7 +38,7 @@ namespace StationLogFinal.Model
         {
             TaskViewModel = taskViewModel;
         }
-
+    
         public async Task CreateTask()
         {
 
@@ -54,11 +55,6 @@ namespace StationLogFinal.Model
             task.UserId = CurrentSessioncs.GetCurrentUser().UserId;
 
             await TaskWebApiTest.RunAPITestCreate(task);
-            //await iWebApiAsync.Create(task);
-
-
-
-
         }
 
         public async void DeleteTask()
@@ -67,9 +63,8 @@ namespace StationLogFinal.Model
             task.TaskId = TaskViewModel.SelectedTask.TaskId;
             TaskViewModel.TasksColllection.Remove(TaskViewModel.SelectedTask);
             iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
-
-
             await iWebApiAsync.Delete(task.TaskId);
+            await TaskViewModel.LoadTasks();
 
         }
 
@@ -117,14 +112,17 @@ namespace StationLogFinal.Model
 
         private bool CheckFieldsNotBlank()
         {
-            if ((TaskViewModel.NewTask.TaskId == 0) || (TaskViewModel.NewTask.DateOffset == null) ||
-                (TaskViewModel.NewTask.DateOffsetSchduledDate== null) ||
-                (TaskViewModel.NewTask.StationId == 0) || (TaskViewModel.NewTask.IsRepeatable == null))
+            if ((TaskViewModel.NewTask.TaskId == null) || (TaskViewModel.NewTask.DateOffset == null) ||
+                (TaskViewModel.NewTask.DateOffsetSchduledDate== null) ||  (TaskViewModel.NewTask.Description == null) ||
+                (TaskViewModel.NewTask.StationId == null) || (TaskViewModel.NewTask.IsRepeatable == null) )
 
             {
                 return false;
             }
-            else return true;
+            else
+            {
+                return true;
+            }
         }
 
 
@@ -140,27 +138,28 @@ namespace StationLogFinal.Model
                 var Check2 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.Description == TaskViewModel.NewTask.Description);
                 var check3 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.DateOffsetSchduledDate == TaskViewModel.NewTask.DateOffsetSchduledDate);
                 var check4 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.IsRepeatable == TaskViewModel.NewTask.IsRepeatable);
+                var check5 = TaskViewModel.TasksColllection.FirstOrDefault(x => x.StationId == TaskViewModel.NewTask.StationId);
 
                 if (((Check == null) && (Check1 == null) && (Check2 == null)
                      && (check3 == null) && (check4 == null) ))
                 {
-                    ///////////////////////////////////////////.........................................................................................................................................
                     return false;
                 }
                 else
                 {
-                    TaskCreatedPopUp();
+                    
                     return true;
                 }
             }
             else
             {
+                TaskCreatedPopUp();
                 return true;
             }
         }
         private async void TaskCreatedPopUp()
         {
-            var dialog = new Windows.UI.Popups.MessageDialog("Your Event Has Been Created. ", "!!!");
+            var dialog = new Windows.UI.Popups.MessageDialog("The Task Has Been Created. ", "!!!");
             dialog.Commands.Add(new Windows.UI.Popups.UICommand("OK") { Id = 1 });
 
             dialog.CancelCommandIndex = 1;

@@ -9,12 +9,13 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using StationLogWebApplication1;
+using StationLogWebApplication1.Models;
 
 namespace StationLogWebApplication1.Controllers
 {
     public class UsersController : ApiController
     {
-        private StationLogDBContext db = new StationLogDBContext();
+        private StationLogModel db = new StationLogModel();
 
         // GET: api/Users
         public IQueryable<User> GetUsers()
