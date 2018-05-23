@@ -103,6 +103,8 @@
     <Compile Include="Handlers\CommentsHanlder.cs" />
     <Compile Include="Handlers\LogsHandler.cs" />
     <Compile Include="Handlers\MeasurementsHandler.cs" />
+    <Compile Include="Handlers\MessageHandler.cs" />
+    <Compile Include="Handlers\NotificationHandler.cs" />
     <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Equipment.cs" />
@@ -131,6 +133,8 @@
     <Compile Include="ViewModel\MeasurementsSorter.cs" />
     <Compile Include="ViewModel\MeasurementsViewModel.cs" />
     <Compile Include="Common\NotifyPropertyChange.cs" />
+    <Compile Include="ViewModel\MessageViewModel.cs" />
+    <Compile Include="ViewModel\NotificationsViewModel.cs" />
     <Compile Include="ViewModel\TaskViewModel.cs" />
     <Compile Include="Views\AddNewTaskView.xaml.cs">
       <DependentUpon>AddNewTaskView.xaml</DependentUpon>
