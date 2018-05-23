@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StationLogFinal.Communication
+namespace StationLogFinal.ViewModel
 {
-    interface INotification
+    class MessagesViewModel
     {
-        
-        int getID();
-       
-        void MarkAsRed();
     }
 }
