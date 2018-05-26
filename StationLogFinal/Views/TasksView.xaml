@@ -8,6 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     xmlns:model="using:StationLogFinal.Model"
     mc:Ignorable="d">
+
     <Page.Resources>
         <Style x:Key="MyCheckBoxStyle" TargetType="CheckBox">
             <Setter Property="Background" Value="{ThemeResource CheckBoxBackgroundUnchecked}"/>
@@ -346,6 +347,7 @@
     <Page.DataContext>
         <viewModel:TaskViewModel></viewModel:TaskViewModel>
     </Page.DataContext>
+    
 
     <RelativePanel>
         <RelativePanel.Background>
@@ -400,7 +402,9 @@
             <RelativePanel>
 
                 <!--listView Should be Binded To the TaskCatalog The Collection tasks-->
-                <ListView   x:Name="MyListView" 
+                <ListView  
+                    
+                    x:Name="MyListView" 
                     SelectedItem="{Binding SelectedTask, Mode=TwoWay }"
                           ItemsSource="{Binding TasksColllection,Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
