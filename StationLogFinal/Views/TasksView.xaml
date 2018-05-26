@@ -387,7 +387,6 @@
 
                     </StackPanel>
 
-                    <!--<SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>-->
 
                 </RelativePanel>
 
@@ -401,7 +400,6 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
 
-                <!--listView Should be Binded To the TaskCatalog The Collection tasks-->
                 <ListView  
                     
                     x:Name="MyListView" 

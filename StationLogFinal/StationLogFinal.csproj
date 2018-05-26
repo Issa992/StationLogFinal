@@ -111,7 +111,6 @@
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\TaskModel.cs" />
-    <Compile Include="Model\Task1.cs" />
     <Compile Include="Handlers\TaskHandler.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\IWebAPIAsync.cs" />
