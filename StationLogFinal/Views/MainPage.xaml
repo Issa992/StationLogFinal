@@ -11,18 +11,16 @@
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF4F4C4C"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
+                <ImageBrush ImageSource="../Assets/loginImage.jpg"></ImageBrush>
+     
             </Rectangle.Fill>
         </Rectangle>
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <TextBlock  x:Name="logIn" Text="Log In" HorizontalAlignment="Center" FontSize="30" ></TextBlock>
+            <TextBlock  x:Name="logIn" Text="Log In" HorizontalAlignment="Center" FontSize="30" Foreground="White" ></TextBlock>
             <TextBox  x:Name="userIdBox" PlaceholderText="Enter your Email" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
             <PasswordBox x:Name="userPasswordBox" PlaceholderText="Password" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
-            <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" ></Button>
+            <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" Foreground="White" ></Button>
 
         </StackPanel>
     </Grid>
