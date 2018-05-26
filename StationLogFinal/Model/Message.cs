@@ -11,17 +11,24 @@ namespace StationLogWebApplication1
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MessageId { get; set; }
 
+        public int SenderId { get; set; }
+
+        public int ReceiverId { get; set; }
+
         [Required]
-        public string Description { get; set; }
+        public string Messages { get; set; }
 
-        public int MonitorId { get; set; }
+        public DateTime CreationTime { get; set; }
 
-        public int LogId { get; set; }
+        public bool IsRead { get; set; }
 
-        public virtual Log Log { get; set; }
+        public virtual User User { get; set; }
 
-        public virtual Monitor Monitor { get; set; }
+        public virtual User User1 { get; set; }
 
-        //Not same as in communication folder
+        public override string ToString()
+        {
+            return $"{CreationTime} message from {User.Name}";
+        }
     }
 }
