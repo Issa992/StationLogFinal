@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using Moq;
+using StationLogWebApplication1;
 
 namespace UnitTest
 {
@@ -14,12 +15,12 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            var mock = new Mock<IWebAPIAsync<Task1>>();
-            WebAPIAsync<Task1> TwebApiAsync = new WebAPIAsync<Task1>();
-            WebAPITest<Task1> TaskWebApiTest = new WebAPITest<Task1>(TwebApiAsync);
-            Task1 task = new Task1(1, DateTime.Today, "wwwwww", true, true, DateTime.Now, 1, 1);
+            var mock = new Mock<IWebAPIAsync<TaskModel>>();
+            WebAPIAsync<TaskModel> TwebApiAsync = new WebAPIAsync<TaskModel>();
+            WebAPITest<TaskModel> TaskWebApiTest = new WebAPITest<TaskModel>(TwebApiAsync);
+            TaskModel task = new TaskModel(1, DateTime.Today, "wwwwww", true, true, DateTime.Now, 1, 1);
             //await TaskWebApiTest.RunAPITestCreate(task,mock.Object);
-            mock.Setup(x => x.Create(It.IsAny<Task1>()));
+            mock.Setup(x => x.Create(It.IsAny<TaskModel>()));
             Assert.AreEqual(1, task.UserId);
 
     
