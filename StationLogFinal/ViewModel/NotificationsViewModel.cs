@@ -99,6 +99,13 @@ namespace StationLogFinal.ViewModel
             AddNotificationCommand = new RelayCommand(notificationHandler.AddNotification);
 
         }
+        #region methods
+        private async void LoadAll()
+        {
+
+        }
+
+        #endregion
 
 
     }
