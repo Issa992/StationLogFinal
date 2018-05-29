@@ -60,7 +60,7 @@
                     <DatePicker x:Name="LogsDatePicker"></DatePicker>
                     <TextBox x:Name="StationidTextBox"></TextBox>
                     <TextBox x:Name="UserIdTextBox" PlaceholderText="User ID"></TextBox>
-                    <Button Content="Sort" Click="ButtonBase1_OnClick"></Button>
+                   
                     <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
                     <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
                     <Button Content="Sort by user" Click="sortByUser_OnClick"></Button>
@@ -68,13 +68,13 @@
                 </StackPanel>
                 
                 <ListView ItemsSource="{Binding MeasurementsOC}"
-                    
+                         
                     
                     RelativePanel.AlignVerticalCenterWithPanel="True"  
                     RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5"  x:Name="measurementsListcView" 
+                      Margin="5"  x:Name="HistoryListView" 
                       Height="421" Width="848">
  
                 </ListView>

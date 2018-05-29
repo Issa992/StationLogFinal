@@ -17,14 +17,17 @@ namespace StationLogFinal.Views
     /// </summary>
     public sealed partial class HistoryView : Page
     {
-        private int check;
+        private int check = 1;
+        public static int ID;
+        public static DateTime date;
         MeasurementsViewModel VM = new MeasurementsViewModel();
         CommentsViewModel CommentVM = new CommentsViewModel();
         public HistoryView()
         {
-           
+          
             this.InitializeComponent();
-
+            date = LogsDatePicker.Date.Date;
+            
 
         }
 
@@ -81,7 +84,7 @@ namespace StationLogFinal.Views
         private void Showcomments_OnClick(object sender, RoutedEventArgs e)
         {
             check = 0;
-            measurementsListcView.ItemsSource = CommentVM.CommentsOC;
+            HistoryListView.ItemsSource = CommentVM.CommentsOC;
             
         }
 
@@ -89,7 +92,7 @@ namespace StationLogFinal.Views
         {
             try
             {
-                measurementsListcView.ItemsSource = await new MeasurementsViewModel().LoadMeasurments();
+                HistoryListView.ItemsSource = await new MeasurementsViewModel().LoadMeasurments();
 
              
             }
@@ -98,48 +101,36 @@ namespace StationLogFinal.Views
                
             }
         }
-        private async Task RefreshComments()
-        {
-            try
-            {
-                measurementsListcView.ItemsSource = await new CommentsViewModel().LoadComments();
-
-             
-            }
-            catch (Exception e)
-            {
-               
-            }
-        }
+      
 
         private async void ShowMeasurements_OnClick(object sender, RoutedEventArgs e)
         {
             check = 1;
-            measurementsListcView.ItemsSource = VM.MeasurementsOC;
+            HistoryListView.ItemsSource = VM.MeasurementsOC;
             await RefreshItems();
         }
 
         private async void sortByUser_OnClick(object sender, RoutedEventArgs e)
         {
+            ID = Int32.Parse(UserIdTextBox.Text);
             if (UserIdTextBox.Text.Length == 0)
             {
                 EmptyTaskFieldsPopUp();
             }
             else
             {
-                if (check == 0)
+                if (check == 1)
                 {
 
-                    var query = MeasurementsSorter.SortMeasurmentsByUser(Convert.ToInt32(UserIdTextBox.Text));
-                    VM.MeasurementsOC = new ObservableCollection<Measurement>(query);
-                    await RefreshItems();
+                    
+                    VM.SortElementsByUser();
+                    HistoryListView.ItemsSource = VM.SortednMeasurements;
 
                 }
                 else
                 {
-                    var query = CommentsSorter.SortMeasurmentsByUser(Convert.ToInt32(UserIdTextBox.Text));
-                    CommentVM.CommentsOC = new ObservableCollection<Comment>(query);
-                    await RefreshComments();
+                  CommentVM.SortElementsByUser();
+                    HistoryListView.ItemsSource = CommentVM.SortedComments;
                 }
             }
           
@@ -154,15 +145,19 @@ namespace StationLogFinal.Views
              await dialog.ShowAsync();
         }
 
-        private async void sortByDate_OnClick(object sender, RoutedEventArgs e)
+        private void sortByDate_OnClick(object sender, RoutedEventArgs e)
         {
-            if (check == 0)
+            if (check == 1)
             {
 
-                var query = MeasurementsSorter.SortMeasurmentsByDate(LogsDatePicker.Date.Date);
-                VM.MeasurementsOC = new ObservableCollection<Measurement>(query);
-                await RefreshItems();
+                VM.SortElementsByDate();
+                HistoryListView.ItemsSource = VM.SortednMeasurements;
 
+            }
+            else
+            {
+                CommentVM.SortElementsByDate();
+                HistoryListView.ItemsSource = CommentVM.SortedComments;
             }
         }
     }

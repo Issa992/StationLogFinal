@@ -10,6 +10,7 @@ using StationLogFinal.Handlers;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using StationLogFinal.SessionTools;
+using StationLogFinal.Views;
 using StationLogWebApplication1;
 using StationLogWebApplication1.Models;
 
@@ -17,9 +18,10 @@ namespace StationLogFinal.ViewModel
 {
     class MeasurementsViewModel :NotifyPropertyChange
     {
+        #region fields
         public ICommand CreateCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-      
+
 
 
         const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
@@ -77,15 +79,28 @@ namespace StationLogFinal.ViewModel
             }
         }
 
+        #endregion
 
-       
 
-  
+
+
+
 
         public void SortElementsByUser()
         {
             _sortedMeasurements = new ObservableCollection<Measurement>(
+                MeasurementsSorter.SortMeasurmentsByUser(HistoryView.ID));
+        }
+        public void SortElementsByCurrentUser()
+        {
+            _sortedMeasurements = new ObservableCollection<Measurement>(
                 MeasurementsSorter.SortMeasurmentsByUser(CurrentSessioncs.GetCurrentUser().UserId));
+        }
+
+        public void SortElementsByDate()
+        {
+            _sortedMeasurements = new ObservableCollection<Measurement>(
+                MeasurementsSorter.SortMeasurmentsByDate(HistoryView.date));
         }
 
         public async Task<int> LoadMeasurments()

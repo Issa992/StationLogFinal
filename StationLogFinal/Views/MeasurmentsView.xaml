@@ -70,7 +70,7 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True" Margin="471,0.4,450,0"  
                     >
-                <ListView ItemsSource="{Binding MeasurementsOC}" SelectedItem="{Binding SelectedMeasurment}"
+                <ListView ItemsSource="{Binding SortednMeasurements}" SelectedItem="{Binding SelectedMeasurment}"
                          x:Name="CurrentMeasurementsListView"></ListView>
 
                 <TextBox Text="{Binding NewMeasurment.MeasurementId, Mode=TwoWay}" PlaceholderText="ID" Margin="0,0,0,0"></TextBox>

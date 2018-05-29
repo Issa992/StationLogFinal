@@ -102,5 +102,12 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(TasksView));
            
         }
+
+        private async void AddButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await RefreshItems();
+           
+            Frame.Navigate(typeof(TasksView));
+        }
     }
 }
