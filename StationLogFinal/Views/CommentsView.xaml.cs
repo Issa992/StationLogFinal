@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,20 +28,34 @@ namespace StationLogFinal.Views
         public CommentsView()
         {
             this.InitializeComponent();
+           
+           
         }
 
-        public async void RefreshList()
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            datePicker.Date = DateTimeOffset.Now;
+            datePicker.Opacity = 0;
+        
+            
+           
+        }
+
+        private async Task RefreshItems()
         {
             try
             {
+
                 MyListView.ItemsSource = await new CommentsViewModel().LoadComments();
+
+
+                //MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e);
-                //throw;
+                //await new MessageDialog(e.Message, "Error loading tasks").ShowAsync();
+
             }
-           
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -82,10 +98,11 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(MainPage));
         }
 
-        private  void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        private async void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(CommentsView));
-            RefreshList();
+            await RefreshItems();
+            Frame.Navigate(typeof(TasksView));
+           
         }
     }
 }

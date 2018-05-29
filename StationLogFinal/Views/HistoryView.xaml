@@ -59,10 +59,12 @@
                 <StackPanel>
                     <DatePicker x:Name="LogsDatePicker"></DatePicker>
                     <TextBox x:Name="StationidTextBox"></TextBox>
-                    <TextBox x:Name="UserIdTextBox"></TextBox>
+                    <TextBox x:Name="UserIdTextBox" PlaceholderText="User ID"></TextBox>
                     <Button Content="Sort" Click="ButtonBase1_OnClick"></Button>
                     <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
                     <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
+                    <Button Content="Sort by user" Click="sortByUser_OnClick"></Button>
+                    <Button Content="Sort by date" Click="sortByDate_OnClick"></Button>
                 </StackPanel>
                 
                 <ListView ItemsSource="{Binding MeasurementsOC}"

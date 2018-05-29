@@ -60,6 +60,8 @@ namespace StationLogFinal
             {
 
                 await new TaskViewModel().LoadTasks();
+                await new CommentsViewModel().LoadComments();
+                await new MeasurementsViewModel().LoadMeasurments();
 
 
                 //MyListView.ItemsSource = await new TaskViewModel().LoadTasks();

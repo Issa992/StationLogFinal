@@ -42,7 +42,7 @@ namespace StationLogFinal.Handlers
                 Value = MeasurementsViewM.NewMeasurment.Value,
                 User = CurrentSessioncs.GetCurrentUser(),
                 UserId = CurrentSessioncs.GetCurrentUser().UserId,
-                StationId = 2
+                StationId = MeasurementsViewM.NewMeasurment.StationId
             };
             MeasurementsViewM.MeasurementsOC.Add(measurment);
             await MeasurmentTester.RunAPITestCreate(measurment);
@@ -50,8 +50,11 @@ namespace StationLogFinal.Handlers
 
         public async void DeleteMeasurment()
         {
-            WebAPITest<Measurement> MeasurmentTester = new WebAPITest<Measurement>(MeasurmentWebApi);
-            //await MeasurmentTester.RunAPITestDelete(MeasurementsViewM.SelectedMeasurment.ID);
+            MeasurementsViewM.MeasurementsOC.Remove(MeasurementsViewM.SelectedMeasurment);
+            MeasurmentWebApi = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, MeasurmentsApiId);
+
+
+            await MeasurmentWebApi.Delete(MeasurementsViewM.SelectedMeasurment.MeasurementId);
         }
 
      
