@@ -166,13 +166,8 @@ namespace StationLogFinal.Views
 
         private async void Delete(object sender, RoutedEventArgs e)
         {
-            //Frame.Navigate(typeof(HomeView));
-            //Frame.Navigate(typeof(TasksView));
-            RefreshItems();
-            
-            
-            //RefreshItems();
-            //RefreshItems();
+            Frame.Navigate(typeof(HomeView));
+          
         }
       
       

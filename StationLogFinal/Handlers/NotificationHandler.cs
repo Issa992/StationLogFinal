@@ -33,7 +33,7 @@ namespace StationLogFinal.Handlers
         }
         #endregion
         #region Methods
-        public async Task<string> AddNotification()
+        public async void AddNotification()
         {
             try
             {
@@ -46,9 +46,9 @@ namespace StationLogFinal.Handlers
                 MessageDialog popup = new MessageDialog($"Error occured while" +
                     $" trying to add Notification./n{e.ToString()}");
             }
-            return "success";
+            
         }
-        public async Task<string> AddAllert()
+        public async void AddAllert()
         {
             try
             {
@@ -61,7 +61,7 @@ namespace StationLogFinal.Handlers
                 MessageDialog popup = new MessageDialog($"Error occured while" +
                     $" trying to add Alert./n{e.ToString()}");
             }
-            return "success";
+            
         }
         public string ReadNotification()
         {

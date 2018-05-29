@@ -27,8 +27,6 @@ namespace StationLogFinal.ViewModel
 
         static IWebAPIAsync<TaskModel> iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
 
-        //public Task1 AddNewTask { get; set; }
-
         private static ObservableCollection<TaskModel> _TasksColllection { get; set; }
 
 
@@ -36,17 +34,6 @@ namespace StationLogFinal.ViewModel
         private TaskModel _newTask;
         public TaskHandler TaskHandler { get; set; }
 
-        //Working 
-        //public ObservableCollection<Task1> TasksColllection
-        //{
-        //    get => _TasksColllection;
-        //    set
-        //    {
-        //        TasksColllection = value;
-        //        OnPropertyChanged(nameof(TasksColllection));
-
-        //    }
-        //}
         
         public ObservableCollection<TaskModel> TasksColllection
         {
@@ -81,19 +68,8 @@ namespace StationLogFinal.ViewModel
 
             CreateCommand = new RelayCommand(TaskHandler.CheckFields);
             DeleteCommand = new RelayCommand(TaskHandler.DeleteTask);
-            //UpdateCommand=new RelayCommand(TaskHandler.UpdateTask);
-            //AddNewTask=new Task1();
-       
-
-
-
-
-
-
-
 
         }
-
         public TaskModel SelectedTask
         {
             get => _SelectedTask;
@@ -104,19 +80,8 @@ namespace StationLogFinal.ViewModel
             }
         }
         public  async Task<string> LoadTasks()
-        {
-
-        
-
+        {       
             _TasksColllection = new ObservableCollection<TaskModel>(await iWebApiAsync.Load());
-
-            //foreach (var tasks in TasksColllection)
-            //{
-            //    TasksColllection.Add(tasks);
-            //}
-
-
-
             return "succes";
         }
 

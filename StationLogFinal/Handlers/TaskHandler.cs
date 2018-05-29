@@ -41,11 +41,8 @@ namespace StationLogFinal.Model
     
         public async Task CreateTask()
         {
-
             TaskModel task = new TaskModel();
-
-
-            task.TaskId= TaskViewModel.NewTask.TaskId;
+            task.TaskId= TaskViewModel.NewTask.TaskId  ;
             task.DateTime = TaskViewModel.NewTask.DateTime;
             task.Description = TaskViewModel.NewTask.Description;
             task.IsDone = TaskViewModel.NewTask.IsDone;
@@ -65,10 +62,7 @@ namespace StationLogFinal.Model
             iWebApiAsync = new WebAPIAsync<TaskModel>(ServerUrl, ApiPrefix, ApiId);
             await iWebApiAsync.Delete(task.TaskId);
             await TaskViewModel.LoadTasks();
-
         }
-
-
         public async Task UpdateTask(TaskModel task1)
         {
             TaskModel task = new TaskModel();
@@ -76,8 +70,6 @@ namespace StationLogFinal.Model
             task1.IsDone = TaskViewModel._SelectedTask.IsDone;
             TaskViewModel.NewTask.IsDone = true;
             await iWebApiAsync.Update(task1.TaskId,task1);
-
-
 
         }
 

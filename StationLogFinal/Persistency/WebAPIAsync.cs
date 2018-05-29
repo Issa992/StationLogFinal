@@ -44,39 +44,19 @@ namespace StationLogFinal.Persistency
         {
             var url = _serverURL + "/" + _apiPrefix + "/" + _apiID;
             var taskJson = JsonConvert.SerializeObject(obj);
-
             HttpClient client = new HttpClient();
-
-
             var httpContent = new StringContent(taskJson, Encoding.UTF8);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             await client.PostAsync(url, httpContent);
-
-
         }
-
-
         #endregion
-
-
-
         public async Task Delete(int key)
         {
             HttpClient client = new HttpClient();
             string url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
             await client.DeleteAsync(url);
         }
-        //working with loading////////////////////////////////////////////////////////////
-        //public async TaskModel<ObservableCollection<Task1>> Load()
-        //{
-        //    HttpClient client = new HttpClient();
-        //    string url = _serverURL + "/" + _apiPrefix + "/" + _apiID;
-        //    string response = await client.GetStringAsync(url);
-
-        //    var tasks = JsonConvert.DeserializeObject<ObservableCollection<Task1>>(response);
-        //    return tasks;
-        //}
-
+       
         public async Task<List<T>> Load()
         {
             HttpClient client = new HttpClient();
@@ -86,9 +66,13 @@ namespace StationLogFinal.Persistency
             var TaskResult = JsonConvert.DeserializeObject<List<T>>(jsonResponse);
             return TaskResult;
         }
-
-
-
+        public async Task Update(int key, T obj)
+        {
+            HttpClient client = new HttpClient();
+            string url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
+            string jsonResponse = JsonConvert.SerializeObject(obj);
+            await client.PutAsync(url, new StringContent(jsonResponse, Encoding.UTF8, "application/json"));
+        }
         public async Task<T> Read(int key)
         {
             HttpClient client = new HttpClient();
@@ -98,12 +82,6 @@ namespace StationLogFinal.Persistency
             return Task;
         }
 
-        public async Task Update(int key, T obj)
-        {
-            HttpClient client = new HttpClient();
-            string url = _serverURL + "/" + _apiPrefix + "/" + _apiID + "/" + key;
-            string jsonResponse = JsonConvert.SerializeObject(obj);
-            await client.PutAsync(url, new StringContent(jsonResponse, Encoding.UTF8, "application/json"));
-        }
+    
     }
 }

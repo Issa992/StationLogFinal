@@ -8,6 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     xmlns:model="using:StationLogFinal.Model"
     mc:Ignorable="d">
+
     <Page.Resources>
         <Style x:Key="MyCheckBoxStyle" TargetType="CheckBox">
             <Setter Property="Background" Value="{ThemeResource CheckBoxBackgroundUnchecked}"/>
@@ -346,13 +347,15 @@
     <Page.DataContext>
         <viewModel:TaskViewModel></viewModel:TaskViewModel>
     </Page.DataContext>
+    
 
     <RelativePanel>
         <RelativePanel.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <ImageBrush ImageSource="../Assets/homeImage.jpg"></ImageBrush>
+            <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF969696"/>
                 <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
+            </LinearGradientBrush>-->
         </RelativePanel.Background>
 
 
@@ -384,7 +387,6 @@
 
                     </StackPanel>
 
-                    <!--<SearchBox x:Name="SearchBox"  PlaceholderText="Tybe for searching" Margin="12,14" Padding="12,4,8,4" UseLayoutRounding="True" BorderBrush="White"></SearchBox>-->
 
                 </RelativePanel>
 
@@ -398,15 +400,16 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
 
-                <!--listView Should be Binded To the TaskCatalog The Collection tasks-->
-                <ListView   x:Name="MyListView" 
+                <ListView  
+                    
+                    x:Name="MyListView" 
                     SelectedItem="{Binding SelectedTask, Mode=TwoWay }"
                           ItemsSource="{Binding TasksColllection,Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5" Header="TaskModels"
+                      Margin="5"
                       Height="421" Width="900">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -417,9 +420,9 @@
                                               Content="{Binding Description}" Width="398" 
                                               IsThreeState="False"
                                               Checked="checkBox"
-                                              Unchecked="checkBox"
+                                              Unchecked="checkBox" Foreground="White"
                                               ></CheckBox>
-                                    <TextBlock Text="{Binding DateTime}"></TextBlock>
+                                    <TextBlock Foreground="Black" Text="{Binding DateTime}"></TextBlock>
                                 </StackPanel>
                                 <!--<TextBox Text="{Binding  TaskId,Mode=TwoWay}"></TextBox>
                                 <TextBox Text="{Binding   Description,Mode=TwoWay}"></TextBox>
@@ -433,8 +436,8 @@
                 <!--<TextBox RelativePanel.Below="MyListView" x:Name="TextBox" Text="TextBoxTestRelativePanelWidth"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"  ></TextBox>-->
                 <StackPanel Orientation="Horizontal" RelativePanel.Below="MyListView" Width="720">
-                    <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New TaskModel" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52"  ></Button>
-                    <Button   x:Name="DeleteTaskButton" Content="Delete TaskModel" Padding="8,4,14,4" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52" Command="{Binding DeleteCommand }" Click="Delete"></Button>
+                    <Button  Click="AddNewTaskButton_OnClick" x:Name="AddNewTaskButton" Content="Add New TaskModel" Padding="10" UseLayoutRounding="True" Margin="170,0,0,0" Width="180" Background="{x:Null}" Height="52" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"  ></Button>
+                    <Button   x:Name="DeleteTaskButton" Content="Delete TaskModel" Padding="10" UseLayoutRounding="True" Margin="185,0,-230,0" Width="165" Background="{x:Null}" Height="52" Command="{Binding DeleteCommand }" Click="Delete" Foreground="White"></Button>
                     <SearchBox BorderBrush="White" PlaceholderText="Searching for a task" Margin="290,0,-382,0" ></SearchBox>
                 </StackPanel>
 
