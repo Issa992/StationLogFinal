@@ -98,7 +98,7 @@
             <TextBox Text="{Binding NewComment.CommentId , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}"></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" Click="NavigateToTaskView" ></Button>
             <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
         </StackPanel>
         <DatePicker Name="datePicker" 
