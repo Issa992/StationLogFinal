@@ -28,14 +28,15 @@ namespace StationLogFinal.Views
         public CommentsView()
         {
             this.InitializeComponent();
-            datePicker.Date = DateTimeOffset.Now;
+           
            
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            datePicker.Opacity = 0;
             datePicker.Date = DateTimeOffset.Now;
+            datePicker.Opacity = 0;
+        
             
            
         }
@@ -45,7 +46,7 @@ namespace StationLogFinal.Views
             try
             {
 
-                MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
+                MyListView.ItemsSource = await new CommentsViewModel().LoadComments();
 
 
                 //MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
@@ -99,8 +100,9 @@ namespace StationLogFinal.Views
 
         private async void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
+            await RefreshItems();
+            Frame.Navigate(typeof(TasksView));
            
-           await RefreshItems();
         }
     }
 }

@@ -19,6 +19,11 @@ namespace StationLogWebApplication1
 
         public DateTime Date { get; set; }
 
+        public DateTimeOffset DateOffset
+        {
+            get { return DateTime.SpecifyKind(Date, DateTimeKind.Utc); }
+            set { Date = value.DateTime; }
+        }
         [Required]
         [StringLength(50)]
         public string Description { get; set; }

@@ -61,7 +61,7 @@ namespace StationLogFinal.Handlers
             iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
 
 
-            await iWebApiAsync.Delete(CommentsViewM.SelectedComment.UserId);
+            await iWebApiAsync.Delete(CommentsViewM.SelectedComment.CommentId);
         }
 
         public CommentsHanlder(CommentsViewModel commentsViewModel)
