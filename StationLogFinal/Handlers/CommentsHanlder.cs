@@ -20,7 +20,7 @@ namespace StationLogFinal.Handlers
         //oldDB http://stationlogwebapplication120180426012243.azurewebsites.net
         //newDB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
 
-        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
+        const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
         WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
@@ -36,15 +36,13 @@ namespace StationLogFinal.Handlers
 
                 comment = new Comment
                 {
-                CommentId = 1234551,
-                CommentDate = DateTime.Now.ToUniversalTime(),
+                CommentId = CommentsViewM.NewComment.CommentId,
+                CommentDate = CommentsViewM.NewComment.CommentDate,
                 Description = CommentsViewM.NewComment.Description,
                 UserId = CurrentSessioncs.GetCurrentUser().UserId,
-                //LogId = 2
-                
-
+               
                 };
-                CommentsViewM.CommentsOC.Add(comment);  
+             
                 await CommentTester.RunAPITestCreate(comment);
             }
             catch (Exception exception)
@@ -58,14 +56,12 @@ namespace StationLogFinal.Handlers
 
 
         public async void DeleteComment()
-        {
-            comment = new Comment();
-            comment.CommentId = CommentsViewM.SelectedComment.CommentId;
+        { 
             CommentsViewM.CommentsOC.Remove(CommentsViewM.SelectedComment);
             iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
 
 
-            await iWebApiAsync.Delete(comment.CommentId);
+            await iWebApiAsync.Delete(CommentsViewM.SelectedComment.UserId);
         }
 
         public CommentsHanlder(CommentsViewModel commentsViewModel)

@@ -21,7 +21,7 @@ namespace StationLogFinal.ViewModel
       
 
 
-        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
+        const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
         private const string ApiPrefix = "api";
         const string ApiIdMeasurements = "Measurements";
 
@@ -77,12 +77,7 @@ namespace StationLogFinal.ViewModel
         }
 
 
-        public async Task<int> LoadMeasurments()
-        {
-            _MeasurementsOC = new ObservableCollection<Measurement>(await iWebApiAsyncMeasure.Load());
-            return 1;
-
-        }
+       
 
         public  void SortElements()
         {
@@ -95,7 +90,11 @@ namespace StationLogFinal.ViewModel
                 MeasurementsSorter.SortMeasurmentsByUser(CurrentSessioncs.GetCurrentUser().UserId));
         }
 
-     
+        public async Task<int> LoadMeasurments()
+        {
+            _MeasurementsOC = new ObservableCollection<Measurement>(await iWebApiAsyncMeasure.Load());
+            return 1;
+        }
 
         public MeasurementsViewModel()
         {

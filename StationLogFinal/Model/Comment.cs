@@ -12,7 +12,13 @@ namespace StationLogWebApplication1
         public int CommentId { get; set; }
 
         public DateTime CommentDate { get; set; }
-      
+
+        public DateTimeOffset DateOffset
+        {
+            get { return DateTime.SpecifyKind(CommentDate, DateTimeKind.Utc); }
+            set { CommentDate = value.DateTime; }
+        }
+
 
         [Required]
         public string Description { get; set; }

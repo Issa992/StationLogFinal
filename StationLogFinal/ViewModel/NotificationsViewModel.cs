@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using StationLogFinal.Persistency;
 using StationLogWebApplication1;
 using StationLogFinal.Handlers;
+using System.Windows.Input;
+using StationLogFinal.Common;
 
 namespace StationLogFinal.ViewModel
 {
@@ -85,8 +87,18 @@ namespace StationLogFinal.ViewModel
                 OnPropertyChanged(nameof(alertsCO));
             }
         }
-        #endregion 
+        public ICommand AddNotificationCommand;
+        public ICommand AddAlertCommand;
+       
+        #endregion
 
+        public NotificationsViewModel()
+        {
+            notificationHandler = new NotificationHandler(this);
+            AddAlertCommand = new RelayCommand(notificationHandler.AddAllert);
+            AddNotificationCommand = new RelayCommand(notificationHandler.AddNotification);
+
+        }
 
 
     }

@@ -22,7 +22,7 @@ namespace StationLogFinal.ViewModel
         public ICommand CreateCommentCommand { get; set; }
         public ICommand DeleteCommentCommand { get; set; }
         
-        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
+        const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
 
