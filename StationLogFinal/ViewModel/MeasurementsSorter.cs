@@ -25,25 +25,6 @@ namespace StationLogFinal.ViewModel
            
             var query = from measure in VM.MeasurementsOC where (measure.MonitorId == monitorId) select measure;
             return query.ToList();
-            //foreach (var measure in query.ToList())
-            //{
-            //    VM.SortednMeasurements.Add(new Measurement
-            //    {
-            //        MeasurementId = measure.MeasurementId,
-            //        Date = measure.Date,
-            //        Description = measure.Description,
-            //        MonitorId = measure.MonitorId,
-            //        StationId = measure.StationId,
-            //        User = measure.User,
-            //        UserId = measure.UserId,
-            //        Value = measure.Value
-
-            //    });
-            //}
-            //var myObservableCollection = new ObservableCollection<Measurement>(query);
-            //VM.SortednMeasurements = myObservableCollection;
-
-
         }
 
      
@@ -55,12 +36,7 @@ namespace StationLogFinal.ViewModel
             return query.ToList();
         }
 
-        public static List<Measurement> SortMeasurmentsByUserAndStation(int userId, int stationId)
-        {
-
-            var query = from measure in VM.MeasurementsOC where (measure.UserId == userId && measure.StationId == stationId) select measure;
-            return query.ToList();
-        }
+  
       
 
 

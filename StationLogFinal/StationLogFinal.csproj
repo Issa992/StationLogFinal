@@ -97,7 +97,6 @@
     </Compile>
     <Compile Include="Common\FrameNavigationClass.cs" />
     <Compile Include="Handlers\CommentsHanlder.cs" />
-    <Compile Include="Handlers\LogsHandler.cs" />
     <Compile Include="Handlers\MeasurementsHandler.cs" />
     <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NotificationHandler.cs" />
@@ -111,7 +110,6 @@
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\TaskModel.cs" />
-    <Compile Include="Model\Task1.cs" />
     <Compile Include="Handlers\TaskHandler.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\IWebAPIAsync.cs" />
@@ -124,8 +122,8 @@
     <Compile Include="SessionTools\RegisterTool.cs" />
     <Compile Include="SessionTools\Security.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
+    <Compile Include="ViewModel\CommentsSorter.cs" />
     <Compile Include="ViewModel\CommentsViewModel.cs" />
-    <Compile Include="ViewModel\LogsViewModel.cs" />
     <Compile Include="ViewModel\MeasurementsSorter.cs" />
     <Compile Include="ViewModel\MeasurementsViewModel.cs" />
     <Compile Include="Common\NotifyPropertyChange.cs" />

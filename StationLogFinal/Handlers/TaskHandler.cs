@@ -45,7 +45,7 @@ namespace StationLogFinal.Model
             TaskModel task = new TaskModel();
 
 
-            task.TaskId= TaskViewModel.NewTask.TaskId  ;
+            task.TaskId= TaskViewModel.NewTask.TaskId;
             task.DateTime = TaskViewModel.NewTask.DateTime;
             task.Description = TaskViewModel.NewTask.Description;
             task.IsDone = TaskViewModel.NewTask.IsDone;
