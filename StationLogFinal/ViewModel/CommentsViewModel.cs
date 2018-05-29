@@ -9,19 +9,22 @@ using StationLogFinal.Common;
 using StationLogFinal.Handlers;
 using StationLogFinal.Model;
 using StationLogFinal.Persistency;
+using StationLogFinal.SessionTools;
+using StationLogFinal.Views;
 using StationLogWebApplication1;
 
 namespace StationLogFinal.ViewModel
 {
     class CommentsViewModel : NotifyPropertyChange
     {
+        #region fields
         public CommentsHanlder commentsHanlder;
 
         private Comment _newComment;
         public Comment _SelectedComment;
         public ICommand CreateCommentCommand { get; set; }
         public ICommand DeleteCommentCommand { get; set; }
-        
+
         const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
         const string ApiPrefix = "api";
         const string ApiId = "Comments";
@@ -29,8 +32,9 @@ namespace StationLogFinal.ViewModel
         public static IWebAPIAsync<Comment> iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
         WebAPIAsync<Comment> CommentWebApi = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
         private static ObservableCollection<Comment> _CommentsOC;
+        private static ObservableCollection<Comment> _sortedComments;
 
-        public  ObservableCollection<Comment> CommentsOC
+        public ObservableCollection<Comment> CommentsOC
         {
             get => _CommentsOC;
             set
@@ -40,6 +44,16 @@ namespace StationLogFinal.ViewModel
 
             }
         }
+        public ObservableCollection<Comment> SortedComments
+        {
+            get => _sortedComments;
+            set
+            {
+                SortedComments = value;
+                OnPropertyChanged(nameof(SortedComments));
+            }
+        }
+
 
         public Comment NewComment
         {
@@ -60,6 +74,24 @@ namespace StationLogFinal.ViewModel
                 _SelectedComment = value;
                 OnPropertyChanged(nameof(SelectedComment));
             }
+        }
+
+        #endregion
+        public void SortElementsByUser()
+        {
+            _sortedComments = new ObservableCollection<Comment>(
+                CommentsSorter.SortCommentsByUser(HistoryView.ID));
+        }
+
+        public void SortElementsByDate()
+        {
+            _sortedComments = new ObservableCollection<Comment>(
+                CommentsSorter.SortCommentsByDate(HistoryView.date));
+        }
+  public void SortElementsBy()
+        {
+            _sortedComments = new ObservableCollection<Comment>(
+                CommentsSorter.SortCommentsByDate(HistoryView.date));
         }
 
         public async Task<int> LoadComments()

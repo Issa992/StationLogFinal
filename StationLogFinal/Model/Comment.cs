@@ -19,18 +19,12 @@ namespace StationLogWebApplication1
             set { CommentDate = value.DateTime; }
         }
 
-
         [Required]
         public string Description { get; set; }
 
         public int UserId { get; set; }
 
-        //public int? LogId { get; set; }
-
-      
         public virtual User User { get; set; }
-
-        //public virtual Log Log { get; set; }
 
         public Comment(int commentId, DateTime commentDate, string description, int userId)
         {

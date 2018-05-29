@@ -25,20 +25,18 @@ namespace StationLogFinal.Views
     /// </summary>
     public sealed partial class CommentsView : Page
     {
+
         public CommentsView()
         {
             this.InitializeComponent();
-           
-           
+          
+
+
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            datePicker.Date = DateTimeOffset.Now;
-            datePicker.Opacity = 0;
-        
-            
-           
+         datePicker.MinYear = DateTimeOffset.Now;
         }
 
         private async Task RefreshItems()
@@ -73,6 +71,10 @@ namespace StationLogFinal.Views
 
         //    await d.ShowAsync();
         //}
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
+        }
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomeView));
@@ -103,6 +105,14 @@ namespace StationLogFinal.Views
             await RefreshItems();
             Frame.Navigate(typeof(TasksView));
            
+        }
+
+        private async void AddButton_OnClick(object sender, RoutedEventArgs e)
+        {
+          
+           
+            Frame.Navigate(typeof(TasksView));
+            await RefreshItems();
         }
     }
 }

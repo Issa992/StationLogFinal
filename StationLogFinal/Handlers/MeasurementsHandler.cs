@@ -9,6 +9,7 @@ using StationLogFinal.Persistency;
 using StationLogFinal.SessionTools;
 using StationLogFinal.ViewModel;
 using StationLogWebApplication1;
+using StationLogWebApplication1.Models;
 
 namespace StationLogFinal.Handlers
 {
@@ -21,7 +22,7 @@ namespace StationLogFinal.Handlers
         //oldDB http://stationlogwebapplication120180426012243.azurewebsites.net
         //newDB http://stationlogsystemwebapplication20180521105958.azurewebsites.net
 
-        const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
+        const string ServerUrl = "http://stationlogwebapplication120180521125426.azurewebsites.net";
         const string ApiPrefix = "api";
         const string MeasurmentsApiId = "Measurements";
         WebAPIAsync<Measurement> MeasurmentWebApi = new WebAPIAsync<Measurement>(ServerUrl, ApiPrefix, MeasurmentsApiId);
@@ -37,14 +38,14 @@ namespace StationLogFinal.Handlers
             {
                 MeasurementId = MeasurementsViewM.NewMeasurment.MeasurementId,
                 MonitorId = MeasurementsViewM.NewMeasurment.MonitorId,
-                Date = DateTime.Now,
-                Description = MeasurementsViewM.NewMeasurment.Description,
-                Value = MeasurementsViewM.NewMeasurment.Value,
-                User = CurrentSessioncs.GetCurrentUser(),
                 UserId = CurrentSessioncs.GetCurrentUser().UserId,
-                StationId = MeasurementsViewM.NewMeasurment.StationId
+                StationId = MeasurementsViewM.NewMeasurment.StationId,
+                Date = MeasurementsViewM.NewMeasurment.Date,
+                Description = MeasurementsViewM.NewMeasurment.Description,
+                Value = MeasurementsViewM.NewMeasurment.Value             
+
             };
-            MeasurementsViewM.MeasurementsOC.Add(measurment);
+           
             await MeasurmentTester.RunAPITestCreate(measurment);
         }
 
