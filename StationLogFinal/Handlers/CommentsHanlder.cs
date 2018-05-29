@@ -32,10 +32,12 @@ namespace StationLogFinal.Handlers
             try
             {
                 WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
-
+               
+             
 
                 comment = new Comment
                 {
+                    
                 CommentId = CommentsViewM.NewComment.CommentId,
                 CommentDate = CommentsViewM.NewComment.CommentDate,
                 Description = CommentsViewM.NewComment.Description,
@@ -61,7 +63,7 @@ namespace StationLogFinal.Handlers
             iWebApiAsync = new WebAPIAsync<Comment>(ServerUrl, ApiPrefix, ApiId);
 
 
-            await iWebApiAsync.Delete(CommentsViewM.SelectedComment.UserId);
+            await iWebApiAsync.Delete(CommentsViewM.SelectedComment.CommentId);
         }
 
         public CommentsHanlder(CommentsViewModel commentsViewModel)

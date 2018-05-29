@@ -59,15 +59,15 @@ namespace StationLogFinal.Views
         {
             Frame.Navigate(typeof(CommentsView));
         }
-
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
+        }
         private void NavigateToLoginPage(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MeasurmentsView));
-        }
+     
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -33,14 +34,44 @@ namespace StationLogFinal.Views
           
         }
 
-        private void Add(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            datePicker.MinYear = DateTimeOffset.Now;
+            VM.SortElementsByCurrentUser();
+            
+            CurrentMeasurementsListView.ItemsSource = VM.SortednMeasurements;
+        }
+
+          private async Task RefreshItems()
+        {
+            try
             {
-                Frame.Navigate(typeof(MeasurmentsView));
+
+                CurrentMeasurementsListView.ItemsSource = await new CommentsViewModel().LoadComments();
+
+
+                //MyListView.ItemsSource = await new TaskViewModel().LoadTasks();
+            }
+            catch (Exception e)
+            {
+                //await new MessageDialog(e.Message, "Error loading tasks").ShowAsync();
+
+            }
+        }
+        private async void Add(object sender, RoutedEventArgs e)
+            {
+                await RefreshItems();
+            Frame.Navigate(typeof(TasksView));
+               
             }
 
 
 
         #region navigation
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
+        }
 
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
@@ -70,9 +101,8 @@ namespace StationLogFinal.Views
         #endregion
 
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            VM.SortElementsByUser();
-        }
+  
+
+     
     }
 }

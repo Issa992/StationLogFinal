@@ -51,7 +51,11 @@ namespace StationLogFinal.Views
             MyCommandBar.IsOpen = true;
             MyCommandBar.IsDynamicOverflowEnabled = false;
         }
-    
+
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
+        }
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HomeView));

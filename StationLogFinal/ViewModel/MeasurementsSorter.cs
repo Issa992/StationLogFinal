@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using StationLogFinal.Model;
 using StationLogFinal.Views;
 using StationLogWebApplication1;
+using StationLogWebApplication1.Models;
 
 namespace StationLogFinal.ViewModel
 {
@@ -20,10 +21,10 @@ namespace StationLogFinal.ViewModel
             var query = from measure in VM.MeasurementsOC where (measure.Date == date) select measure;
             return query.ToList();
         }
-        public static List<Measurement> SortMeasurmentsByStation(int monitorId)
+        public static List<Measurement> SortMeasurmentsByStation(int stationId)
         {
            
-            var query = from measure in VM.MeasurementsOC where (measure.MonitorId == monitorId) select measure;
+            var query = from measure in VM.MeasurementsOC where (measure.StationId == stationId) select measure;
             return query.ToList();
         }
 

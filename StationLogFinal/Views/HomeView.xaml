@@ -39,8 +39,9 @@
                         />
                         <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
                         />
-                        <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
                         <AppBarButton  Click="NavigateToMeasurmentsPage" Icon="Comment" Label="Measurments"  Width="185"></AppBarButton>
+                        <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
+                       
 
 
                     </StackPanel>
