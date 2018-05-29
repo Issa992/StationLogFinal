@@ -102,6 +102,11 @@ namespace StationLogFinal.ViewModel
             _sortedMeasurements = new ObservableCollection<Measurement>(
                 MeasurementsSorter.SortMeasurmentsByDate(HistoryView.date));
         }
+        public void SortElementsByStation()
+        {
+            _sortedMeasurements = new ObservableCollection<Measurement>(
+                MeasurementsSorter.SortMeasurmentsByStation(HistoryView.Station));
+        }
 
         public async Task<int> LoadMeasurments()
         {

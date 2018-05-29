@@ -36,6 +36,7 @@ namespace StationLogFinal.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            datePicker.MinYear = DateTimeOffset.Now;
             VM.SortElementsByCurrentUser();
             
             CurrentMeasurementsListView.ItemsSource = VM.SortednMeasurements;
@@ -67,6 +68,10 @@ namespace StationLogFinal.Views
 
 
         #region navigation
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
+        }
 
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {

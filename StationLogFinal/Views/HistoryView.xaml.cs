@@ -19,6 +19,7 @@ namespace StationLogFinal.Views
     {
         private int check = 1;
         public static int ID;
+        public static int Station;
         public static DateTime date;
         MeasurementsViewModel VM = new MeasurementsViewModel();
         CommentsViewModel CommentVM = new CommentsViewModel();
@@ -49,6 +50,10 @@ namespace StationLogFinal.Views
             d.PrimaryButtonText = "OK";
 
             await d.ShowAsync();
+        }
+        private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MeasurmentsView));
         }
         private void NavigateToHomeView(object sender, RoutedEventArgs e)
         {
@@ -110,7 +115,7 @@ namespace StationLogFinal.Views
             await RefreshItems();
         }
 
-        private async void sortByUser_OnClick(object sender, RoutedEventArgs e)
+        private void sortByUser_OnClick(object sender, RoutedEventArgs e)
         {
             ID = Int32.Parse(UserIdTextBox.Text);
             if (UserIdTextBox.Text.Length == 0)
@@ -147,18 +152,48 @@ namespace StationLogFinal.Views
 
         private void sortByDate_OnClick(object sender, RoutedEventArgs e)
         {
-            if (check == 1)
+         
+            
+                if (check == 1)
+                {
+
+                    VM.SortElementsByDate();
+                    HistoryListView.ItemsSource = VM.SortednMeasurements;
+
+                }
+                else
+                {
+                    CommentVM.SortElementsByDate();
+                    HistoryListView.ItemsSource = CommentVM.SortedComments;
+                }
+            
+        }
+
+        private async void sortByStation_OnClick(object sender, RoutedEventArgs e)
+        {
+            Station = Int32.Parse(StationidTextBox.Text);
+            if (StationidTextBox.Text.Length == 0)
             {
-
-                VM.SortElementsByDate();
-                HistoryListView.ItemsSource = VM.SortednMeasurements;
-
+                EmptyTaskFieldsPopUp();
             }
             else
             {
-                CommentVM.SortElementsByDate();
-                HistoryListView.ItemsSource = CommentVM.SortedComments;
+                if (check == 1)
+                {
+
+                    VM.SortElementsByStation();
+                    HistoryListView.ItemsSource = VM.SortednMeasurements;
+
+                }
+                else
+                {
+                    var dialog = new Windows.UI.Popups.MessageDialog("Cannot sort comments by station", "Sorry");
+                    dialog.Commands.Add(new Windows.UI.Popups.UICommand("Ok") { Id = 1 });
+                    dialog.CancelCommandIndex = 1;
+                    await dialog.ShowAsync();
+                }
             }
+
         }
     }
 }

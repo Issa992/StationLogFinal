@@ -43,6 +43,7 @@
                         />
                         <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
                         />
+                        <AppBarButton  Click="NavigateToMeasurmentsPage" Icon="Comment" Label="Measurments"  Width="185"></AppBarButton>
                         <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
 
 
@@ -96,15 +97,16 @@
                     >
             <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
             <TextBox Text="{Binding NewComment.CommentId , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
+            <DatePicker Name="datePicker" 
+                        
+                        Foreground="Black" 
+                        Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
             <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" Click="AddButton_OnClick"></Button>
             <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
         </StackPanel>
-        <DatePicker Name="datePicker" 
-                    DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
-                    Foreground="Black" 
-                    Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
+       
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>

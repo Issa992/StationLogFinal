@@ -88,6 +88,11 @@ namespace StationLogFinal.ViewModel
             _sortedComments = new ObservableCollection<Comment>(
                 CommentsSorter.SortCommentsByDate(HistoryView.date));
         }
+  public void SortElementsBy()
+        {
+            _sortedComments = new ObservableCollection<Comment>(
+                CommentsSorter.SortCommentsByDate(HistoryView.date));
+        }
 
         public async Task<int> LoadComments()
         {

@@ -39,6 +39,7 @@
                         />
                         <AppBarButton x:Name="CommentButton" Icon="Comment" Label="Comments" Click="NavigateToCommentsView"  Width="185"
                         />
+                        <AppBarButton  Click="NavigateToMeasurmentsPage" Icon="Comment" Label="Measurments"  Width="185"></AppBarButton>
                         <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
 
 
@@ -58,12 +59,13 @@
             <RelativePanel>
                 <StackPanel>
                     <DatePicker x:Name="LogsDatePicker"></DatePicker>
-                    <TextBox x:Name="StationidTextBox"></TextBox>
+                    <TextBox x:Name="StationidTextBox" PlaceholderText="StationId"></TextBox>
                     <TextBox x:Name="UserIdTextBox" PlaceholderText="User ID"></TextBox>
                    
                     <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
                     <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
                     <Button Content="Sort by user" Click="sortByUser_OnClick"></Button>
+                    <Button Content="Sort by station" Click="sortByStation_OnClick"></Button>
                     <Button Content="Sort by date" Click="sortByDate_OnClick"></Button>
                 </StackPanel>
                 
