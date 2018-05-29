@@ -19,6 +19,7 @@ namespace StationLogWebApplication1.Models
 
         public DateTime Date { get; set; }
 
+ 
         [Required]
         public string Description { get; set; }
 
@@ -29,5 +30,6 @@ namespace StationLogWebApplication1.Models
         public virtual User User { get; set; }
 
         public virtual Station Station { get; set; }
+
     }
 }

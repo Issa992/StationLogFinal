@@ -33,6 +33,11 @@ namespace StationLogFinal.Views
           
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+         
+        }
+
         private void Add(object sender, RoutedEventArgs e)
             {
                 Frame.Navigate(typeof(MeasurmentsView));

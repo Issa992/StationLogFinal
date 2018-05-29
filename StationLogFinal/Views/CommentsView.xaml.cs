@@ -34,11 +34,9 @@ namespace StationLogFinal.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            datePicker.Date = DateTimeOffset.Now;
-            datePicker.Opacity = 0;
-        
             
-           
+            datePicker.Opacity = 0;
+       
         }
 
         private async Task RefreshItems()

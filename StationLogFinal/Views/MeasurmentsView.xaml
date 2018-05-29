@@ -64,21 +64,31 @@
 
                 </RelativePanel>
             </ScrollViewer>
-            <StackPanel  Width="600" x:Name="MyStackPanel" 
+
+            <StackPanel x:Name="MyStackPanel" 
                     RelativePanel.Below="MyScrollViewer"
                     RelativePanel.AlignRightWithPanel="True" 
-                    RelativePanel.AlignLeftWithPanel="True"  
+                    RelativePanel.AlignLeftWithPanel="True" Margin="471,0.4,450,0"  
                     >
-               <ListView ItemsSource="{Binding SortednMeasurements}" SelectedItem="{Binding SelectedMeasurment}"
+                <ListView ItemsSource="{Binding MeasurementsOC}" SelectedItem="{Binding SelectedMeasurment}"
                          x:Name="CurrentMeasurementsListView"></ListView>
-                <TextBox Text="{Binding NewMeasurment.MeasurementId, Mode=TwoWay}"></TextBox>
-                <TextBox Text="{Binding NewMeasurment.MonitorId, Mode=TwoWay}"></TextBox>
-                <TextBox Text="{Binding NewMeasurment.Description, Mode=TwoWay}"></TextBox>
-                <TextBox Text="{Binding NewMeasurment.Value, Mode=TwoWay}"></TextBox>
-              
-              
+
+                <TextBox Text="{Binding NewMeasurment.MeasurementId, Mode=TwoWay}" PlaceholderText="ID" Margin="0,0,0,0"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.MonitorId, Mode=TwoWay}" PlaceholderText="monitor id"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.StationId, Mode=TwoWay}" PlaceholderText="station id"></TextBox>
+                <DatePicker Name="datePicker" 
+                            DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
+                            Foreground="Black" 
+                            Date="{Binding NewMeasurment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
+                <TextBox Text="{Binding NewMeasurment.Description, Mode=TwoWay}" PlaceholderText="description"></TextBox>
+                <TextBox Text="{Binding NewMeasurment.Value, Mode=TwoWay}" PlaceholderText="value"></TextBox>
+
+
                 <Button Content="Add" Command="{Binding CreateCommand}"></Button>
                 <Button Content="Delete" Command="{Binding DeleteCommand}"></Button>
+                <StackPanel>
+                    
+                </StackPanel>
             </StackPanel>
 
             <VisualStateManager.VisualStateGroups>
@@ -153,7 +163,6 @@
             <!---->
             <AppBarButton Icon="Cancel" Label="Cancel" Click="Add" />
         </CommandBar>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="452,374,0,0" VerticalAlignment="Top" Click="ButtonBase_OnClick"/>
     </Grid>
     
 </Page>

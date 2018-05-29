@@ -1,3 +1,5 @@
+using StationLogWebApplication1.Models;
+
 namespace StationLogWebApplication1
 {
     using System;

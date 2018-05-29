@@ -32,10 +32,12 @@ namespace StationLogFinal.Handlers
             try
             {
                 WebAPITest<Comment> CommentTester = new WebAPITest<Comment>(CommentWebApi);
-
+               
+             
 
                 comment = new Comment
                 {
+                    
                 CommentId = CommentsViewM.NewComment.CommentId,
                 CommentDate = CommentsViewM.NewComment.CommentDate,
                 Description = CommentsViewM.NewComment.Description,

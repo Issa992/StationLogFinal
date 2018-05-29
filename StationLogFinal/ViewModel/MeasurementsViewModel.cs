@@ -11,6 +11,7 @@ using StationLogFinal.Model;
 using StationLogFinal.Persistency;
 using StationLogFinal.SessionTools;
 using StationLogWebApplication1;
+using StationLogWebApplication1.Models;
 
 namespace StationLogFinal.ViewModel
 {
@@ -79,10 +80,7 @@ namespace StationLogFinal.ViewModel
 
        
 
-        public  void SortElements()
-        {
-            _sortedMeasurements = new ObservableCollection<Measurement>(MeasurementsSorter.SortMeasurmentsByStation(1));
-        }
+  
 
         public void SortElementsByUser()
         {

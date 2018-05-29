@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using StationLogFinal.Model;
 using StationLogFinal.Views;
 using StationLogWebApplication1;
+using StationLogWebApplication1.Models;
 
 namespace StationLogFinal.ViewModel
 {
