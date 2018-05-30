@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="StationLogFinal.Views.HistoryView"
+    x:Class="StationLogFinal.Views.MessagesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:StationLogFinal.Views"
@@ -8,7 +8,7 @@
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:MeasurementsViewModel></viewModel:MeasurementsViewModel>
+        <viewModel:CommentsViewModel></viewModel:CommentsViewModel>
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
@@ -18,7 +18,10 @@
             </LinearGradientBrush>
         </RelativePanel.Background>
 
-        <CommandBar x:Name="MyCommandBar"  OverflowButtonVisibility="Collapsed"  IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
+
+        <!--OverflowButtonVisibility="Collapsed"-->
+
+        <CommandBar x:Name="MyCommandBar"   OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
                     Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignRightWithPanel="True"  >
 
@@ -27,6 +30,7 @@
 
             <CommandBar.Content>
                 <RelativePanel>
+
                     <StackPanel Orientation="Horizontal">
 
                         <AppBarButton  x:Name="HomeButton" Icon="Home" Label="Home"  Click="NavigateToHomeView" Width="185" />
@@ -45,46 +49,64 @@
                         <AppBarButton Icon="Clock" Label="Notifications" Width="185" Click="NavigateToNotificationPage"/>
 
                     </StackPanel>
-
-
                 </RelativePanel>
 
             </CommandBar.Content>
         </CommandBar>
-        <ScrollViewer x:Name="MyScrollViewer"  VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" 
+        <ScrollViewer  x:Name="MyScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" 
                        HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled"   
                        RelativePanel.Below="MyCommandBar"
                        RelativePanel.AlignRightWithPanel="True" 
                        RelativePanel.AlignLeftWithPanel="True"  
-                       RelativePanel.AlignHorizontalCenterWithPanel="True">
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
-                <StackPanel>
-                    <DatePicker x:Name="LogsDatePicker"></DatePicker>
-                    <TextBox x:Name="StationidTextBox" PlaceholderText="StationId"></TextBox>
-                    <TextBox x:Name="UserIdTextBox" PlaceholderText="User ID"></TextBox>
-                   
-                    <Button Content="Show Comments" Click="Showcomments_OnClick"></Button>
-                    <Button Content="Show Measurements" Click="ShowMeasurements_OnClick"></Button>
-                    <Button Content="Sort by user" Click="sortByUser_OnClick"></Button>
-                    <Button Content="Sort by station" Click="sortByStation_OnClick"></Button>
-                    <Button Content="Sort by date" Click="sortByDate_OnClick"></Button>
-                </StackPanel>
-                
-                <ListView ItemsSource="{Binding MeasurementsOC}"
-                         
-                    
-                    RelativePanel.AlignVerticalCenterWithPanel="True"  
-                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+
+                <ListView ItemsSource="{Binding CommentsOC, Mode=TwoWay}" SelectedItem="{Binding SelectedComment, Mode=TwoWay}"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"    
+                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5"  x:Name="HistoryListView" 
-                      Height="421" Width="848">
- 
+                      Margin="5" Header="Comments" x:Name="MyListView" 
+                      Height="421" Width="900">
+                    <!--<Border Background="#FFFFC30F">
+                        <TextBlock  Text="FPO filter change the filter parts are outdated "  TextWrapping="Wrap" />
+
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <TextBlock Text="Error in the dust monitors" TextWrapping="Wrap" />
+
+                    </Border>
+                    <Border Background="#FF01C176">
+                        <TextBlock Text="SMPS PM1 cyclone clean the cyclone need to be replaced  " TextWrapping="Wrap" FocusVisualPrimaryBrush="#FFFA8B07"/>
+
+                    </Border>
+                    <Border Background="#FFFD5733">
+                        <TextBlock Text="Error in the gas monitors" TextWrapping="Wrap"/>
+
+                    </Border>-->
+
                 </ListView>
-              
+
+
 
             </RelativePanel>
         </ScrollViewer>
+        <StackPanel  Width="600" x:Name="MyStackPanel" 
+                    RelativePanel.Below="MyScrollViewer"
+                    RelativePanel.AlignRightWithPanel="True" 
+                    RelativePanel.AlignLeftWithPanel="True"  
+                    >
+            <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
+            <TextBox Text="{Binding NewComment.CommentId , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
+            <DatePicker Name="datePicker" 
+                        
+                        Foreground="Black" 
+                        Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
+            <SearchBox PlaceholderText="Comment Search"></SearchBox>
+
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" Click="AddButton_OnClick"></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
+        </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

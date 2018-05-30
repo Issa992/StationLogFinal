@@ -45,7 +45,8 @@
                         />
                         <AppBarButton  Click="NavigateToMeasurmentsPage" Icon="Comment" Label="Measurments"  Width="185"></AppBarButton>
                         <AppBarButton  Click="NavigateToLoginPage" Icon="Back" Label="LogOut"  Width="185"></AppBarButton>
-
+                        <AppBarButton Icon="Mail" Label="Messages" Width="185" Click="NavigateToMessagesPage"/>
+                        <AppBarButton Icon="Clock" Label="Notifications" Width="185" Click="NavigateToNotificationPage"/>
 
                     </StackPanel>
                 </RelativePanel>

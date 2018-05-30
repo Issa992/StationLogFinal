@@ -85,7 +85,14 @@ namespace StationLogFinal.Views
            
 
         }
-
+        private void NavigateToMessagesPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MessagesView));
+        }
+        private void NavigateToNotificationPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NotificationView));
+        }
         private void Showcomments_OnClick(object sender, RoutedEventArgs e)
         {
             check = 0;
