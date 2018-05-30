@@ -13,7 +13,7 @@ using StationLogFinal.Common;
 
 namespace StationLogFinal.ViewModel
 {
-    class MessageViewModel : NotifyPropertyChange
+    public class MessageViewModel : NotifyPropertyChange
     {
         const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         const string ApiPrefix = "api";
