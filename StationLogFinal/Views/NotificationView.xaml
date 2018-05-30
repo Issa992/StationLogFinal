@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
+
     <Page.DataContext>
         <viewModel:CommentsViewModel></viewModel:CommentsViewModel>
     </Page.DataContext>
@@ -104,8 +105,8 @@
                         Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
             <SearchBox PlaceholderText="Comment Search"></SearchBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" Click="AddButton_OnClick"></Button>
-            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" ></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" ></Button>
         </StackPanel>
 
         <VisualStateManager.VisualStateGroups>

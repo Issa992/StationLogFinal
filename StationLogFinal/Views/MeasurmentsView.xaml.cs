@@ -99,7 +99,7 @@ namespace StationLogFinal.Views
         }
         private void NavigateToMessagesPage(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MessagesView));
+            Frame.Navigate(typeof(MessageView));
         }
         private void NavigateToNotificationPage(object sender, RoutedEventArgs e)
         {

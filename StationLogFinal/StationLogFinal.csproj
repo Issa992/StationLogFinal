@@ -152,11 +152,11 @@
     <Compile Include="Views\MeasurmentsView.xaml.cs">
       <DependentUpon>MeasurmentsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MessagesView.xaml.cs">
-      <DependentUpon>MessagesView.xaml</DependentUpon>
+    <Compile Include="Views\MessageView.xaml.cs">
+      <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NottificationView.xaml.cs">
-      <DependentUpon>NottificationView.xaml</DependentUpon>
+    <Compile Include="Views\NotificationView.xaml.cs">
+      <DependentUpon>NotificationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TasksView.xaml.cs">
       <DependentUpon>TasksView.xaml</DependentUpon>
@@ -214,11 +214,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MessagesView.xaml">
+    <Page Include="Views\MessageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NottificationView.xaml">
+    <Page Include="Views\NotificationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="StationLogFinal.Views.MessagesView"
+    x:Class="StationLogFinal.Views.MessageView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:StationLogFinal.Views"
@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
+
     <Page.DataContext>
-        <viewModel:CommentsViewModel></viewModel:CommentsViewModel>
+        <viewModel:MessageViewModel />
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
@@ -61,7 +62,7 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
 
-                <ListView ItemsSource="{Binding CommentsOC, Mode=TwoWay}" SelectedItem="{Binding SelectedComment, Mode=TwoWay}"
+                <ListView ItemsSource="{Binding messagesCO, Mode=TwoWay}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
@@ -96,16 +97,11 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
-            <TextBox Text="{Binding NewComment.CommentId , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
-            <DatePicker Name="datePicker" 
-                        
-                        Foreground="Black" 
-                        Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
-            <SearchBox PlaceholderText="Comment Search"></SearchBox>
+            <TextBox Text="{Binding newMessage.Messages , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
+            <SearchBox PlaceholderText="Comment Search" HorizontalAlignment="Center" Height="282" Margin="0,0,0,0" VerticalAlignment="Center" Width="591"></SearchBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" Click="AddButton_OnClick"></Button>
-            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" Click="ButtonDelete_OnClick"></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding sentMessageCommand, Mode=TwoWay}" ></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding deleteMessageCommand, Mode=TwoWay}"></Button>
         </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
