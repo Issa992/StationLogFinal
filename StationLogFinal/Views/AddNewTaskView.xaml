@@ -23,28 +23,26 @@
     </Page.BottomAppBar>
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF5F5D5D"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
+           <ImageBrush ImageSource="../Assets/1234.jpg"></ImageBrush>
         </Grid.Background>
         <StackPanel>
-            <TextBox x:Name="TaskId" PlaceholderText="TaskId" Margin="20"
+            <TextBlock Text="Task ID" Padding="10"></TextBlock>
+            <TextBox Padding="9" x:Name="TaskId" PlaceholderText="TaskId" Margin="20"
                      Text="{Binding NewTask.TaskId,Mode=TwoWay}" ></TextBox>
-       
+            <TextBlock Text="Date" HorizontalAlignment="Left" Height="23" Margin="20,0,0,0" VerticalAlignment="Center"></TextBlock>
             <DatePicker   Name="datePicker" 
                           DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
                           Foreground="Black" 
                           Date="{Binding NewTask.DateOffset,Mode=TwoWay}" Margin="20,0,0,0" Width="276"/>
-            <TextBox x:Name="Description"  PlaceholderText="Description" Margin="20" Text="{Binding NewTask.Description ,Mode=TwoWay}"/>
+            <TextBox Padding="10" TextWrapping="Wrap" x:Name="Description"  PlaceholderText="Description" Margin="20" Text="{Binding NewTask.Description ,Mode=TwoWay}"/>
             <!---->
-            <ToggleSwitch Header="Is Repeatable" IsOn="{Binding NewTask.IsRepeatable,Mode=TwoWay}" ></ToggleSwitch>
-
+            <ToggleSwitch Header="Is Repeatable" IsOn="{Binding NewTask.IsRepeatable,Mode=TwoWay}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="134" ></ToggleSwitch>
+            <TextBlock Text="Schduled Date" HorizontalAlignment="Left" Height="20" Margin="20,0,0,0" VerticalAlignment="Center"></TextBlock>
             <DatePicker   Name="DatePicker" 
                           DayFormat="{}{day.integer} ({dayofweek.abbreviated})" 
                           Foreground="Black" 
-                          Date="{Binding NewTask.DateOffsetSchduledDate,Mode=TwoWay}"/>
-
+                          Date="{Binding NewTask.DateOffsetSchduledDate,Mode=TwoWay}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="276"/>
+            <TextBlock Text="Station ID" Padding="10"  HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center"></TextBlock>
             <TextBox x:Name="StationId"  PlaceholderText="StationId" Margin="20" Text="{Binding NewTask.StationId,Mode=TwoWay}"/>
             <!---->
 

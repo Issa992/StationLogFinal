@@ -12,10 +12,12 @@
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <ImageBrush ImageSource="../Assets/444444.jpg"></ImageBrush>
+
+            <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF969696"/>
                 <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
+            </LinearGradientBrush>-->
         </RelativePanel.Background>
 
 
