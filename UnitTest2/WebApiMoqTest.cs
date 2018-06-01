@@ -12,15 +12,15 @@ namespace UnitTest2
     {
         const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net/";
         const string ApiPrefix = "api";
-        const string ApiId = "Tasks";
+        const string ApiId = "Logs";
 
         [TestMethod]
         public void CreateTest()
         {
-            Mock<IWebAPIAsync<TaskModel>> mockWebApi =
-                new Mock<IWebAPIAsync<TaskModel>>(ServerUrl, ApiPrefix, ApiId);
+            Mock<IWebAPIAsync<Log>> mockWebApi =
+                new Mock<IWebAPIAsync<Log>>(ServerUrl, ApiPrefix, ApiId);
 
-            //mockWebApi.Setup(webApi => webApi.Create(It.IsAny<TaskModel>));
+            mockWebApi.Setup(mock => mock.GetType());
         }
     }
 

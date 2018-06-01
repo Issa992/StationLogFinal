@@ -8,7 +8,7 @@ using Windows.UI.Popups;
 
 namespace StationLogFinal.Handlers
 {
-    class MessageHandler
+    public class MessageHandler
     {
         const string ServerUrl = "http://stationlogsystemwebapplication20180521105958.azurewebsites.net";
         const string ApiPrefix = "api";
