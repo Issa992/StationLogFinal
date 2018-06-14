@@ -2,7 +2,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using StationLogFinal.
+using StationLogFinal;
 using StationLogWebApplication1;
 
 namespace UnitTest2

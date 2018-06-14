@@ -42,7 +42,7 @@ namespace StationLogFinal.ViewModel
             get => _newMessage;
             set
             {
-                newMessage = value;
+                _newMessage = value;
                 OnPropertyChanged(nameof(newMessage));
             }
         }
@@ -51,7 +51,7 @@ namespace StationLogFinal.ViewModel
             get => _selectedMessage;
             set
             {
-                selectedMessage = value;
+                _selectedMessage = value;
                 OnPropertyChanged(nameof(selectedMessage));
             }
         }
@@ -62,7 +62,7 @@ namespace StationLogFinal.ViewModel
             get => _receiverName;
             set
             {
-                receiverName = value;
+                _receiverName = value;
                 OnPropertyChanged(nameof(receiverName));
             }
         }
