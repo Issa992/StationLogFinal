@@ -7,6 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
+
     <RelativePanel>
         <RelativePanel.Background>
             <ImageBrush ImageSource="../Assets/homeImage.jpg"></ImageBrush>
@@ -16,12 +22,14 @@
             </LinearGradientBrush>-->
         </RelativePanel.Background>
 
+      
+
 
 
 
         <CommandBar x:Name="MyCommandBar"   OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
-                    Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
-                    RelativePanel.AlignRightWithPanel="True"  >
+                    Height="55" Margin="0,0,0,0" RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True" >
 
 
 
@@ -53,6 +61,10 @@
 
             </CommandBar.Content>
         </CommandBar>
+
+        <!--<Frame Width="1920" Height="1080" Margin="0,0,0,0" x:Name="HomeFrame">
+
+        </Frame>-->
         <ScrollViewer x:Name="MyScrollViewer"  VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" 
                        HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled"   
                        RelativePanel.Below="MyCommandBar"
@@ -67,19 +79,19 @@
                       Margin="5" Header="Notifications" x:Name="MyListView" 
                       Height="547" Width="900">
                     <Border>
-                        <TextBlock  Text="" TextWrapping="Wrap"/>
+                        <TextBlock  Text="10 Unhandled Tasks" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="" TextWrapping="Wrap"/>
+                        <TextBlock Text="72 Unread Comment" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="" TextWrapping="Wrap"/>
+                        <TextBlock Text="10 New Measurement data added" TextWrapping="Wrap"/>
 
                     </Border>
                     <Border>
-                        <TextBlock Text="" TextWrapping="Wrap" />
+                        <TextBlock Text="2 Unread Message" TextWrapping="Wrap" />
 
                     </Border>
                 </ListView>

@@ -46,11 +46,11 @@ namespace StationLogFinal.Views
           await  RefreshItems();
 
         }
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            MyCommandBar.IsOpen = true;
-            MyCommandBar.IsDynamicOverflowEnabled = false;
-        }
+        //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    MyCommandBar.IsOpen = true;
+        //    MyCommandBar.IsDynamicOverflowEnabled = false;
+        //}
 
         private void NavigateToMeasurmentsPage(object sender, RoutedEventArgs e)
         {

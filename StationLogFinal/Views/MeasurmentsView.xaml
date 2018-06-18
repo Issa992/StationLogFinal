@@ -7,6 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:StationLogFinal.ViewModel"
     mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
+
     <Page.DataContext>
         <viewModel:MeasurementsViewModel></viewModel:MeasurementsViewModel>
     </Page.DataContext>
@@ -25,7 +32,7 @@
             <!--OverflowButtonVisibility="Collapsed"-->
 
             <CommandBar x:Name="MyCommandBar"   OverflowButtonVisibility="Collapsed" IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact"
-                    Height="55" Margin="0,55,0,0" RelativePanel.AlignLeftWithPanel="True" 
+                    Height="55" Margin="0,0,0,0" RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignRightWithPanel="True"  >
 
 

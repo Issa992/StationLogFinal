@@ -5,22 +5,48 @@
     xmlns:local="using:StationLogFinal"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
 
 
     <Grid>
-        <Rectangle>
+        <FlipView x:Name="FlipView" Width="1920" Height="1080">
+            <Image Source="../Assets/nat 2.2.jpg" Stretch="Fill"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <Image Source="../Assets/nat 1.1.jpg" Stretch="UniformToFill"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <Image Source="../Assets/nat 3.3.jpg" Stretch="UniformToFill"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        </FlipView>
+
+        <StackPanel Width="700" Margin="0,0,0,0" Background="#FF474545" Opacity="0.4">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:Blur x:Name="BlurBehavior" 
+                               Value="5" 
+                               Duration="2500" 
+                               Delay="250" 
+                               AutomaticallyStart="True"/>
+            </interactivity:Interaction.Behaviors>
+        </StackPanel>
+
+        <!--<Rectangle>
             <Rectangle.Fill>
+                   
                 <ImageBrush ImageSource="../Assets/loginImage.jpg"></ImageBrush>
      
             </Rectangle.Fill>
-        </Rectangle>
+        </Rectangle>-->
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <TextBlock  x:Name="logIn" Text="Log In" HorizontalAlignment="Center" FontSize="30" Foreground="White" ></TextBlock>
-            <TextBox  x:Name="userIdBox" PlaceholderText="Enter your Email" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-            <PasswordBox x:Name="userPasswordBox" PlaceholderText="Password" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
-            <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" Foreground="White" ></Button>
+            <TextBlock  x:Name="titlteTextBox" Text="StationLog" HorizontalAlignment="Center" FontSize="100" Foreground="White" Margin="0,0,0,300"></TextBlock>
+           
+            <TextBox  x:Name="userIdBox" PlaceholderText="Enter your Email" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="20"></TextBox>
+            <PasswordBox x:Name="userPasswordBox" PlaceholderText="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="20"></PasswordBox>
+            <Button x:Name="logInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Navigate" Foreground="White" Margin="0,0,0,300"></Button>
 
         </StackPanel>
     </Grid>

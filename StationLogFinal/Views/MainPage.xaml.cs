@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using StationLogFinal.Views;
 using StationLogWebApplication1;
 using StationLogFinal.SessionTools;
 using StationLogFinal.ViewModel;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -32,28 +22,56 @@ namespace StationLogFinal
         public MainPage()
         {
             this.InitializeComponent();
+            //ApplicationView.PreferredLaunchViewSize = new Size(200, 100);
+            //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationViewTitleBar formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
             formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
             UserHandler.GetAllUsers();
+
+        }
+
+
+        protected override  void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int change = 1;
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(3);
+            timer.Tick += (o, a) =>
+            {
+                // If we'd go out of bounds then reverse
+                int newIndex = FlipView.SelectedIndex + change;
+                if (newIndex >= FlipView.Items.Count || newIndex < 0)
+                {
+                    change *= -1;
+                }
+
+                FlipView.SelectedIndex += change;
+            };
+            timer.Start();
+
+            RefreshItems();
         }
 
         private void Navigate(object sender, RoutedEventArgs e)
         {
             //Frame.Navigate(typeof(TasksView));
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("loginButton", logInButton);
+            
+
+
             User userInput = new User();
             userInput.UserId = Convert.ToInt16(userIdBox.Text);
             userInput.HashPass = userPasswordBox.Password;
             LoginTool.LoginUser(userInput);
 
+            
+
 
         }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            RefreshItems();
-
-        }
+    
         private async void RefreshItems()
         {
             try
@@ -80,9 +98,5 @@ namespace StationLogFinal
                 VisualStateManager.GoToState(this, "DefaultState", false);
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            //Frame.Navigate(typeof(TestPage));
-        }
     }
 }
