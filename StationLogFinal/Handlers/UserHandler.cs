@@ -7,7 +7,7 @@ using Windows.UI.Popups;
 
 namespace StationLogFinal.SessionTools
 {
-    static class UserHandler
+    static public class UserHandler
     {
         public static List<User> UserListToCheck { get; set; } = new List<User>();
 

@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <viewModel:CommentsViewModel></viewModel:CommentsViewModel>
+        <viewModel:NotAlMesVM/>
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
@@ -62,12 +62,14 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,27.2,0,-0.2">
             <RelativePanel>
 
-                <ListView ItemsSource="{Binding CommentsOC, Mode=TwoWay}" SelectedItem="{Binding SelectedComment, Mode=TwoWay}"
+                <ListView ItemsSource="{Binding NotificationOC, Mode=TwoWay}" 
+                          SelectionChanged="MyListView_SelectionChanged"
+                          SelectedItem="{Binding SelectedNotification, Mode=TwoWay}"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5" Header="Comments" x:Name="MyListView" 
+                      Margin="5" Header="Notifications" x:Name="MyListView" 
                       Height="421" Width="900">
                     <!--<Border Background="#FFFFC30F">
                         <TextBlock  Text="FPO filter change the filter parts are outdated "  TextWrapping="Wrap" />
@@ -97,16 +99,11 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <TextBox Text="{Binding NewComment.Description , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
-            <TextBox Text="{Binding NewComment.CommentId , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
-            <DatePicker Name="datePicker" 
-                        
-                        Foreground="Black" 
-                        Date="{Binding NewComment.DateOffset,Mode=TwoWay}" HorizontalAlignment="Left" Height="32.8" VerticalAlignment="Top" Width="296"/>
-            <SearchBox PlaceholderText="Comment Search"></SearchBox>
+            <TextBox Text="{Binding NewNotification.Message, Mode=TwoWay }" 
+                     PlaceholderText="Add Notification" HorizontalAlignment="Stretch" Height="89" Margin="0,0,-50,0" VerticalAlignment="Stretch"></TextBox>
+            
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding CreateCommentCommand, Mode=TwoWay}" ></Button>
-            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding DeleteCommentCommand, Mode=TwoWay}" ></Button>
+            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding AddNotification, Mode=TwoWay}" ></Button>
         </StackPanel>
 
         <VisualStateManager.VisualStateGroups>

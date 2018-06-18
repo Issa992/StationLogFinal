@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StationLogFinal.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,8 +23,10 @@ namespace StationLogFinal.Views
     /// </summary>
     public sealed partial class MessageView : Page
     {
+        public NotAlMesVM notalmesVM;
         public MessageView()
         {
+            notalmesVM = new NotAlMesVM();
             this.InitializeComponent();
         }
 
@@ -66,8 +69,12 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(NotificationView));
         }
 
+
         #endregion
 
-
+        private void MyListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            notalmesVM.messagesHandler.ReadMessage(notalmesVM.SelectedMessage);
+        }
     }
 }

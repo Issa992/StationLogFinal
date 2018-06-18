@@ -6,6 +6,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StationLogFinal.ViewModel;
+using StationLogFinal.Handlers;
+using Windows.UI.Popups;
+using StationLogFinal.SessionTools;
 
 namespace StationLogFinal.Handlers
 {
@@ -30,9 +34,34 @@ namespace StationLogFinal.Handlers
                               select mess;
             Inbox = new ObservableCollection<Message>(inboxquerry);
         }
-        public async void SendMessage(Message mes)
+        public async void SendMessage(Message mes, string receiver)
         {
-            await WebApi.Create(mes);
+            UserHandler.GetAllUsers();
+            User check= UserHandler.UserListToCheck.FirstOrDefault(x => x.Name == receiver);
+
+            MessageDialog showDialog = new MessageDialog("Are you sure your message" +
+                " is ready to be sent?");
+            showDialog.Commands.Add(new UICommand("Yes") { Id = 0 });
+            showDialog.Commands.Add(new UICommand("No") { Id = 1 });
+            showDialog.DefaultCommandIndex = 0;
+            showDialog.CancelCommandIndex = 1;
+            var result = await showDialog.ShowAsync();
+
+            if ((int)result.Id == 0)
+            {
+                if (check != null)
+                {
+                    await WebApi.Create(mes);
+                }
+                else
+                {
+                    MessageDialog msg = new MessageDialog("Cannot find a receiver", "Error");
+                    await msg.ShowAsync();
+                }
+            }
+            else
+            {
+            }
         }
         public void ReadMessage(Message mes)
         {
@@ -43,5 +72,6 @@ namespace StationLogFinal.Handlers
             await WebApi.Delete(mes.MessageId);
             
         }
+        
     }
 }

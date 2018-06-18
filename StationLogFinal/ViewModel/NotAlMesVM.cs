@@ -16,15 +16,25 @@ namespace StationLogFinal.ViewModel
     /// All in one!
     /// Czasem nawet działa
     /// </summary>
-    class NotAlMesVM : NotifyPropertyChange
+    public class NotAlMesVM : NotifyPropertyChange
     {
         #region properties
-        private MessagesHandler messagesHandler;
-        private NotificationHandler notificationHandler;
+        public MessagesHandler messagesHandler;
+        public NotificationHandler notificationHandler;
         private ObservableCollection<Notification> _notificationOC;
         private ObservableCollection<Alert> _alertOC;
         private ObservableCollection<Message> _messageOC;
+        private string _receiver;
 
+        public string Receiver
+        {
+            get => _receiver;
+            set
+            {
+                Receiver = value;
+                OnPropertyChanged(nameof(Receiver));
+            }
+        }
         public ObservableCollection<Notification> NotificationOC
         {
             get => _notificationOC;
@@ -142,7 +152,7 @@ namespace StationLogFinal.ViewModel
         #region method for commands
         private void _sendMessage()
         {
-            messagesHandler.SendMessage(NewMessage);
+            messagesHandler.SendMessage(NewMessage, Receiver);
         }
         private void _deleteMessage()
         {
