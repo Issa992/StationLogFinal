@@ -15,7 +15,7 @@
     </Page.Transitions>
 
     <Page.DataContext>
-        <viewModel:MessageViewModel />
+        <viewModel:NotAlMesVM />
     </Page.DataContext>
     <RelativePanel>
         <RelativePanel.Background>
@@ -69,11 +69,12 @@
             <RelativePanel>
 
                 <ListView ItemsSource="{Binding messagesCO, Mode=TwoWay}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}"
+                          SelectionChanged="MyListView_SelectionChanged"
                     RelativePanel.AlignVerticalCenterWithPanel="True"    
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True" 
                       RelativePanel.AlignLeftWithPanel="True"
-                      Margin="5" Header="Comments" x:Name="MyListView" 
+                      Margin="5" Header="Inbox" x:Name="MyListView" 
                       Height="421" Width="900">
                     <!--<Border Background="#FFFFC30F">
                         <TextBlock  Text="FPO filter change the filter parts are outdated "  TextWrapping="Wrap" />
@@ -103,11 +104,11 @@
                     RelativePanel.AlignRightWithPanel="True" 
                     RelativePanel.AlignLeftWithPanel="True"  
                     >
-            <TextBox Text="{Binding newMessage.Messages , Mode=TwoWay }" PlaceholderText="Add Comment"></TextBox>
-            <SearchBox PlaceholderText="Comment Search" HorizontalAlignment="Center" Height="282" Margin="0,0,0,0" VerticalAlignment="Center" Width="591"></SearchBox>
+            <TextBox Text="{Binding Receiver, Mode=TwoWay }" PlaceholderText="Receiver"></TextBox>
+            <TextBox Text ="{Binding NewMessage.Messages, Mode=TwoWay}" PlaceholderText="Message" HorizontalAlignment="Center" Height="282" Margin="0,0,0,0" VerticalAlignment="Center" Width="591"></TextBox>
 
-            <Button HorizontalAlignment="Center"  Content="Add Comment"  Command="{Binding sentMessageCommand, Mode=TwoWay}" ></Button>
-            <Button HorizontalAlignment="Center"  Content="Delete Comment" Command="{Binding deleteMessageCommand, Mode=TwoWay}"></Button>
+            <Button HorizontalAlignment="Center"  Content="Send"  Command="{Binding SendMessage, Mode=TwoWay}" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" ></Button>
+            <Button HorizontalAlignment="Center"  Content="Delete marked message" Command="{Binding DeleteMessage, Mode=TwoWay}"></Button>
         </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
