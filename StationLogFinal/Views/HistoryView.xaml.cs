@@ -124,13 +124,14 @@ namespace StationLogFinal.Views
 
         private void sortByUser_OnClick(object sender, RoutedEventArgs e)
         {
-            ID = Int32.Parse(UserIdTextBox.Text);
             if (UserIdTextBox.Text.Length == 0)
             {
                 EmptyTaskFieldsPopUp();
             }
             else
             {
+                ID = Int32.Parse(UserIdTextBox.Text);
+
                 if (check == 1)
                 {
 
