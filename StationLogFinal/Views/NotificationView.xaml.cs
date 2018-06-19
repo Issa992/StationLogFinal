@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using StationLogFinal.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,8 +23,10 @@ namespace StationLogFinal.Views
     /// </summary>
     public sealed partial class NotificationView : Page
     {
+        public NotAlMesVM notalmesVM;
         public NotificationView()
         {
+            notalmesVM = new NotAlMesVM();
             this.InitializeComponent();
         }
 
@@ -66,8 +69,13 @@ namespace StationLogFinal.Views
             Frame.Navigate(typeof(NotificationView));
         }
 
+
         #endregion
 
+        private void MyListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            notalmesVM.notificationHandler.ReadNotification(notalmesVM.SelectedNotification);
 
+        }
     }
 }
